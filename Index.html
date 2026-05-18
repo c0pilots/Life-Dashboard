@@ -3,73 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#030306">
+<meta name="theme-color" content="#0a0a0a">
 <title>Life Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#030306;--card:#07070f;--card2:#0b0b18;--card3:#0f0f20;
-  --border:rgba(50,90,240,0.18);--border2:rgba(70,110,255,0.28);
-  --text:#dde8ff;--muted:#3d5899;--dim:#0d0d1e;
-  --orange:#3b7bff;--orange-bg:rgba(59,123,255,0.12);
-  --green:#22d46a;--green-bg:rgba(34,212,106,0.1);
+  --bg:#0a0a0a;--card:#141414;--card2:#1c1c1c;--card3:#222;
+  --border:#242424;--border2:#2e2e2e;
+  --text:#f0f0f0;--muted:#666;--dim:#3a3a3a;
+  --orange:#f5a623;--orange-bg:rgba(245,166,35,0.1);
+  --green:#3ecf6e;--green-bg:rgba(62,207,110,0.1);
   --blue:#38bdf8;--blue-bg:rgba(56,189,248,0.1);
   --purple:#a78bfa;--purple-bg:rgba(167,139,250,0.1);
   --red:#f87171;--red-bg:rgba(248,113,113,0.1);
   --teal:#2dd4bf;--teal-bg:rgba(45,212,191,0.1);
-  --gold:#e2a931;--gold-bg:rgba(226,169,49,0.1);
-  --radius:16px;--radius-sm:12px;--font:"Syne",sans-serif;--mono:"DM Mono",monospace;
-  --glow:rgba(59,123,255,0.18);--glow-sm:rgba(59,123,255,0.1);
+  --radius:14px;--radius-sm:10px;--font:"Syne",sans-serif;--mono:"DM Mono",monospace;
 }
 html.light{
-  --bg:#eef2ff;--card:#ffffff;--card2:#e8eeff;--card3:#dde6ff;
-  --border:rgba(50,90,220,0.18);--border2:rgba(50,90,220,0.28);
-  --text:#0a1240;--muted:#4a6aaa;--dim:#c8d6ff;
+  --bg:#f5f5f0;--card:#ffffff;--card2:#f0ede8;--card3:#e8e4de;
+  --border:#ddd;--border2:#ccc;--text:#1a1a1a;--muted:#888;--dim:#ccc;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;
-  background-image:
-    radial-gradient(ellipse 100% 70% at 5% 10%,rgba(18,45,200,0.28) 0%,transparent 55%),
-    radial-gradient(ellipse 80% 100% at 95% 75%,rgba(10,28,160,0.22) 0%,transparent 55%),
-    radial-gradient(ellipse 60% 60% at 50% 45%,rgba(14,36,180,0.16) 0%,transparent 50%),
-    radial-gradient(ellipse 40% 50% at 25% 90%,rgba(24,54,210,0.14) 0%,transparent 45%),
-    repeating-linear-gradient(108deg,transparent 0,transparent 52px,rgba(50,100,255,0.022) 52px,rgba(50,100,255,0.022) 53px,transparent 53px,transparent 104px,rgba(30,70,220,0.016) 104px,rgba(30,70,220,0.016) 105px),
-    repeating-linear-gradient(-68deg,transparent 0,transparent 88px,rgba(40,80,240,0.018) 88px,rgba(40,80,240,0.018) 89px);
-  background-attachment:fixed}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:rgba(59,123,255,0.3);border-radius:2px}
+::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
 select option{background:var(--card2);color:var(--text)}
 input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.5)}
 input[type=range]{cursor:pointer;accent-color:var(--orange)}
 textarea{font-family:var(--font);resize:vertical}
 
 /* ── TOPBAR ─────────────────────────────────────── */
-#topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 0 92px;position:sticky;top:0;z-index:90;background:rgba(3,3,6,0.85);backdrop-filter:blur(16px)}
-#username-display{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-#settings-btn{background:rgba(59,123,255,0.06);border:1px solid var(--border);border-radius:100px;color:var(--muted);font-size:13px;padding:6px 14px;cursor:pointer;font-family:var(--font);font-weight:600;transition:all .2s;letter-spacing:.04em}
-#settings-btn:hover{border-color:rgba(59,123,255,0.5);color:var(--orange);background:rgba(59,123,255,0.1);box-shadow:0 0 16px rgba(59,123,255,0.12)}
+#topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 0;position:sticky;top:0;z-index:90;background:var(--bg)}
+#username-display{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.06em}
+#settings-btn{background:none;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:16px;padding:5px 10px;cursor:pointer;font-family:var(--font)}
+#settings-btn:hover{border-color:var(--orange);color:var(--orange)}
 
 /* ── DASHBOARD TITLE ────────────────────────────── */
-.dash-title{font-size:28px;font-weight:800;letter-spacing:-.03em;margin:10px 16px 14px 92px;
-  background:linear-gradient(125deg,#ffffff 0%,#a8c8ff 40%,#3b7bff 80%,#1a4fff 100%);
+.dash-title{font-size:28px;font-weight:700;letter-spacing:-.025em;margin:10px 16px 14px;
+  background:linear-gradient(180deg,#fff 0%,#c7c4bc 120%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @media(max-width:480px){.dash-title{font-size:22px}}
-html.light .dash-title{background:linear-gradient(135deg,#0a1240 0%,#1a4fff 120%);
+html.light .dash-title{background:linear-gradient(180deg,#1a1a1a 0%,#666 120%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 /* ── GOAL TICKER ────────────────────────────────── */
-.ticker-row{margin:0 16px 18px 92px;display:flex;flex-direction:column;gap:4px}
-.goal-ticker{display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:14px;
-  background:rgba(7,7,16,0.85);
-  border:1px solid rgba(59,123,255,0.18);
-  box-shadow:inset 0 1px 0 rgba(100,150,255,0.07),0 2px 20px rgba(0,0,0,0.4),0 0 30px rgba(59,123,255,0.04);
-  backdrop-filter:blur(10px);position:relative;overflow:hidden}
-html.light .goal-ticker{background:rgba(59,123,255,0.05);border:1px solid rgba(59,123,255,0.2)}
+.ticker-row{margin:0 16px 18px;display:flex;flex-direction:column;gap:4px}
+.goal-ticker{display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:12px;
+  background:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.3) 100%);
+  background-image:linear-gradient(180deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.3) 100%),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 3px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);position:relative;overflow:hidden}
+html.light .goal-ticker{background:rgba(0,0,0,.06);background-image:none;box-shadow:inset 0 1px 0 rgba(0,0,0,.05)}
 .goal-ticker::after{content:'';position:absolute;top:0;left:-40%;width:30%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(59,123,255,0.09),transparent);
-  animation:sweep 10s linear infinite;pointer-events:none}
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);
+  animation:sweep 8s linear infinite;pointer-events:none}
 @keyframes sweep{to{left:110%}}
 .goal-ticker-led{display:flex;align-items:center}
 .goal-ticker-led-dot{width:7px;height:7px;border-radius:50%;background:#6be3a4;
@@ -89,107 +78,66 @@ html.light .goal-ticker{background:rgba(59,123,255,0.05);border:1px solid rgba(5
 @media(max-width:480px){.goal-ticker{padding:9px 12px}.goal-ticker-label{font-size:9px;letter-spacing:.14em}.goal-ticker-row{font-size:12px}.goal-ticker-meta{font-size:10px;padding:2px 7px}}
 
 /* ── NAV ────────────────────────────────────────── */
-#bottom-nav{position:fixed;top:0;left:0;bottom:0;width:76px;
-  background:rgba(3,3,8,0.97);
-  backdrop-filter:blur(20px) saturate(180%);
-  border-right:1px solid rgba(50,90,240,0.15);
-  box-shadow:2px 0 32px rgba(0,0,0,0.5);
-  z-index:100;padding:16px 6px 16px;overflow-y:auto;overflow-x:hidden;
-  display:flex;flex-direction:column;
-  transition:transform .3s cubic-bezier(.22,1,.36,1)}
-html.light #bottom-nav{background:rgba(238,242,255,0.97)}
-.nav-inner{display:flex;flex-direction:column;gap:4px;padding:0;flex:1}
-.nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 4px;
-  background:none;border:1px solid transparent;border-radius:14px;cursor:pointer;width:100%;transition:all .2s;font-family:var(--font)}
-.nav-btn:hover{border-color:rgba(59,123,255,0.35);background:rgba(59,123,255,0.07)}
-.nav-btn.active{background:rgba(59,123,255,0.15);border-color:rgba(59,123,255,0.45);box-shadow:0 0 16px rgba(59,123,255,0.12),inset 0 1px 0 rgba(150,190,255,0.1)}
+#bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,10,.97);
+  backdrop-filter:blur(12px);border-top:1px solid var(--border);z-index:100;
+  padding:8px 4px 12px;overflow-x:auto}
+html.light #bottom-nav{background:rgba(245,245,240,.97)}
+.nav-inner{display:flex;gap:2px;min-width:max-content;padding:0 8px}
+.nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 10px;
+  background:none;border:1px solid var(--border);border-radius:10px;cursor:pointer;min-width:52px;transition:all .15s;font-family:var(--font)}
+.nav-btn.active{background:var(--orange-bg);border-color:var(--orange)}
 .nav-btn span.icon{font-size:17px;line-height:1}
-.nav-btn span.lbl{font-size:7px;color:var(--muted);font-weight:600;letter-spacing:.06em;white-space:nowrap;text-transform:uppercase}
+.nav-btn span.lbl{font-size:8px;color:var(--muted);font-weight:400;letter-spacing:.04em;white-space:nowrap}
 .nav-btn.active span.lbl{color:var(--orange);font-weight:700}
-/* Collapse toggle */
-.nav-collapse-btn{display:flex;align-items:center;justify-content:center;margin-bottom:10px;width:100%;
-  background:rgba(59,123,255,0.05);border:1px solid rgba(50,90,240,0.18);border-radius:12px;
-  padding:8px 4px;cursor:pointer;color:var(--muted);font-size:13px;transition:all .2s;font-family:var(--font);flex-shrink:0}
-.nav-collapse-btn:hover{border-color:rgba(59,123,255,0.45);color:var(--orange);background:rgba(59,123,255,0.1)}
-/* Expand tab shown when collapsed */
-#nav-expand-tab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:101;
-  background:rgba(7,7,16,0.96);border:1px solid rgba(50,90,240,0.28);border-left:none;
-  border-radius:0 10px 10px 0;padding:14px 7px;cursor:pointer;color:var(--muted);font-size:14px;
-  display:none;transition:all .2s;backdrop-filter:blur(16px);
-  box-shadow:3px 0 24px rgba(0,0,0,0.5)}
-#nav-expand-tab:hover{color:var(--orange);border-color:rgba(59,123,255,0.5)}
-/* Collapsed state overrides */
-body.nav-collapsed #bottom-nav{transform:translateX(-100%)}
-body.nav-collapsed #nav-expand-tab{display:flex;align-items:center}
-body.nav-collapsed #topbar{padding-left:20px}
-body.nav-collapsed .dash-title{margin-left:20px}
-body.nav-collapsed .ticker-row{margin-left:20px}
-body.nav-collapsed .page{padding-left:20px}
-body.nav-collapsed .gym-picker{left:0}
-body.nav-collapsed .gym-numpad{left:0}
-body.nav-collapsed .gym-rest-overlay{left:0}
-/* Smooth transitions on content */
-#topbar,#topbar+h1,.ticker-row,.page{transition:padding .3s cubic-bezier(.22,1,.36,1),margin .3s cubic-bezier(.22,1,.36,1)}
 
 /* ── PAGE ───────────────────────────────────────── */
-.page{padding:16px 16px 40px 92px;min-height:100vh;animation:fade-in .25s ease}
-@keyframes fade-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.page-title{font-size:20px;font-weight:800;letter-spacing:.02em;
-  background:linear-gradient(125deg,#ffffff 0%,#a8c4ff 45%,#3b7bff 100%);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-html.light .page-title{background:linear-gradient(135deg,#0a1240,#1a4fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.page{padding:16px 16px 110px;min-height:100vh;animation:fade-in .2s ease}
+@keyframes fade-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.page-title{font-size:18px;font-weight:800;color:var(--text);letter-spacing:.04em}
 .row{display:flex;align-items:center;gap:10px}
 .col{display:flex;flex-direction:column;gap:8px}
 .between{justify-content:space-between}
-.section-label{font-size:9.5px;color:rgba(100,150,255,0.65);letter-spacing:.12em;font-weight:700;text-transform:uppercase;margin-bottom:2px}
+.section-label{font-size:10px;color:var(--muted);letter-spacing:.08em;font-weight:600;text-transform:uppercase;margin-bottom:2px}
 
 /* ── CARDS ──────────────────────────────────────── */
-.card{background:rgba(7,7,15,0.88);border-radius:var(--radius);border:1px solid rgba(50,90,240,0.18);padding:16px 18px;margin-bottom:14px;
-  box-shadow:0 4px 40px rgba(0,0,0,0.7),inset 0 1px 0 rgba(100,150,255,0.07),0 0 0 1px rgba(20,50,200,0.04);
-  backdrop-filter:blur(8px)}
-html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20,50,200,0.08),inset 0 1px 0 rgba(100,150,255,0.1)}
-.card2{background:rgba(11,11,24,0.85);border-radius:var(--radius-sm);border:1px solid rgba(50,90,240,0.15);padding:12px 14px;backdrop-filter:blur(6px)}
-.card-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid rgba(50,90,240,0.12)}
+.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:14px 16px;margin-bottom:14px}
+.card2{background:var(--card2);border-radius:var(--radius-sm);border:1px solid var(--border);padding:12px 14px}
+.card-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
 .card-row:last-child{border-bottom:none}
 
 /* ── BUTTONS ────────────────────────────────────── */
-.btn{background:linear-gradient(135deg,#1a4fff 0%,#3b7bff 55%,#2860ee 100%);color:#fff;border:none;border-radius:100px;
-  padding:11px 24px;font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.04em;
-  transition:all .2s;box-shadow:0 2px 20px rgba(37,99,235,0.35)}
-.btn:hover{box-shadow:0 4px 28px rgba(59,123,255,0.5);transform:translateY(-1px)}
-.btn:active{transform:translateY(0);box-shadow:0 2px 12px rgba(37,99,235,0.3)}
-.btn-green{background:linear-gradient(135deg,#18b858,#22d46a);color:#fff;box-shadow:0 2px 16px rgba(34,212,106,0.3)}
-.btn-green:hover{box-shadow:0 4px 24px rgba(34,212,106,0.45)}
-.btn-purple{background:linear-gradient(135deg,#7c3aed,#a78bfa);box-shadow:0 2px 16px rgba(167,139,250,0.3)}
-.btn-red{background:linear-gradient(135deg,#dc2626,#f87171);box-shadow:0 2px 16px rgba(248,113,113,0.3)}
-.btn-blue{background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;box-shadow:0 2px 16px rgba(56,189,248,0.3)}
-.btn-teal{background:linear-gradient(135deg,#0d9488,#2dd4bf);color:#fff;box-shadow:0 2px 16px rgba(45,212,191,0.3)}
-.btn-ghost{background:rgba(59,123,255,0.05);color:rgba(130,170,255,0.85);border:1px solid rgba(59,123,255,0.25);border-radius:100px;
-  padding:10px 22px;font-family:var(--font);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;backdrop-filter:blur(4px)}
-.btn-ghost:hover{border-color:rgba(59,123,255,0.55);color:var(--orange);background:rgba(59,123,255,0.1);box-shadow:0 0 20px rgba(59,123,255,0.1)}
-.btn-sm{padding:7px 16px;font-size:11px;font-weight:700}
-.btn-xs{padding:5px 12px;font-size:10px;font-weight:700}
+.btn{background:var(--orange);color:#000;border:none;border-radius:var(--radius-sm);
+  padding:10px 20px;font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.03em;transition:opacity .15s}
+.btn:hover{opacity:.85}
+.btn-green{background:var(--green);color:#000}
+.btn-purple{background:var(--purple)}
+.btn-red{background:var(--red)}
+.btn-blue{background:var(--blue);color:#000}
+.btn-teal{background:var(--teal);color:#000}
+.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:9px 18px;font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+.btn-sm{padding:6px 14px;font-size:11px}
+.btn-xs{padding:4px 10px;font-size:10px}
 .btn-full{width:100%}
 
 /* ── INPUTS ─────────────────────────────────────── */
-.inp{background:rgba(11,11,24,0.8);border:1px solid rgba(50,90,240,0.2);border-radius:var(--radius-sm);
-  color:var(--text);padding:11px 14px;font-family:var(--font);font-size:13px;width:100%;outline:none;
-  transition:border .2s,box-shadow .2s;backdrop-filter:blur(4px)}
-.inp:focus{border-color:rgba(59,123,255,0.55);box-shadow:0 0 0 3px rgba(59,123,255,0.1)}
-.inp-sm{padding:8px 11px;font-size:12px}
-.lbl{font-size:9.5px;color:rgba(100,150,255,0.6);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;display:block;font-weight:700}
+.inp{background:var(--card2);border:1px solid var(--border);border-radius:var(--radius-sm);
+  color:var(--text);padding:10px 12px;font-family:var(--font);font-size:13px;width:100%;outline:none;transition:border .15s}
+.inp:focus{border-color:var(--orange)}
+.inp-sm{padding:7px 10px;font-size:12px}
+.lbl{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px;display:block;font-weight:600}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 
 /* ── FILTER TABS ─────────────────────────────────── */
 .filter-tabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px}
-.filter-tab{padding:7px 16px;font-size:11px;white-space:nowrap;flex-shrink:0;background:rgba(59,123,255,0.04);
-  color:var(--muted);border:1px solid rgba(50,90,240,0.18);border-radius:100px;cursor:pointer;font-family:var(--font);font-weight:600;transition:all .2s;letter-spacing:.03em}
-.filter-tab:hover{border-color:rgba(59,123,255,0.4);color:rgba(130,170,255,0.9)}
-.filter-tab.active{background:linear-gradient(135deg,#1a4fff,#3b7bff);color:#fff;border-color:transparent;box-shadow:0 2px 14px rgba(59,123,255,0.4)}
-.filter-tab.active-purple{background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;border-color:transparent;box-shadow:0 2px 14px rgba(167,139,250,0.35)}
-.filter-tab.active-red{background:linear-gradient(135deg,#dc2626,#f87171);color:#fff;border-color:transparent;box-shadow:0 2px 14px rgba(248,113,113,0.35)}
-.filter-tab.active-blue{background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;border-color:transparent;box-shadow:0 2px 14px rgba(56,189,248,0.35)}
+.filter-tab{padding:7px 14px;font-size:11px;white-space:nowrap;flex-shrink:0;background:transparent;
+  color:var(--muted);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-weight:500;transition:all .15s}
+.filter-tab.active{background:var(--orange);color:#000;border-color:var(--orange)}
+.filter-tab.active-purple{background:var(--purple);color:#fff;border-color:var(--purple)}
+.filter-tab.active-red{background:var(--red);color:#fff;border-color:var(--red)}
+.filter-tab.active-blue{background:var(--blue);color:#000;border-color:var(--blue)}
 
 /* ── SCORE RING ──────────────────────────────────── */
 .score-ring-wrap{position:relative;flex-shrink:0}
@@ -202,14 +150,13 @@ html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20
 .habit-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;transition:background .2s}
 
 /* ── HABIT ITEM ──────────────────────────────────── */
-.habit-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--radius-sm);
-  border:1px solid rgba(50,90,240,0.15);cursor:pointer;transition:all .2s;background:rgba(11,11,24,0.7)}
-.habit-item:hover{border-color:rgba(59,123,255,0.3);background:rgba(59,123,255,0.05)}
-.habit-item.done{background:rgba(34,212,106,0.06);border-color:rgba(34,212,106,0.25)}
-.habit-check{width:22px;height:22px;border-radius:50%;border:2px solid rgba(50,90,240,0.3);
+.habit-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--radius-sm);
+  border:1px solid var(--border);cursor:pointer;transition:all .2s;background:var(--card2)}
+.habit-item.done{background:var(--green-bg);border-color:rgba(62,207,110,.27)}
+.habit-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--dim);
   background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
-.habit-item.done .habit-check{background:var(--green);border-color:var(--green);box-shadow:0 0 10px rgba(34,212,106,0.4)}
-.habit-name{font-size:12px;flex:1;color:var(--muted);font-weight:500}
+.habit-item.done .habit-check{background:var(--green);border-color:var(--green)}
+.habit-name{font-size:12px;flex:1;color:var(--muted);font-weight:400}
 .habit-item.done .habit-name{color:var(--text);font-weight:600}
 .habit-pts{font-size:11px;font-family:var(--mono);font-weight:600;color:var(--dim)}
 .habit-item.done .habit-pts{color:var(--green)}
@@ -218,72 +165,56 @@ html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20
 .cb{width:22px;height:22px;border-radius:6px;border:2px solid var(--dim);background:transparent;
   display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all .2s}
 .cb.done{background:var(--green);border-color:var(--green)}
-.cb.done::after{content:'✓';font-size:12px;color:#fff;font-weight:800}
+.cb.done::after{content:'✓';font-size:12px;color:#000;font-weight:800}
 
-/* ── CALENDAR V2 ─────────────────────────────────── */
-.cal2-wrap{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:10px}
-.cal2-hdr{display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02)}
-.cal2-hdr-cell{text-align:center;padding:6px 2px;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.1em}
-.cal2-hdr-date{font-size:13px;font-weight:700;color:var(--text);width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;margin:2px auto 0}
-.cal2-hdr-date.is-today{background:var(--orange);color:#000}
-.cal2-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
-.cal2-cell{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:4px 3px;min-height:80px;cursor:pointer;transition:background .15s;overflow:hidden;position:relative}
-.cal2-cell.week-cell{min-height:130px}
-.cal2-cell.other{background:rgba(0,0,0,0.2)}
-.cal2-cell.is-today{background:rgba(59,123,255,0.06)}
-.cal2-cell.is-sel{background:rgba(59,123,255,0.11)}
-.cal2-cell:hover{background:rgba(255,255,255,0.03)}
-.cal2-num{font-size:11px;font-weight:600;color:var(--muted);width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:50%;margin-bottom:2px}
-.cal2-num.is-today{background:var(--orange);color:#000;font-weight:800}
-.cal2-cell.is-sel .cal2-num{color:var(--blue)}
-.cal2-evt{display:flex;align-items:center;gap:2px;padding:1px 2px;border-radius:3px;margin-bottom:1px;cursor:pointer;overflow:hidden}
-.cal2-evt:hover{background:rgba(255,255,255,0.06)}
-.cal2-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.cal2-evt-label{font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text);line-height:1.3}
-.cal2-allday{border-radius:3px;padding:1px 5px;margin-bottom:2px;overflow:hidden}
-.cal2-allday-lbl{font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
-.cal2-more{font-size:9px;color:var(--blue);font-weight:700;padding-left:2px;cursor:pointer;margin-top:1px}
-.cal2-detail{border-top:1px solid var(--border);padding:12px 0 2px}
+/* ── CALENDAR ────────────────────────────────────── */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:14px}
+.cal-day-lbl{text-align:center;font-size:10px;color:var(--muted);font-weight:600;padding:4px 0}
+.cal-day{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border-radius:var(--radius-sm);border:1px solid var(--border);cursor:pointer;gap:2px;transition:all .15s}
+.cal-day:hover{border-color:var(--orange)}
+.cal-day.today{background:var(--orange-bg);border-color:rgba(245,166,35,.44)}
+.cal-day.selected{background:var(--orange);border-color:var(--orange)}
+.cal-day-num{font-size:12px;font-weight:400;color:var(--text)}
+.cal-day.today .cal-day-num{color:var(--orange);font-weight:700}
+.cal-day.selected .cal-day-num{color:#000;font-weight:700}
+.cal-dots{display:flex;gap:2px}
+.cal-dot{width:4px;height:4px;border-radius:50%}
+.cal-day.selected .cal-dot{background:#000 !important}
 
 /* ── STAT CARDS ──────────────────────────────────── */
 .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
-.stat-card{background:rgba(7,7,15,0.88);border-radius:var(--radius);border:1px solid rgba(50,90,240,0.18);
-  text-align:center;padding:16px 10px;backdrop-filter:blur(8px);
-  box-shadow:0 4px 24px rgba(0,0,0,0.5),inset 0 1px 0 rgba(100,150,255,0.06)}
+.stat-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);
+  text-align:center;padding:14px 10px}
 .stat-val{font-size:24px;font-weight:800;font-family:var(--mono)}
-.stat-lbl{font-size:9.5px;color:var(--muted);letter-spacing:.1em;font-weight:700;margin-top:4px;text-transform:uppercase}
+.stat-lbl{font-size:10px;color:var(--muted);letter-spacing:.08em;font-weight:600;margin-top:4px}
 
 /* ── MODAL ───────────────────────────────────────── */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);z-index:1000;display:flex;align-items:flex-end}
-.modal{background:rgba(7,7,16,0.98);border-radius:24px 24px 0 0;border:1px solid rgba(50,90,240,0.22);border-bottom:none;
-  width:100%;max-height:88vh;overflow-y:auto;padding:22px 18px 48px;
-  animation:slide-up .3s cubic-bezier(.22,1,.36,1);
-  box-shadow:0 -8px 60px rgba(0,0,0,0.8),0 0 80px rgba(59,123,255,0.07)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;display:flex;align-items:flex-end}
+.modal{background:var(--card);border-radius:20px 20px 0 0;width:100%;max-height:88vh;overflow-y:auto;
+  padding:20px 16px 48px;animation:slide-up .3s cubic-bezier(.22,1,.36,1)}
 @keyframes slide-up{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(50,90,240,0.15)}
-.modal-title{font-size:16px;font-weight:800;letter-spacing:.02em;
-  background:linear-gradient(125deg,#fff,#90b8ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.modal-close{background:rgba(59,123,255,0.08);border:1px solid rgba(59,123,255,0.2);border-radius:50%;color:var(--muted);font-size:16px;cursor:pointer;padding:0;line-height:1;width:28px;height:28px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.modal-close:hover{border-color:var(--red);color:var(--red)}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.modal-title{font-size:16px;font-weight:700;color:var(--text)}
+.modal-close{background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;padding:0;line-height:1}
 
 /* ── PROGRESS BAR ────────────────────────────────── */
-.prog-bar{height:5px;background:rgba(30,50,120,0.35);border-radius:3px;overflow:hidden}
+.prog-bar{height:5px;background:var(--dim);border-radius:3px;overflow:hidden}
 .prog-fill{height:100%;border-radius:3px;transition:width .4s ease}
 
 /* ── PILL BADGE ──────────────────────────────────── */
 .pill{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;display:inline-block}
 
 /* ── TODO LIST ───────────────────────────────────── */
-.todo-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:var(--radius-sm);
-  background:rgba(11,11,24,0.7);border:1px solid rgba(50,90,240,0.15);margin-bottom:6px;transition:all .2s;cursor:default;backdrop-filter:blur(4px)}
-.todo-item:hover{border-color:rgba(59,123,255,0.28)}
-.todo-item.done-row{opacity:.55;text-decoration:line-through;color:var(--muted)}
+.todo-item{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:var(--radius-sm);
+  background:var(--card2);border:1px solid var(--border);margin-bottom:6px;transition:all .2s;cursor:default}
+.todo-item.done-row{opacity:.6;text-decoration:line-through;color:var(--muted)}
 .todo-item.flash{animation:queue-flash .6s ease}
-@keyframes queue-flash{0%,100%{background:rgba(11,11,24,0.7)}40%{background:rgba(59,123,255,0.18)}}
+@keyframes queue-flash{0%,100%{background:var(--card2)}40%{background:rgba(245,166,35,.2)}}
 .todo-drag{cursor:grab;color:var(--dim);font-size:18px;flex-shrink:0}
 .todo-text{flex:1;font-size:13px;color:var(--text);outline:none;background:none;border:none;font-family:var(--font);cursor:text}
 .todo-text.done-row{color:var(--muted)}
-.todo-del{background:none;border:none;color:#fff;cursor:pointer;font-size:14px;padding:0 2px;flex-shrink:0;transition:color .15s}
+.todo-del{background:none;border:none;color:var(--dim);cursor:pointer;font-size:14px;padding:0 2px;flex-shrink:0}
 .todo-del:hover{color:var(--red)}
 .todo-add-row{display:flex;gap:8px;margin-top:8px}
 
@@ -304,16 +235,16 @@ html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20
 
 /* ── SETTINGS ────────────────────────────────────── */
 .settings-section{margin-bottom:20px}
-.settings-section-title{font-size:10px;color:rgba(100,150,255,0.75);letter-spacing:.12em;font-weight:800;
-  text-transform:uppercase;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid rgba(50,90,240,0.15)}
-.toggle-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid rgba(50,90,240,0.12)}
-.toggle-lbl{font-size:13px;color:var(--text);font-weight:600}
+.settings-section-title{font-size:11px;color:var(--orange);letter-spacing:.1em;font-weight:700;
+  text-transform:uppercase;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.toggle-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.toggle-lbl{font-size:13px;color:var(--text);font-weight:500}
 .toggle-sub{font-size:11px;color:var(--muted);margin-top:2px}
-.toggle{width:44px;height:24px;border-radius:12px;background:rgba(50,90,240,0.15);position:relative;cursor:pointer;
-  border:1px solid rgba(50,90,240,0.2);transition:all .2s;flex-shrink:0}
-.toggle.on{background:linear-gradient(135deg,#1a4fff,#3b7bff);border-color:transparent;box-shadow:0 0 12px rgba(59,123,255,0.4)}
+.toggle{width:44px;height:24px;border-radius:12px;background:var(--dim);position:relative;cursor:pointer;
+  border:none;transition:background .2s;flex-shrink:0}
+.toggle.on{background:var(--orange)}
 .toggle::after{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;
-  top:2px;left:2px;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
+  top:3px;left:3px;transition:transform .2s}
 .toggle.on::after{transform:translateX(20px)}
 
 /* ── API STATUS ──────────────────────────────────── */
@@ -340,9 +271,8 @@ html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20
 .tx-expense{color:var(--red)}
 
 /* ── PLAID CONNECT ───────────────────────────────── */
-.plaid-btn{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(11,11,24,0.7);
-  border:1px solid rgba(50,90,240,0.18);border-radius:var(--radius-sm);cursor:pointer;width:100%;margin-bottom:8px;font-family:var(--font);transition:all .2s}
-.plaid-btn:hover{border-color:rgba(59,123,255,0.4);background:rgba(59,123,255,0.06)}
+.plaid-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--card2);
+  border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;width:100%;margin-bottom:8px;font-family:var(--font)}
 .plaid-logo{font-size:20px}
 .plaid-name{font-size:13px;font-weight:600;color:var(--text);flex:1;text-align:left}
 .plaid-status{font-size:11px;color:var(--muted)}
@@ -350,7 +280,7 @@ html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20
 /* ── SCORE HISTORY CANVAS ────────────────────────── */
 .score-chart-canvas{width:100%;height:90px;display:block}
 
-/* ── WORKOUT ACTIVE (legacy - kept for edit view) ──── */
+/* ── WORKOUT ACTIVE ──────────────────────────────── */
 .exercise-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:12px;margin-bottom:10px}
 .exercise-name-inp{background:none;border:none;color:var(--orange);font-size:15px;font-weight:700;
   font-family:var(--font);outline:none;width:100%;margin-bottom:10px}
@@ -361,75 +291,6 @@ html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20
 .set-inp:focus{border-color:var(--orange)}
 .set-del{background:none;border:none;color:var(--dim);cursor:pointer;font-size:16px;text-align:center;width:100%;font-family:var(--font)}
 .pr-badge{font-size:10px;color:var(--orange);font-weight:600;margin-bottom:6px}
-/* ── GYM WORKOUT V2 ──────────────────────────────── */
-.gym-topbar{display:flex;align-items:center;gap:10px;padding:10px 0 12px;position:sticky;top:0;z-index:50;background:rgba(3,3,6,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(50,90,240,0.18);margin-bottom:14px}
-.gym-timer-text{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--text);flex:1;text-align:center;letter-spacing:.06em}
-.gym-topbar-btn{background:rgba(11,11,24,0.8);border:1px solid rgba(50,90,240,0.2);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;color:var(--text);transition:all .2s;font-family:var(--font);position:relative;backdrop-filter:blur(4px)}
-.gym-topbar-btn:hover{border-color:rgba(59,123,255,0.5);background:rgba(59,123,255,0.1)}
-.gym-topbar-finish{background:linear-gradient(135deg,#1a4fff,#3b7bff);border-color:transparent;color:#fff;font-size:18px;font-weight:700;box-shadow:0 2px 16px rgba(59,123,255,0.4)}
-.gym-notes{width:100%;background:var(--card);border:1px solid var(--border);border-radius:12px;color:var(--muted);padding:12px 14px;font-family:var(--font);font-size:13px;outline:none;resize:none;margin-bottom:12px;min-height:46px}
-.gym-notes:focus{border-color:var(--orange);color:var(--text)}
-.gym-ex-card{background:rgba(7,7,15,0.88);border:1px solid rgba(50,90,240,0.18);border-radius:16px;padding:14px 16px;margin-bottom:10px;backdrop-filter:blur(8px);box-shadow:0 4px 24px rgba(0,0,0,0.5),inset 0 1px 0 rgba(100,150,255,0.06)}
-.gym-ex-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.gym-ex-icon{width:40px;height:40px;border-radius:50%;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.gym-ex-name{flex:1;font-size:14px;font-weight:700;color:var(--blue)}
-.gym-ex-hbtn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:4px 6px;font-family:var(--font)}
-.gym-rest-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);margin-bottom:10px}
-.gym-rest-label{flex:1;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
-.gym-toggle{position:relative;width:42px;height:24px;flex-shrink:0}
-.gym-toggle input{opacity:0;width:0;height:0;position:absolute}
-.gym-toggle-slider{position:absolute;inset:0;background:var(--card3);border-radius:12px;cursor:pointer;transition:.2s}
-.gym-toggle-slider:before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 4px rgba(0,0,0,.3)}
-.gym-toggle input:checked+.gym-toggle-slider{background:var(--orange)}
-.gym-toggle input:checked+.gym-toggle-slider:before{transform:translateX(18px)}
-.gym-set-header{display:grid;grid-template-columns:28px 1fr 74px 74px 32px;gap:5px;margin-bottom:5px;padding:0 2px}
-.gym-set-col{font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-align:center}
-.gym-set-row{display:grid;grid-template-columns:28px 1fr 74px 74px 32px;gap:5px;align-items:center;margin-bottom:6px}
-.gym-set-num{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--muted);text-align:center}
-.gym-set-prev{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
-.gym-set-inp2{background:var(--card2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 4px;font-family:var(--mono);font-size:14px;font-weight:600;text-align:center;outline:none;width:100%;cursor:pointer;transition:border .15s;-webkit-user-select:none;user-select:none}
-.gym-set-inp2.done-set{background:rgba(62,207,110,.1);border-color:rgba(62,207,110,.4);color:var(--green)}
-.gym-set-inp2.np-active{border-color:var(--orange);background:rgba(72,149,239,.1)}
-.gym-set-check{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);background:none;cursor:pointer;font-size:12px;transition:all .15s;display:block;margin:auto;color:transparent;font-family:var(--font)}
-.gym-set-check.done{background:var(--green);border-color:var(--green);color:#fff}
-.gym-add-set-btn{width:100%;background:none;border:1px dashed rgba(72,149,239,.3);border-radius:8px;color:var(--muted);padding:8px;font-family:var(--font);font-size:12px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .15s}
-.gym-add-set-btn:hover{border-color:var(--orange);color:var(--orange)}
-.gym-add-ex-btn{width:100%;background:linear-gradient(135deg,#1a4fff 0%,#3b7bff 55%,#2860ee 100%);border:none;border-radius:100px;color:#fff;padding:15px;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.05em;margin-top:6px;box-shadow:0 4px 24px rgba(59,123,255,0.4);transition:all .2s}
-.gym-add-ex-btn:hover{box-shadow:0 6px 32px rgba(59,123,255,0.55);transform:translateY(-1px)}
-.gym-start-empty-btn{width:100%;display:flex;align-items:center;gap:14px;background:rgba(11,11,24,0.7);border:1px solid rgba(50,90,240,0.2);border-radius:16px;padding:16px 18px;cursor:pointer;font-family:var(--font);transition:all .2s;text-align:left;backdrop-filter:blur(4px)}
-.gym-start-empty-btn:hover{border-color:rgba(59,123,255,0.5);background:rgba(59,123,255,0.08);box-shadow:0 0 24px rgba(59,123,255,0.1)}
-/* Exercise Picker */
-.gym-picker{position:fixed;top:0;left:76px;right:0;bottom:0;background:rgba(3,3,6,0.98);backdrop-filter:blur(20px);z-index:500;display:flex;flex-direction:column;overflow:hidden}
-.gym-picker-bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(50,90,240,0.18);flex-shrink:0}
-.gym-picker-back{background:rgba(11,11,24,0.7);border:1px solid rgba(50,90,240,0.2);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--text);font-size:18px;cursor:pointer;padding:0;transition:all .2s}
-.gym-picker-back:hover{border-color:rgba(59,123,255,0.5);color:var(--orange)}
-.gym-picker-search{flex:1;background:rgba(11,11,24,0.8);border:1px solid rgba(50,90,240,0.2);border-radius:100px;color:var(--text);padding:10px 16px;font-family:var(--font);font-size:14px;outline:none;transition:border .2s,box-shadow .2s}
-.gym-picker-search:focus{border-color:rgba(59,123,255,0.5);box-shadow:0 0 0 3px rgba(59,123,255,0.1)}
-.gym-picker-tabs{display:flex;gap:6px;padding:10px 16px;border-bottom:1px solid rgba(50,90,240,0.15);flex-shrink:0;overflow-x:auto}
-.gym-picker-tab{background:rgba(59,123,255,0.04);border:1px solid rgba(50,90,240,0.15);color:var(--muted);font-family:var(--font);font-size:11px;font-weight:700;padding:6px 16px;border-radius:100px;cursor:pointer;white-space:nowrap;transition:all .2s;letter-spacing:.04em}
-.gym-picker-tab.active{background:linear-gradient(135deg,#1a4fff,#3b7bff);color:#fff;border-color:transparent;box-shadow:0 2px 12px rgba(59,123,255,0.4)}
-.gym-picker-body{flex:1;overflow-y:auto;padding:0 16px 40px}
-.gym-picker-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(50,90,240,0.1);cursor:pointer;transition:all .2s}
-.gym-picker-item:hover{padding-left:4px;border-bottom-color:rgba(59,123,255,0.25)}
-.gym-picker-icon{width:44px;height:44px;border-radius:50%;background:rgba(11,11,24,0.8);border:1px solid rgba(50,90,240,0.18);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.gym-picker-info{flex:1}
-.gym-picker-name{font-size:14px;font-weight:600;color:var(--text)}
-.gym-picker-cat{font-size:11px;color:var(--muted);margin-top:2px;letter-spacing:.04em}
-/* Numpad */
-.gym-numpad{position:fixed;bottom:0;left:76px;right:0;background:rgba(7,7,16,0.97);border-top:1px solid rgba(50,90,240,0.22);border-radius:24px 24px 0 0;z-index:400;padding:12px 14px 28px;box-shadow:0 -8px 60px rgba(0,0,0,0.8),0 0 60px rgba(59,123,255,0.06);backdrop-filter:blur(20px)}
-.gym-numpad-display{display:grid;grid-template-columns:28px 1fr 74px 74px;gap:5px;padding:8px 4px 12px;border-bottom:1px solid rgba(50,90,240,0.15);margin-bottom:10px;align-items:center}
-.gym-numpad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.gym-numpad-key{background:rgba(11,11,24,0.9);border:1px solid rgba(50,90,240,0.18);border-radius:12px;color:var(--text);font-family:var(--mono);font-size:17px;font-weight:600;padding:16px 6px;cursor:pointer;transition:all .1s;text-align:center}
-.gym-numpad-key:active{background:rgba(59,123,255,0.12);border-color:rgba(59,123,255,0.4);transform:scale(.96)}
-.gym-numpad-key.adj{background:rgba(59,123,255,0.08);border-color:rgba(59,123,255,0.25);font-size:12px;color:var(--orange);font-weight:800}
-.gym-numpad-key.next-btn{background:linear-gradient(135deg,#1a4fff,#3b7bff);border-color:transparent;color:#fff;font-size:14px;font-weight:800;box-shadow:0 2px 16px rgba(59,123,255,0.4)}
-.gym-numpad-key.copy-btn{background:rgba(11,11,24,0.9);font-size:13px}
-.gym-numpad-key.del-btn{font-size:13px}
-/* Rest Timer */
-.gym-rest-overlay{position:fixed;top:0;left:76px;right:0;bottom:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:600;display:flex;align-items:center;justify-content:center;padding:20px}
-.gym-rest-modal{background:rgba(7,7,16,0.97);border:1px solid rgba(50,90,240,0.22);border-radius:24px;padding:24px;width:100%;max-width:340px;box-shadow:0 8px 60px rgba(0,0,0,0.8),0 0 60px rgba(59,123,255,0.08)}
-.gym-rest-circle-wrap{position:relative;display:flex;align-items:center;justify-content:center;margin:12px auto 16px;width:150px;height:150px}
-.gym-rest-circle-text{position:absolute;font-family:var(--mono);font-size:30px;font-weight:700;color:var(--text);line-height:1;text-align:center}
 
 /* ── WEIGHT LOG ──────────────────────────────────── */
 .weight-entry{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
@@ -467,16 +328,16 @@ html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20
 
 /* ── MISC ────────────────────────────────────────── */
 .empty{color:var(--muted);font-size:13px;text-align:center;padding:16px 0}
-.divider{border-bottom:1px solid rgba(50,90,240,0.12);margin:6px 0}
-.tag{font-size:10px;padding:3px 8px;border-radius:100px;font-weight:700;display:inline-block}
+.divider{border-bottom:1px solid var(--border);margin:6px 0}
+.tag{font-size:10px;padding:2px 7px;border-radius:5px;font-weight:600;display:inline-block}
 .overdue{color:var(--red) !important}
 .mono{font-family:var(--mono)}
 .score-today{font-size:20px;font-weight:800;color:var(--text);font-family:var(--mono)}
-.inline-link{color:var(--orange);cursor:pointer;text-decoration:none;transition:opacity .15s}
-.inline-link:hover{opacity:.75;text-decoration:underline}
-.canvas-note{font-size:11px;color:var(--muted);background:rgba(11,11,24,0.7);border-radius:10px;border:1px solid rgba(50,90,240,0.14);padding:10px 12px;margin-top:8px;line-height:1.5}
-.step-num{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#1a4fff,#3b7bff);color:#fff;
-  font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 10px rgba(59,123,255,0.4)}
+.inline-link{color:var(--orange);cursor:pointer;text-decoration:none}
+.inline-link:hover{text-decoration:underline}
+.canvas-note{font-size:11px;color:var(--muted);background:var(--card2);border-radius:8px;padding:10px;margin-top:8px;line-height:1.5}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--orange);color:#000;
+  font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .exercise-hist-item{padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer}
 .exercise-hist-item:hover .exercise-hist-name{color:var(--orange)}
 .exercise-hist-name{font-size:13px;font-weight:600;color:var(--text);transition:color .15s}
@@ -485,32 +346,6 @@ html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20
 
 /* ── SLEEP FORM ──────────────────────────────────── */
 .star-rating{font-size:18px;font-weight:700;text-align:center;color:var(--blue);margin-top:4px}
-
-/* ── SUBSCRIPTION CALENDAR ───────────────────────── */
-.sub-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
-.sub-day{background:var(--card2);border:1px solid var(--border);border-radius:var(--radius-sm);
-  padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:90px}
-.sub-day-label{font-size:9px;color:var(--muted);letter-spacing:.06em;font-weight:700;text-transform:uppercase}
-.sub-day-num{font-size:13px;font-weight:800;color:var(--text);line-height:1}
-.sub-day.today-col{border-color:rgba(245,166,35,.5);background:var(--orange-bg)}
-.sub-logos{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
-.sub-logo{font-size:16px;line-height:1}
-.sub-day-total{font-size:10px;font-family:var(--mono);font-weight:700;color:var(--text);margin-top:2px}
-
-/* ── TX MONITOR ──────────────────────────────────── */
-.tx-monitor-item{display:flex;align-items:center;gap:12px;padding:10px 12px;
-  border-radius:var(--radius-sm);background:var(--card2);border:1px solid var(--border);margin-bottom:6px}
-.tx-monitor-icon{width:38px;height:38px;border-radius:50%;background:var(--card3);
-  display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.tx-monitor-name{font-size:13px;font-weight:600;color:var(--text)}
-.tx-monitor-date{font-size:10px;color:var(--muted);margin-top:2px}
-.tx-monitor-recurring{font-size:14px;color:var(--muted);flex-shrink:0}
-
-/* ── SANKEY ──────────────────────────────────────── */
-.sankey-canvas{width:100%;height:200px;display:block}
-
-/* ── NW FINANCE ──────────────────────────────────── */
-.nw-hero{font-size:40px;font-weight:800;font-family:var(--mono);color:var(--green);line-height:1}
 </style>
 </head>
 <body>
@@ -564,37 +399,6 @@ const MUSCLE_MAP = {
   'Leg Curl':['hamstrings'],'Leg Extension':['quads'],
 };
 
-const EXERCISE_DB = [
-  {name:'Bench Press',cat:'Chest',emoji:'🏋️'},{name:'Incline Bench Press',cat:'Chest',emoji:'🏋️'},
-  {name:'Decline Bench Press',cat:'Chest',emoji:'🏋️'},{name:'Dumbbell Fly',cat:'Chest',emoji:'💪'},
-  {name:'Cable Fly',cat:'Chest',emoji:'💪'},{name:'Incline Dumbbell Press',cat:'Chest',emoji:'🏋️'},
-  {name:'Iso-Lateral Incline Chest Press',cat:'Chest',emoji:'🔧'},{name:'Push-up',cat:'Chest',emoji:'🤸'},
-  {name:'Overhead Press',cat:'Shoulders',emoji:'🏋️'},{name:'Arnold Press',cat:'Shoulders',emoji:'🏋️'},
-  {name:'Lateral Raise',cat:'Shoulders',emoji:'💪'},{name:'Front Raise',cat:'Shoulders',emoji:'💪'},
-  {name:'Face Pull',cat:'Shoulders',emoji:'💪'},{name:'Reverse Fly',cat:'Shoulders',emoji:'💪'},
-  {name:'Pull-up',cat:'Back',emoji:'🤸'},{name:'Chin-up',cat:'Back',emoji:'🤸'},
-  {name:'Lat Pulldown',cat:'Back',emoji:'🔧'},{name:'Seated Cable Row',cat:'Back',emoji:'🔧'},
-  {name:'Barbell Row',cat:'Back',emoji:'🏋️'},{name:'Dumbbell Row',cat:'Back',emoji:'💪'},
-  {name:'Machine Back Extension',cat:'Back',emoji:'🔧'},{name:'Deadlift',cat:'Back',emoji:'🏋️'},
-  {name:'Shrug',cat:'Back',emoji:'💪'},{name:'T-Bar Row',cat:'Back',emoji:'🏋️'},
-  {name:'Bicep Curl',cat:'Arms',emoji:'💪'},{name:'Hammer Curl',cat:'Arms',emoji:'💪'},
-  {name:'Preacher Curl',cat:'Arms',emoji:'💪'},{name:'Machine Bicep Curl',cat:'Arms',emoji:'🔧'},
-  {name:'Cable Curl',cat:'Arms',emoji:'🔧'},{name:'Concentration Curl',cat:'Arms',emoji:'💪'},
-  {name:'Tricep Pushdown',cat:'Arms',emoji:'🔧'},{name:'Tricep Extension',cat:'Arms',emoji:'💪'},
-  {name:'Skull Crusher',cat:'Arms',emoji:'🏋️'},{name:'Diamond Push-up',cat:'Arms',emoji:'🤸'},
-  {name:'Back Squat',cat:'Legs',emoji:'🏋️'},{name:'Front Squat',cat:'Legs',emoji:'🏋️'},
-  {name:'Romanian Deadlift',cat:'Legs',emoji:'🏋️'},{name:'Leg Press',cat:'Legs',emoji:'🔧'},
-  {name:'Leg Extension',cat:'Legs',emoji:'🔧'},{name:'Leg Curl',cat:'Legs',emoji:'🔧'},
-  {name:'Seated Leg Curl',cat:'Legs',emoji:'🔧'},{name:'Single Leg Lying Leg Curl',cat:'Legs',emoji:'🔧'},
-  {name:'Walking Lunge',cat:'Legs',emoji:'🤸'},{name:'Bulgarian Split Squat',cat:'Legs',emoji:'🤸'},
-  {name:'Calf Raise',cat:'Legs',emoji:'💪'},{name:'Seated Calf Raise',cat:'Legs',emoji:'🔧'},
-  {name:'Hip Thrust',cat:'Legs',emoji:'🏋️'},{name:'Machine Glute Kickback',cat:'Legs',emoji:'🔧'},
-  {name:'Sumo Deadlift',cat:'Legs',emoji:'🏋️'},{name:'Step-up',cat:'Legs',emoji:'🤸'},
-  {name:'Plank',cat:'Core',emoji:'🤸'},{name:'Cable Crunch',cat:'Core',emoji:'🔧'},
-  {name:'Ab Wheel Rollout',cat:'Core',emoji:'🤸'},{name:'Hanging Leg Raise',cat:'Core',emoji:'🤸'},
-  {name:'Russian Twist',cat:'Core',emoji:'🤸'},{name:'Decline Sit-up',cat:'Core',emoji:'🤸'},
-];
-
 // ════════════════════════════════════════════════
 //  STATE
 // ════════════════════════════════════════════════
@@ -607,7 +411,7 @@ function saveState(s){
 }
 
 const INIT_STATE = {
-  username:'Jake',theme:'dark',
+  username:'Athlete',theme:'dark',
   habits:DEFAULT_HABITS,habitLog:{},
   todayGoals:{},
   journal:[],assignments:[],courses:DEFAULT_COURSES,
@@ -615,8 +419,7 @@ const INIT_STATE = {
   accounts:[],transactions:[],savingsGoals:[],
   sleepLog:[],bodyMetrics:[],supplements:[],supplementLog:{},
   contacts:[],goals:[],trainingPlan:[],priorityItems:[],
-  subscriptions:[],netWorthHistory:[],
-  apiKeys:{plaid_client_id:'',plaid_secret:'',plaid_env:'sandbox',canvas_url:'',canvas_token:'',schwab_key:'',robinhood_token:'',google_client_id:''},
+  apiKeys:{plaid_client_id:'',plaid_secret:'',plaid_env:'sandbox',canvas_url:'',canvas_token:'',schwab_key:'',robinhood_token:''},
   plaidAccounts:[],canvasAssignments:[],
   weightLog:[],muscleLog:{},
 };
@@ -657,16 +460,8 @@ function applyTheme(){
 // ════════════════════════════════════════════════
 let currentTab = 'home';
 let activeModal = null;
-let navCollapsed = false;
 let gymSession = null; // active workout
 let gymEditSession = null; // editing completed workout
-let gymExPickerOpen = false;
-let gymExPickerSort = 'rank'; // rank | alpha | performed
-let gymExPickerSearch = '';
-let gymNumpad = null; // {ei, si, field, value}
-let gymRestState = null; // {remaining, total, ei}
-let gymRestInterval = null;
-let gymWatchInterval = null;
 
 function navigate(tab){
   currentTab=tab;
@@ -745,59 +540,6 @@ function drawBarChart(canvasId,data,options={}){
       ctx.fillText(d.label,x+barW/2,H-4);
     }
   });
-}
-function drawInteractiveBarChart(canvasId,data,options={}){
-  const canvas=document.getElementById(canvasId);if(!canvas)return;
-  const {color='#f5a623',maxVal}=options;
-  const dpr=window.devicePixelRatio||1;
-  function draw(hov=-1){
-    const W=canvas.offsetWidth*dpr||canvas.width;
-    const H=canvas.offsetHeight*dpr||canvas.height;
-    canvas.width=W;canvas.height=H;
-    const ctx=canvas.getContext('2d');
-    const max=maxVal||Math.max(...data.map(d=>d.value),1);
-    const barW=(W-20)/data.length*0.7;
-    const gap=(W-20)/data.length*0.3;
-    ctx.clearRect(0,0,W,H);
-    data.forEach((d,i)=>{
-      const barH=(d.value/max)*(H-8);
-      const x=10+i*(barW+gap)+(gap/2);
-      const y=H-barH-4;
-      const isH=i===hov;
-      ctx.fillStyle=isH?'#fff':color;
-      ctx.globalAlpha=isH?1:Math.max(0.15,0.3+0.7*(d.value/max));
-      ctx.beginPath();ctx.roundRect(x,y,barW,barH,3);ctx.fill();
-      ctx.globalAlpha=1;
-    });
-    if(hov>=0&&hov<data.length){
-      const d=data[hov];
-      const x=10+hov*(barW+gap)+(gap/2)+barW/2;
-      const barH=(d.value/max)*(H-8);
-      const y=H-barH-4;
-      const txt=String(d.value);
-      const pad=4*dpr;
-      ctx.font=`bold ${10*dpr}px DM Mono`;
-      const tw=ctx.measureText(txt).width;
-      const bw=tw+pad*2;const bh=14*dpr;
-      let tx=x-bw/2;let ty=y-bh-4*dpr;
-      if(ty<0)ty=y+4*dpr;
-      ctx.fillStyle='rgba(255,255,255,0.95)';ctx.beginPath();ctx.roundRect(tx,ty,bw,bh,3);ctx.fill();
-      ctx.fillStyle='#000';ctx.textAlign='center';
-      ctx.fillText(txt,x,ty+bh-4*dpr);
-    }
-  }
-  draw();
-  canvas.onmousemove=e=>{
-    const rect=canvas.getBoundingClientRect();
-    const px=(e.clientX-rect.left)*dpr;
-    const W=canvas.width;
-    const barW=(W-20)/data.length*0.7;
-    const gap=(W-20)/data.length*0.3;
-    let hov=-1;
-    data.forEach((_,i)=>{const x=10+i*(barW+gap)+(gap/2);if(px>=x&&px<=x+barW)hov=i;});
-    draw(hov);
-  };
-  canvas.onmouseleave=()=>draw();
 }
 function drawLineChart(canvasId,data,options={}){
   const canvas=document.getElementById(canvasId);
@@ -1081,9 +823,9 @@ function renderPage(){
   const el=document.getElementById('page-content');
   if(!el)return;
   const tabMap={
-    home:renderHome,tennis:renderTennis,
+    home:renderHome,calendar:renderCalendar,tennis:renderTennis,
     gym:renderGym,school:renderSchool,growth:renderGrowth,
-    finance:renderFinance,
+    finance:renderFinance,health:renderHealth,time:renderTime,
     social:renderSocial,settings:renderSettings,
   };
   el.innerHTML=(tabMap[currentTab]||renderHome)();
@@ -1093,53 +835,11 @@ function renderPage(){
     bindPageEvents();
     bindDragAndDrop();
     if(currentTab==='gym')bindGymEvents();
-    if(currentTab==='gym'&&gymSession&&!gymExPickerOpen)startGymWatch();
     if(currentTab==='home')drawScoreRingCanvas('score-ring-canvas',calcScore(todayStr()));
-    if(currentTab==='finance'){renderFinanceChart();}
+    if(currentTab==='finance')renderFinanceChart();
     // scroll to top
     el.scrollTop=0;
   },0);
-}
-
-// ════════════════════════════════════════════════
-//  NET WORTH
-// ════════════════════════════════════════════════
-function calcNetWorth(){
-  return S.accounts.reduce((sum,a)=>{
-    const bal=parseFloat(a.balance)||0;
-    return sum+(a.type==='credit'?-bal:bal);
-  },0);
-}
-function snapshotNetWorth(){
-  const nw=calcNetWorth();
-  const today=todayStr();
-  const hist=S.netWorthHistory||[];
-  if(hist.length&&hist[hist.length-1].date===today){
-    hist[hist.length-1].value=nw;
-  } else {
-    hist.push({date:today,value:nw});
-    if(hist.length>90)hist.shift();
-  }
-  S.netWorthHistory=hist;save();
-}
-function drawNetWorthSparkline(canvasId){
-  const canvas=document.getElementById(canvasId);if(!canvas)return;
-  const hist=S.netWorthHistory||[];
-  if(hist.length<2)return;
-  const ctx=canvas.getContext('2d');
-  const W=canvas.offsetWidth*window.devicePixelRatio||canvas.width;
-  const H=canvas.offsetHeight*window.devicePixelRatio||canvas.height;
-  canvas.width=W;canvas.height=H;
-  const vals=hist.map(h=>h.value);
-  const max=Math.max(...vals);const min=Math.min(...vals);const range=max-min||1;
-  const pts=vals.map((v,i)=>({x:(i/(vals.length-1||1))*(W-4)+2,y:H-2-((v-min)/range)*(H-4)}));
-  const color='#3ecf6e';
-  const grad=ctx.createLinearGradient(0,0,0,H);
-  grad.addColorStop(0,color+'55');grad.addColorStop(1,color+'00');
-  ctx.beginPath();ctx.moveTo(pts[0].x,H);pts.forEach(p=>ctx.lineTo(p.x,p.y));ctx.lineTo(pts[pts.length-1].x,H);ctx.closePath();
-  ctx.fillStyle=grad;ctx.fill();
-  ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=2*window.devicePixelRatio;ctx.lineJoin='round';
-  pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));ctx.stroke();
 }
 
 // ════════════════════════════════════════════════
@@ -1167,7 +867,6 @@ function renderHome(){
       <div class="habit-check">${done?'<span style="color:#000;font-size:12px;font-weight:800">✓</span>':''}</div>
       <span class="habit-name">${esc(h.emoji)} ${esc(h.name)}</span>
       <span class="habit-pts">+${h.points}</span>
-      <button class="todo-del" onclick="event.stopPropagation();App.deleteHabit('${h.id}')" title="Remove habit">✕</button>
     </div>`;
   }).join('');
 
@@ -1204,7 +903,7 @@ function renderHome(){
 
     <!-- Score Card -->
     <div class="card">
-      <div class="row" style="margin-bottom:12px">
+      <div class="row" style="margin-bottom:14px">
         <div class="score-ring-wrap" style="width:88px;height:88px">
           <canvas id="score-ring-canvas" width="88" height="88" style="width:88px;height:88px"></canvas>
           <div class="score-ring-center">
@@ -1222,7 +921,6 @@ function renderHome(){
           <div class="habit-dots">${habitDotsHtml}</div>
         </div>
       </div>
-      <canvas id="score-bar-chart" style="width:100%;height:56px;display:block;margin-bottom:12px;cursor:crosshair" height="56"></canvas>
       <div class="col" style="gap:6px">${habitsHtml}</div>
       <button class="btn-ghost btn-sm btn-full" style="margin-top:10px" onclick="App.openAddHabit()">+ ADD HABIT</button>
     </div>
@@ -1240,238 +938,67 @@ function renderHome(){
       </div>
     </div>
 
-    ${dueTodayHtml}
+    ${eventsHtml}${dueTodayHtml}
 
-    <!-- Calendar -->
-    ${renderCalendarBlock()}
+    <!-- 30-day score chart -->
+    <div class="card">
+      <div class="section-label" style="margin-bottom:12px">30-DAY SCORE HISTORY</div>
+      <canvas id="score-bar-chart" class="score-chart-canvas" height="90"></canvas>
+    </div>
   </div>`;
 }
 
 // ════════════════════════════════════════════════
-//  ICAL EXPORT / IMPORT
-// ════════════════════════════════════════════════
-function exportICS(){
-  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Life Dashboard//EN','CALSCALE:GREGORIAN'];
-  S.events.forEach(e=>{
-    lines.push('BEGIN:VEVENT');
-    lines.push(`UID:${e.id}@lifedash`);
-    const ds=(e.date||'').replace(/-/g,'');
-    if(e.time){
-      const[h,m]=(e.time||'00:00').split(':').map(s=>s.padStart(2,'0'));
-      lines.push(`DTSTART:${ds}T${h}${m}00`);
-      lines.push(`DTEND:${ds}T${String(+h+1).padStart(2,'0')}${m}00`);
-    }else{
-      lines.push(`DTSTART;VALUE=DATE:${ds}`);
-      lines.push(`DTEND;VALUE=DATE:${ds}`);
-    }
-    lines.push(`SUMMARY:${(e.title||'').replace(/\n/g,'\\n')}`);
-    if(e.type)lines.push(`CATEGORIES:${e.type.toUpperCase()}`);
-    lines.push('END:VEVENT');
-  });
-  lines.push('END:VCALENDAR');
-  const blob=new Blob([lines.join('\r\n')],{type:'text/calendar;charset=utf-8'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='life-dashboard-events.ics';a.click();
-  showToast(`Exported ${S.events.length} event${S.events.length===1?'':'s'}`);
-}
-function importICS(){
-  const inp=document.createElement('input');inp.type='file';inp.accept='.ics,.ical,text/calendar';
-  inp.onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>parseICSText(ev.target.result);r.readAsText(f);};
-  inp.click();
-}
-function parseICSText(text){
-  const typeMap={tennis:'tennis',academic:'academic',school:'academic',social:'social',gym:'gym'};
-  const blocks=text.split('BEGIN:VEVENT');
-  let added=0;
-  blocks.slice(1).forEach(block=>{
-    const get=key=>{const m=block.match(new RegExp(key+'[^:\\r\\n]*:([^\\r\\n]+)'));return m?m[1].trim():''};
-    const uidVal=get('UID');
-    if(uidVal&&S.events.find(e=>e.gcalId===uidVal))return;
-    const summary=get('SUMMARY').replace(/\\n/g,'\n').replace(/\\,/g,',').replace(/\\;/g,';');
-    const cats=get('CATEGORIES').toLowerCase();
-    let type='general';
-    for(const[k,v]of Object.entries(typeMap)){if(cats.includes(k)||summary.toLowerCase().includes(k)){type=v;break;}}
-    const raw=block.match(/DTSTART[^:\r\n]*:([^\r\n]+)/)?.[1]||'';
-    const dt=raw.trim().replace(/Z$/,'').replace(/[+-]\d{4}$/,'');
-    let date='',time='';
-    if(dt.includes('T')){
-      const[d,t]=dt.split('T');
-      date=`${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
-      time=`${t.slice(0,2)}:${t.slice(2,4)}`;
-    }else if(dt.length>=8){
-      date=`${dt.slice(0,4)}-${dt.slice(4,6)}-${dt.slice(6,8)}`;
-    }
-    if(!date||!summary)return;
-    S.events.push({id:uid(),gcalId:uidVal||null,title:summary,date,time,type});
-    added++;
-  });
-  if(!added){showToast('No new events found');return;}
-  S.events.sort((a,b)=>a.date<b.date?-1:1);
-  save();renderPage();
-  showToast(`Imported ${added} event${added===1?'':'s'}`);
-}
-
-// ════════════════════════════════════════════════
-//  GOOGLE CALENDAR SYNC
-// ════════════════════════════════════════════════
-function loadGIS(cb){
-  if(window.google?.accounts){cb();return;}
-  const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.onload=cb;document.head.appendChild(s);
-}
-async function _doGCalSync(token){
-  showToast('Syncing Google Calendar…');
-  try{
-    const now=new Date();
-    const min=new Date(now.getFullYear(),now.getMonth()-1,1).toISOString();
-    const max=new Date(now.getFullYear(),now.getMonth()+3,1).toISOString();
-    const url=`https://www.googleapis.com/calendar/v3/calendars/primary/events?timeMin=${encodeURIComponent(min)}&timeMax=${encodeURIComponent(max)}&singleEvents=true&maxResults=500`;
-    const res=await fetch(url,{headers:{Authorization:`Bearer ${token}`}});
-    if(!res.ok){showToast('Auth expired — reconnecting…');_startGCalAuth();return;}
-    const data=await res.json();
-    let added=0;
-    (data.items||[]).forEach(item=>{
-      if(!item.summary||item.status==='cancelled')return;
-      if(S.events.find(e=>e.gcalId===item.id))return;
-      const start=item.start?.dateTime||item.start?.date||'';
-      let date='',time='';
-      if(start.includes('T')){date=start.slice(0,10);time=start.slice(11,16);}
-      else date=start;
-      if(!date)return;
-      S.events.push({id:uid(),gcalId:item.id,title:item.summary,date,time,type:'general'});
-      added++;
-    });
-    S.events.sort((a,b)=>a.date<b.date?-1:1);
-    save();renderPage();
-    showToast(added>0?`Synced ${added} new event${added===1?'':'s'} from Google`:'Google Calendar up to date');
-  }catch(err){showToast('Sync error: '+err.message);}
-}
-function _startGCalAuth(){
-  const client=google.accounts.oauth2.initTokenClient({
-    client_id:S.apiKeys.google_client_id,
-    scope:'https://www.googleapis.com/auth/calendar.readonly',
-    callback:resp=>{
-      if(resp.error){showToast('Google auth failed: '+resp.error);return;}
-      _doGCalSync(resp.access_token);
-    }
-  });
-  client.requestAccessToken();
-}
-function syncGoogleCal(){
-  if(!S.apiKeys?.google_client_id){
-    showToast('Add your Google Client ID in Settings first');
-    navigate('settings');return;
-  }
-  loadGIS(_startGCalAuth);
-}
-
-// ════════════════════════════════════════════════
-//  CALENDAR BLOCK (embedded in Home)
+//  CALENDAR TAB
 // ════════════════════════════════════════════════
 let calView='all';let calMonth=new Date().getMonth();let calYear=new Date().getFullYear();let calSelected=null;
-let calDisplayMode='month';let calWeekStartDate=null;
-function getCalWeekStart(){
-  if(!calWeekStartDate){const d=new Date();d.setDate(d.getDate()-d.getDay());calWeekStartDate=d.toISOString().split('T')[0];}
-  return new Date(calWeekStartDate+'T00:00:00');
-}
-function renderCalendarBlock(){
+function renderCalendar(){
   const today=todayStr();
-  const TC={tennis:'#3b7bff',academic:'#f5a623',social:'#2dd4bf',gym:'#a855f7',general:'#6b7a99'};
-  const TB={tennis:'rgba(59,123,255,0.18)',academic:'rgba(245,166,35,0.18)',social:'rgba(45,212,191,0.18)',gym:'rgba(168,85,247,0.18)',general:'rgba(107,114,153,0.14)'};
-  const byDay={};
-  S.events.forEach(e=>{if(!byDay[e.date])byDay[e.date]=[];byDay[e.date].push(e);});
-  Object.keys(byDay).forEach(d=>byDay[d].sort((a,b)=>(a.time||'').localeCompare(b.time||'')));
-  const fmtT=t=>{if(!t)return'';const[h,m]=t.split(':').map(Number);const ap=h>=12?'pm':'am';const h12=h%12||12;return`${h12}${m?':'+String(m).padStart(2,'0'):''}${ap} `;};
-  const evtRow=(e,isWeek)=>{
-    const col=TC[e.type]||TC.general;
-    const label=`${fmtT(e.time)}${esc(e.title)}`;
-    if(!e.time)return`<div class="cal2-allday" style="background:${TB[e.type]||TB.general}" data-calday="${e.date}"><div class="cal2-allday-lbl" style="color:${col}">${esc(e.title)}</div></div>`;
-    return`<div class="cal2-evt" data-calday="${e.date}"><div class="cal2-dot" style="background:${col}"></div><div class="cal2-evt-label">${label}</div></div>`;
-  };
-  const dayCell=(dk,dayNum,isOther,isWeek)=>{
+  const typeColors={tennis:'var(--blue)',academic:'var(--orange)',social:'var(--teal)',gym:'var(--purple)',general:'var(--muted)'};
+  const filtered=calView==='all'?S.events:S.events.filter(e=>e.type===calView);
+  const byDay={};filtered.forEach(e=>{if(!byDay[e.date])byDay[e.date]=[];byDay[e.date].push(e);});
+  const days=getDaysInMonth(calYear,calMonth);const first=getFirstDay(calYear,calMonth);
+  const monthName=new Date(calYear,calMonth,1).toLocaleDateString('en-US',{month:'long',year:'numeric'}).toUpperCase();
+  const dayLabels=['S','M','T','W','T','F','S'].map(d=>`<div class="cal-day-lbl">${d}</div>`).join('');
+  const blanks=Array.from({length:first}).map(()=>`<div></div>`).join('');
+  const daysCells=Array.from({length:days},(_,i)=>{
+    const d=i+1;
+    const dk=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
     const evs=byDay[dk]||[];
     const isToday=dk===today;const isSel=dk===calSelected;
-    const max=isWeek?5:3;
-    const shown=evs.slice(0,max);const extra=evs.length-max;
-    return`<div class="cal2-cell${isOther?' other':''}${isToday?' is-today':''}${isSel?' is-sel':''}${isWeek?' week-cell':''}" data-calday="${dk}">
-      ${dayNum!==null?`<div class="cal2-num${isToday?' is-today':''}">${dayNum}</div>`:''}
-      ${shown.map(e=>evtRow(e,isWeek)).join('')}
-      ${extra>0?`<div class="cal2-more" data-calday="${dk}">+${extra} more</div>`:''}
+    const dots=evs.slice(0,3).map(e=>`<div class="cal-dot" style="background:${isSel?'#000':typeColors[e.type]||'var(--muted)'}"></div>`).join('');
+    return`<div class="cal-day${isToday?' today':''}${isSel?' selected':''}" data-calday="${dk}">
+      <span class="cal-day-num">${d}</span>
+      ${dots?`<div class="cal-dots">${dots}</div>`:''}
     </div>`;
-  };
-
-  const DOW=['SUN','MON','TUE','WED','THU','FRI','SAT'];
-  let hdrHtml='',gridHtml='',navLabel='';
-
-  if(calDisplayMode==='month'){
-    const days=getDaysInMonth(calYear,calMonth);
-    const first=getFirstDay(calYear,calMonth);
-    navLabel=new Date(calYear,calMonth,1).toLocaleDateString('en-US',{month:'long',year:'numeric'}).toUpperCase();
-    hdrHtml=DOW.map(d=>`<div class="cal2-hdr-cell">${d}</div>`).join('');
-    const blanks=Array.from({length:first},()=>`<div class="cal2-cell other"></div>`).join('');
-    const cells=Array.from({length:days},(_,i)=>{
-      const d=i+1;
-      const dk=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-      return dayCell(dk,d,false,false);
-    }).join('');
-    gridHtml=blanks+cells;
-  } else {
-    const ws=getCalWeekStart();
-    const days=Array.from({length:7},(_,i)=>{const d=new Date(ws);d.setDate(ws.getDate()+i);return d;});
-    const[wStart,wEnd]=([days[0],days[6]]).map(d=>d.toLocaleDateString('en-US',{month:'short',day:'numeric'}));
-    navLabel=`${wStart} – ${wEnd} ${days[0].getFullYear()}`.toUpperCase();
-    hdrHtml=days.map(d=>{
-      const dk=d.toISOString().split('T')[0];
-      const isT=dk===today;
-      return`<div class="cal2-hdr-cell">${DOW[d.getDay()]}<div class="cal2-hdr-date${isT?' is-today':''}">${d.getDate()}</div></div>`;
-    }).join('');
-    gridHtml=days.map(d=>{
-      const dk=d.toISOString().split('T')[0];
-      return dayCell(dk,null,false,true);
-    }).join('');
-  }
-
+  }).join('');
   const selEvts=calSelected&&byDay[calSelected]?byDay[calSelected]:[];
-  const selHtml=calSelected?`<div class="cal2-detail">
-    <div class="row between" style="margin-bottom:8px">
-      <div class="section-label" style="font-size:11px">${fmtFull(calSelected).toUpperCase()}</div>
-      <button class="btn-ghost btn-xs" onclick="App.openAddEvent('${calSelected}')">+ ADD</button>
-    </div>
-    ${selEvts.length===0?'<div class="empty" style="font-size:12px">No events · tap + ADD to create one</div>':
-    selEvts.map(e=>{const col=TC[e.type]||TC.general;return`<div class="card-row" style="padding:6px 0">
-      <div style="width:3px;height:28px;border-radius:2px;background:${col};flex-shrink:0"></div>
-      <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.title)}</div>${e.time?`<div style="font-size:11px;color:var(--muted)">${fmtT(e.time).trim()}</div>`:''}</div>
+  const selHtml=calSelected?`<div class="card">
+    <div class="section-label" style="margin-bottom:12px">${fmtFull(calSelected).toUpperCase()}</div>
+    ${selEvts.length===0?`<div class="empty">No events · <span class="inline-link" onclick="App.openAddEvent('${calSelected}')">Add one</span></div>`:
+    selEvts.map(e=>`<div class="card-row">
+      <div style="width:3px;height:32px;border-radius:2px;background:${typeColors[e.type]||'var(--muted)'}"></div>
+      <div style="flex:1"><div style="font-size:14px;font-weight:600">${esc(e.title)}</div>${e.time?`<div style="font-size:11px;color:var(--muted)">${esc(e.time)}</div>`:''}</div>
       <button class="todo-del" onclick="App.deleteEvent('${e.id}')">✕</button>
-    </div>`;}).join('')}
+    </div>`).join('')}
   </div>`:'';
 
-  const hasGcal=!!(S.apiKeys?.google_client_id);
-  const isMonth=calDisplayMode==='month';
-  return`<div class="card" style="padding-bottom:0">
-  <div class="row between" style="margin-bottom:10px">
-    <div class="section-label">CALENDAR</div>
-    <div class="row" style="gap:6px;flex-wrap:wrap">
-      <button class="btn-ghost btn-xs" onclick="App.importICS()" title="Import .ics">↓ .ICS</button>
-      <button class="btn-ghost btn-xs" onclick="App.exportICS()" title="Export .ics">↑ .ICS</button>
-      ${hasGcal?`<button class="btn-ghost btn-xs" style="color:var(--blue);border-color:rgba(59,123,255,.4)" onclick="App.syncGoogleCal()">🔄 GCAL</button>`:''}
-      <button class="btn btn-sm" onclick="App.openAddEvent()">+ EVENT</button>
-    </div>
+  return`<div class="page">
+  <div class="row between" style="margin-bottom:14px">
+    <div class="page-title">CALENDAR</div>
+    <button class="btn btn-sm" onclick="App.openAddEvent()">+ EVENT</button>
   </div>
-  <div class="row between" style="margin-bottom:8px;gap:8px">
-    <div class="row" style="gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden">
-      <button onclick="App.setCalDisplayMode('month')" style="padding:4px 10px;font-size:11px;font-weight:700;border:none;cursor:pointer;font-family:var(--font);background:${isMonth?'var(--blue)':'transparent'};color:${isMonth?'#fff':'var(--muted)'}">MONTH</button>
-      <button onclick="App.setCalDisplayMode('week')" style="padding:4px 10px;font-size:11px;font-weight:700;border:none;cursor:pointer;font-family:var(--font);background:${!isMonth?'var(--blue)':'transparent'};color:${!isMonth?'#fff':'var(--muted)'}">WEEK</button>
-    </div>
-    <div class="row" style="gap:4px;align-items:center">
-      <button class="month-nav-btn" onclick="App.calPrev()" style="font-size:18px">‹</button>
-      <span style="font-size:11px;font-weight:700;color:var(--text);letter-spacing:.06em;white-space:nowrap">${navLabel}</span>
-      <button class="month-nav-btn" onclick="App.calNext()" style="font-size:18px">›</button>
-    </div>
+  <div class="filter-tabs">
+    ${[['all','ALL'],['tennis','🎾 TENNIS'],['academic','📚 SCHOOL'],['social','👥 SOCIAL']].map(([v,l])=>`<button class="filter-tab${calView===v?' active':''}" onclick="App.setCalView('${v}')">${l}</button>`).join('')}
   </div>
-  <div class="cal2-wrap" style="margin:0 -16px">
-    <div class="cal2-hdr">${hdrHtml}</div>
-    <div class="cal2-grid">${gridHtml}</div>
-    ${selHtml?`<div style="padding:0 16px">${selHtml}</div>`:''}
+  <div class="month-nav">
+    <button class="month-nav-btn" onclick="App.calPrev()">‹</button>
+    <span class="month-name">${monthName}</span>
+    <button class="month-nav-btn" onclick="App.calNext()">›</button>
   </div>
-  <div style="height:16px"></div>
+  <div class="cal-grid">${dayLabels}</div>
+  <div class="cal-grid">${blanks}${daysCells}</div>
+  ${selHtml}
   </div>`;
 }
 
@@ -1535,7 +1062,6 @@ function renderTennis(){
 let gymBodyView='front';
 let gymSubView='log'; // log|history|body|weight
 function renderGym(){
-  if(gymExPickerOpen)return renderGymExPicker();
   if(gymSession)return renderGymActive();
   if(gymEditSession)return renderGymEdit();
   return renderGymMain();
@@ -1554,10 +1080,7 @@ function renderGymMain(){
         <div style="font-size:11px;color:var(--muted);margin-top:2px">${s.exercises.length} exercises · ${s.exercises.reduce((n,e)=>n+e.sets.length,0)} sets${s.duration?` · ${s.duration}min`:''}</div>
         <div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">${s.exercises.map(e=>`<span style="font-size:10px;background:var(--card3);border-radius:6px;padding:3px 8px;color:var(--muted)">${esc(e.name)}</span>`).join('')}</div>
       </div>
-      <div class="row" style="gap:6px;margin-left:8px;flex-shrink:0">
-        <button class="btn-ghost btn-xs" onclick="App.editCompletedWorkout('${s.id}')">EDIT</button>
-        <button class="todo-del" onclick="App.deleteWorkout('${s.id}')" title="Delete session">✕</button>
-      </div>
+      <button class="btn-ghost btn-xs" onclick="App.editCompletedWorkout('${s.id}')" style="margin-left:8px">EDIT</button>
     </div>`).join('');
 
   // Exercise history list
@@ -1584,19 +1107,16 @@ function renderGymMain(){
   const weightHtml=S.weightLog.slice(0,10).map(w=>`
     <div class="weight-entry"><span class="weight-date">${fmtShort(w.date)}</span><span class="weight-val">${w.weight} lbs</span></div>`).join('');
 
-  const subTabs=[['log','LOG'],['body','BODY'],['history','HISTORY'],['weight','WEIGHT'],['sleep','SLEEP'],['supps','SUPPS']];
+  const subTabs=[['log','LOG'],['body','BODY'],['history','HISTORY'],['weight','WEIGHT']];
   const subTabsHtml=subTabs.map(([v,l])=>`<button class="filter-tab${gymSubView===v?' active':''}" onclick="App.setGymSubView('${v}')">${l}</button>`).join('');
 
   let subContent='';
   if(gymSubView==='log'){
     subContent=`
     <div class="card">
-      <div class="section-label" style="margin-bottom:12px">NEW WORKOUT</div>
-      <button class="gym-start-empty-btn" onclick="App.startWorkout(null)">
-        <span style="font-size:15px;font-weight:600;color:var(--text);flex:1">Start Empty Workout</span>
-        <span style="font-size:26px">🏋️</span>
-      </button>
-      ${templateBtns?`<div style="margin-top:10px"><div style="font-size:10px;color:var(--muted);letter-spacing:.08em;font-weight:700;margin-bottom:8px">QUICK START</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${templateBtns}</div></div>`:''}
+      <div class="section-label" style="margin-bottom:12px">START WORKOUT</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">${templateBtns}</div>
+      <button class="btn btn-full" onclick="App.startWorkout(null)">+ EMPTY WORKOUT</button>
     </div>
     ${Object.keys(prs).length>0?`<div class="card"><div class="section-label" style="margin-bottom:12px">PERSONAL RECORDS 🏆</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">${prHtml}</div></div>`:''}
     <div class="card"><div class="section-label" style="margin-bottom:12px">RECENT SESSIONS</div>${S.gymSessions.length===0?'<div class="empty">No sessions yet</div>':recentSessions}</div>`;
@@ -1648,49 +1168,6 @@ function renderGymMain(){
       <canvas id="weight-line-chart" class="chart-canvas" height="120" style="margin-bottom:12px"></canvas>
       ${weightHtml}
     </div>`:''}`;
-  } else if(gymSubView==='sleep'){
-    const today2=todayStr();
-    const avgSleep=S.sleepLog.slice(0,14).filter(s=>s.hours).reduce((a,s,_,arr)=>a+parseFloat(s.hours)/arr.length,0)||0;
-    const sleepHtml=S.sleepLog.slice(0,10).map(s=>`<div class="card-row">
-      <span style="font-size:12px;color:var(--muted)">${fmtShort(s.date)}</span>
-      <span style="font-size:14px;font-weight:700;font-family:var(--mono)">${s.hours}h <span style="font-size:11px;color:var(--muted)">${'⭐'.repeat(+s.quality)}</span></span>
-    </div>`).join('');
-    subContent=`
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
-      <div class="stat-card"><div class="stat-val" style="color:var(--blue)">${avgSleep>0?avgSleep.toFixed(1):'—'}</div><div class="stat-lbl">AVG HRS (14D)</div></div>
-      <div class="stat-card"><div class="stat-val">${S.sleepLog.length}</div><div class="stat-lbl">NIGHTS LOGGED</div></div>
-    </div>
-    ${S.sleepLog.length>1?`<div class="card" style="margin-bottom:14px"><div class="section-label" style="margin-bottom:10px">SLEEP HISTORY</div><canvas id="sleep-chart" class="chart-canvas" height="80"></canvas></div>`:''}
-    <div class="card">
-      <div class="section-label" style="margin-bottom:12px">LOG SLEEP</div>
-      <div class="grid-2" style="margin-bottom:10px">
-        <div><label class="lbl">Date</label><input type="date" class="inp" id="sleep-date" value="${today2}"></div>
-        <div><label class="lbl">Hours</label><input type="number" class="inp" id="sleep-hours" placeholder="7.5" step="0.5" min="0" max="24"></div>
-      </div>
-      <div style="margin-bottom:10px">
-        <label class="lbl">Quality (1–5)</label>
-        <input type="range" min="1" max="5" value="3" id="sleep-quality" style="width:100%;accent-color:var(--blue)">
-        <div class="star-rating" id="sleep-stars">⭐⭐⭐</div>
-      </div>
-      <button class="btn btn-blue btn-full" onclick="App.logSleep()">LOG SLEEP</button>
-      ${sleepHtml?`<div style="margin-top:12px">${sleepHtml}</div>`:''}
-    </div>`;
-  } else if(gymSubView==='supps'){
-    const today2=todayStr();
-    const suppDone=S.supplementLog[today2]||[];
-    const suppItems=S.supplements.map(s=>{
-      const done=suppDone.includes(s.id);
-      return`<div class="card-row" onclick="App.toggleSupp('${s.id}')" style="cursor:pointer">
-        <div class="cb${done?' done':''}" onclick="App.toggleSupp('${s.id}')"></div>
-        <div style="flex:1"><div style="font-size:13px;color:${done?'var(--text)':'var(--muted)'};font-weight:${done?600:400}">${esc(s.name)}</div><div style="font-size:10px;color:var(--muted);margin-top:2px">${esc(s.dose)} · ${esc(s.timing)}</div></div>
-        <button class="todo-del" onclick="event.stopPropagation();App.deleteSupp('${s.id}')">✕</button>
-      </div>`;
-    }).join('');
-    subContent=`<div class="card">
-      <div class="row between" style="margin-bottom:12px"><div class="section-label">TODAY'S STACK</div><div style="font-size:11px;color:var(--orange);font-weight:700">${suppDone.length}/${S.supplements.length} TAKEN</div></div>
-      ${S.supplements.length===0?'<div class="empty">No supplements added</div>':suppItems}
-      <button class="btn-ghost btn-sm btn-full" style="margin-top:10px" onclick="App.openAddSupp()">+ ADD SUPPLEMENT</button>
-    </div>`;
   }
 
   return`<div class="page">
@@ -1701,93 +1178,37 @@ function renderGymMain(){
 }
 function renderGymActive(){
   const s=gymSession;
-  const secs=Math.floor((Date.now()-(s.startTime||Date.now()))/1000);
-  const th=Math.floor(secs/3600).toString().padStart(2,'0');
-  const tm=Math.floor((secs%3600)/60).toString().padStart(2,'0');
-  const ts=(secs%60).toString().padStart(2,'0');
-  const timerStr=`${th}:${tm}:${ts}`;
-  const hasRest=!!gymRestState;
-
   const exerciseCards=s.exercises.map((ex,ei)=>{
-    if(ex.collapsed){
-      return`<div class="gym-ex-card">
-        <div class="gym-ex-header">
-          <div class="gym-ex-icon">${getExerciseEmoji(ex.name)}</div>
-          <div class="gym-ex-name">${esc(ex.name)||'<span style="color:var(--muted)">Unnamed</span>'}</div>
-          <button class="gym-ex-hbtn" onclick="App.toggleExCollapse(${ei})">∨</button>
-          <button class="gym-ex-hbtn" style="color:var(--red)" onclick="App.removeExercise(${ei})">✕</button>
-        </div>
-      </div>`;
-    }
-    const prevSets=getPrevSetsForExercise(ex.name);
-    const restDur=ex.restDuration||120;
-    const rm=Math.floor(restDur/60),rs=restDur%60;
-    const restLabel=rs>0?`${rm}m ${rs}s`:`${rm}m`;
+    const setRows=ex.sets.map((set,si)=>`
+      <div class="set-grid">
+        <div class="set-num">${si+1}</div>
+        <input class="set-inp" value="${esc(set.reps)}" placeholder="—" oninput="App.updateSet(${ei},${si},'reps',this.value)">
+        <input class="set-inp" value="${esc(set.weight)}" placeholder="—" oninput="App.updateSet(${ei},${si},'weight',this.value)">
+        <button class="set-del" onclick="App.removeSet(${ei},${si})">−</button>
+      </div>`).join('');
     const pr=getPRForExercise(ex.name);
-
-    const setRows=ex.sets.map((set,si)=>{
-      const prev=prevSets[si];
-      const prevStr=prev&&(prev.weight||prev.reps)?`${prev.weight||'?'}×${prev.reps||'?'}`:'—';
-      const isDone=!!set.done;
-      const npW=(gymNumpad&&gymNumpad.ei===ei&&gymNumpad.si===si&&gymNumpad.field==='weight');
-      const npR=(gymNumpad&&gymNumpad.ei===ei&&gymNumpad.si===si&&gymNumpad.field==='reps');
-      return`<div class="gym-set-row" style="${isDone?'opacity:.5':''}">
-        <div class="gym-set-num">${si+1}</div>
-        <div class="gym-set-prev">${esc(prevStr)}</div>
-        <div class="gym-set-inp2${isDone?' done-set':''}${npW?' np-active':''}" onclick="App.openNumpad(${ei},${si},'weight')">${esc(set.weight)||'0'}</div>
-        <div class="gym-set-inp2${isDone?' done-set':''}${npR?' np-active':''}" onclick="App.openNumpad(${ei},${si},'reps')">${esc(set.reps)||'0'}</div>
-        <button class="gym-set-check${isDone?' done':''}" onclick="App.toggleSetDone(${ei},${si})">${isDone?'✓':''}</button>
-      </div>`;
-    }).join('');
-
-    return`<div class="gym-ex-card">
-      <div class="gym-ex-header">
-        <div class="gym-ex-icon">${getExerciseEmoji(ex.name)}</div>
-        <div class="gym-ex-name">${esc(ex.name)||'<span style="color:var(--muted)">Unnamed</span>'}</div>
-        <button class="gym-ex-hbtn" onclick="App.toggleExCollapse(${ei})">∧</button>
-        <button class="gym-ex-hbtn" onclick="App.removeExercise(${ei})" style="color:var(--muted)">✕</button>
-      </div>
-      <div class="gym-rest-row">
-        <div class="gym-rest-label">
-          <span>🕐</span>
-          <span style="font-weight:600;color:var(--text)">Rest Timer</span>
-          <span>${restLabel}</span>
-          <button onclick="App.editRestDuration(${ei})" style="background:none;border:none;color:var(--muted);cursor:pointer;padding:0 2px;font-size:11px">✏</button>
-        </div>
-        <label class="gym-toggle">
-          <input type="checkbox" ${ex.restEnabled!==false?'checked':''} onchange="App.toggleRestTimer(${ei})">
-          <span class="gym-toggle-slider"></span>
-        </label>
-      </div>
-      ${pr>0?`<div style="text-align:center;font-size:11px;color:var(--orange);font-weight:700;padding:2px 0 8px">🏆 PR: ${pr} lbs</div>`:''}
-      <div class="gym-set-header">
-        <div class="gym-set-col">SET</div>
-        <div class="gym-set-col">PREV</div>
-        <div class="gym-set-col">LBS</div>
-        <div class="gym-set-col">REPS</div>
-        <div></div>
+    return`<div class="exercise-card">
+      <input class="exercise-name-inp" value="${esc(ex.name)}" placeholder="Exercise name" oninput="App.updateExName(${ei},this.value)">
+      <div class="set-grid" style="margin-bottom:8px">
+        ${['SET','REPS','KG/LB',''].map(h=>`<div style="font-size:9px;color:var(--muted);letter-spacing:.06em;font-weight:600;text-align:center">${h}</div>`).join('')}
       </div>
       ${setRows}
-      <button class="gym-add-set-btn" onclick="App.addSet(${ei})">+ ADD SET</button>
+      ${pr>0?`<div class="pr-badge">🏆 PR: ${pr} kg/lb</div>`:''}
+      <button class="btn-ghost btn-sm btn-full" style="margin-top:4px" onclick="App.addSet(${ei})">+ ADD SET</button>
     </div>`;
   }).join('');
-
-  const numpadHtml=gymNumpad?renderGymNumpad():'';
-  const restHtml=hasRest?renderGymRestTimer():'';
-
-  return`<div class="page" style="padding-bottom:80px">
-  ${restHtml}
-  ${numpadHtml}
-  <div class="gym-topbar">
-    <button class="gym-topbar-btn" onclick="App.minimizeWorkout()" title="Go back">∨</button>
-    <button class="gym-topbar-btn${hasRest?' rest-active':''}" onclick="${hasRest?'App.showRestModal()':'void(0)'}" style="${hasRest?'border-color:var(--orange)':''}">🕐${hasRest?`<span style="position:absolute;top:1px;right:1px;width:8px;height:8px;border-radius:50%;background:var(--orange)"></span>`:''}</button>
-    <span id="gym-timer-display" class="gym-timer-text">${timerStr}</span>
-    <button class="gym-topbar-btn gym-topbar-finish" onclick="App.finishWorkout()">→</button>
+  const elapsed=Math.round((Date.now()-(s.startTime||Date.now()))/60000);
+  return`<div class="page">
+  <div class="row between" style="margin-bottom:16px">
+    <div>
+      <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;font-weight:600">ACTIVE WORKOUT · ${elapsed}min</div>
+      <input id="gym-session-name" style="background:none;border:none;color:var(--text);font-size:20px;font-weight:800;font-family:var(--font);outline:none;padding:0;width:100%" value="${esc(s.name)}" oninput="App.updateSessionName(this.value)">
+    </div>
+    <button class="btn btn-green btn-sm" onclick="App.finishWorkout()">FINISH</button>
   </div>
-  <textarea class="gym-notes" rows="2" placeholder="Your workout notes..." oninput="App.updateWorkoutNotes(this.value)">${esc(s.notes||'')}</textarea>
-  ${exerciseCards.length?exerciseCards:'<div style="text-align:center;padding:32px 16px;color:var(--muted);font-size:13px">No exercises yet — tap below to add one</div>'}
-  <button class="gym-add-ex-btn" onclick="App.openExPicker()">+ Exercise</button>
-  <button class="btn-ghost btn-full" style="margin-top:10px;color:var(--red);border-color:rgba(248,113,113,.3)" onclick="App.discardWorkout()">Discard Workout</button>
+  ${exerciseCards}
+  <button class="btn-ghost btn-full" style="margin-bottom:10px" onclick="App.addExercise()">+ ADD EXERCISE</button>
+  <button class="btn-ghost btn-full" style="color:var(--red);border-color:rgba(248,113,113,.44)" onclick="App.discardWorkout()">DISCARD</button>
   </div>`;
 }
 function renderGymEdit(){
@@ -1822,158 +1243,6 @@ function renderGymEdit(){
   <button class="btn-ghost btn-full" style="color:var(--red);border-color:rgba(248,113,113,.44);margin-top:4px" onclick="App.cancelEdit()">CANCEL EDIT</button>
   </div>`;
 }
-function getExerciseEmoji(name){
-  const ex=EXERCISE_DB.find(e=>e.name===name);
-  if(ex)return ex.emoji;
-  const n=(name||'').toLowerCase();
-  if(n.includes('squat')||n.includes('lunge'))return '🦵';
-  if(n.includes('curl'))return '💪';
-  if(n.includes('press'))return '🏋️';
-  if(n.includes('pull')||n.includes('row'))return '🤸';
-  return '💪';
-}
-
-function getPrevSetsForExercise(name){
-  for(const session of S.gymSessions){
-    const ex=session.exercises.find(e=>e.name===name);
-    if(ex)return ex.sets||[];
-  }
-  return [];
-}
-
-function startGymWatch(){
-  clearInterval(gymWatchInterval);
-  gymWatchInterval=setInterval(()=>{
-    if(!gymSession){clearInterval(gymWatchInterval);return;}
-    const el=document.getElementById('gym-timer-display');
-    if(!el){clearInterval(gymWatchInterval);return;}
-    const secs=Math.floor((Date.now()-(gymSession.startTime||Date.now()))/1000);
-    const h=Math.floor(secs/3600).toString().padStart(2,'0');
-    const m=Math.floor((secs%3600)/60).toString().padStart(2,'0');
-    const s=(secs%60).toString().padStart(2,'0');
-    el.textContent=`${h}:${m}:${s}`;
-  },1000);
-}
-
-function renderGymExPicker(){
-  const q=gymExPickerSearch.toLowerCase();
-  let exList=[...EXERCISE_DB];
-  if(q)exList=exList.filter(e=>e.name.toLowerCase().includes(q)||e.cat.toLowerCase().includes(q));
-  if(gymExPickerSort==='alpha')exList.sort((a,b)=>a.name.localeCompare(b.name));
-  else if(gymExPickerSort==='performed'){
-    const counts={};
-    S.gymSessions.forEach(s=>s.exercises.forEach(e=>{counts[e.name]=(counts[e.name]||0)+1;}));
-    exList.sort((a,b)=>(counts[b.name]||0)-(counts[a.name]||0));
-  }
-  const items=exList.map(ex=>`
-    <div class="gym-picker-item" data-exname="${esc(ex.name.toLowerCase())}" onclick="App.pickExercise('${esc(ex.name)}')">
-      <div class="gym-picker-icon">${ex.emoji}</div>
-      <div class="gym-picker-info">
-        <div class="gym-picker-name">${esc(ex.name)}</div>
-        <div class="gym-picker-cat">${ex.cat}</div>
-      </div>
-    </div>`).join('');
-  const sorts=[['rank','By Rank'],['alpha','Alphabetical'],['performed','Performed']];
-  return`<div class="gym-picker">
-    <div class="gym-picker-bar">
-      <button class="gym-picker-back" onclick="App.closeExPicker()">←</button>
-      <input id="gym-ex-search" class="gym-picker-search" type="text" placeholder="Search Exercise" value="${esc(gymExPickerSearch)}">
-    </div>
-    <div class="gym-picker-tabs">
-      ${sorts.map(([v,l])=>`<button class="gym-picker-tab${gymExPickerSort===v?' active':''}" onclick="App.exPickerSort('${v}')">${l}</button>`).join('')}
-    </div>
-    <div class="gym-picker-body" id="gym-picker-body">
-      ${items||'<div class="empty" style="padding:32px 0">No exercises found</div>'}
-    </div>
-  </div>`;
-}
-
-function renderGymNumpad(){
-  if(!gymNumpad||!gymSession)return '';
-  const {ei,si,field,value}=gymNumpad;
-  const ex=gymSession.exercises[ei];
-  const set=ex?.sets[si];
-  if(!set)return '';
-  const prevSets=getPrevSetsForExercise(ex.name);
-  const prev=prevSets[si];
-  const prevStr=prev&&(prev.weight||prev.reps)?`${prev.weight||'?'}×${prev.reps||'?'}`:'—';
-  const isWeight=field==='weight';
-  return`<div class="gym-numpad" onclick="event.stopPropagation()">
-    <div class="gym-numpad-display">
-      <div class="gym-set-col" style="font-size:10px">#${si+1}</div>
-      <div class="gym-set-prev" style="font-size:12px">${esc(prevStr)}</div>
-      <div class="gym-set-inp2${isWeight?' np-active':''}">
-        ${isWeight?`<span id="gym-numpad-val">${esc(value||'0')}</span>`:esc(set.weight||'0')}
-      </div>
-      <div class="gym-set-inp2${!isWeight?' np-active':''}">
-        ${!isWeight?`<span id="gym-numpad-val">${esc(value||'0')}</span>`:esc(set.reps||'0')}
-      </div>
-    </div>
-    <div class="gym-numpad-grid">
-      <button class="gym-numpad-key adj" onclick="App.numpadAdj(2.5)">+2.5</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('1')">1</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('2')">2</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('3')">3</button>
-      <button class="gym-numpad-key adj" onclick="App.numpadAdj(-2.5)">-2.5</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('4')">4</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('5')">5</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('6')">6</button>
-      <button class="gym-numpad-key copy-btn" onclick="App.numpadCopy()" title="Copy prev">⧉</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('7')">7</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('8')">8</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('9')">9</button>
-      <button class="gym-numpad-key del-btn" onclick="App.numpadKey('⌫')">⌫</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('.')">.</button>
-      <button class="gym-numpad-key" onclick="App.numpadKey('0')">0</button>
-      <button class="gym-numpad-key next-btn" onclick="App.numpadNext()">NEXT</button>
-    </div>
-  </div>`;
-}
-
-function renderGymRestTimer(){
-  if(!gymRestState)return '';
-  const {remaining,total,ei}=gymRestState;
-  const m=Math.floor(remaining/60).toString().padStart(2,'0');
-  const s=(remaining%60).toString().padStart(2,'0');
-  const R=45,C=2*Math.PI*R;
-  const pct=remaining/total;
-  const offset=C*(1-pct);
-  const exName=gymSession?.exercises[ei]?.name||'';
-  return`<div class="gym-rest-overlay" onclick="void(0)">
-    <div class="gym-rest-modal">
-      <div class="row between" style="margin-bottom:4px">
-        <div style="font-size:16px;font-weight:800">Rest Timer</div>
-        <button onclick="App.closeRestModal()" style="background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
-      </div>
-      <div class="gym-rest-circle-wrap">
-        <svg width="150" height="150" style="position:absolute;transform:rotate(-90deg)">
-          <circle cx="75" cy="75" r="${R}" fill="none" stroke="var(--card3)" stroke-width="8"/>
-          <circle id="gym-rest-progress" cx="75" cy="75" r="${R}" fill="none" stroke="var(--orange)" stroke-width="8"
-            stroke-dasharray="${C}" stroke-dashoffset="${offset}" stroke-linecap="round" style="transition:stroke-dashoffset .9s linear"/>
-        </svg>
-        <div class="gym-rest-circle-text">
-          <div id="gym-rest-display">${m}:${s}</div>
-          <div style="font-size:10px;color:var(--muted);margin-top:4px">${Math.floor(total/60)}:${(total%60).toString().padStart(2,'0')}</div>
-        </div>
-      </div>
-      <div class="row" style="gap:10px;margin-bottom:16px">
-        <button class="gym-numpad-key" style="flex:1;padding:12px" onclick="App.adjustRest(-15)">-15</button>
-        <button class="gym-numpad-key next-btn" style="flex:2;padding:12px;border-radius:10px" onclick="App.skipRest()">Skip</button>
-        <button class="gym-numpad-key" style="flex:1;padding:12px" onclick="App.adjustRest(15)">+15</button>
-      </div>
-      ${exName?`<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--border)">
-        <div style="font-size:11px;color:var(--muted)">Default Exercise Timer<div style="font-size:10px">Current default: ${Math.floor(total/60)}m</div></div>
-        <button class="btn-ghost btn-xs" onclick="App.editRestDuration(${ei})">Edit</button>
-      </div>
-      <div style="display:flex;align-items:center;gap:8px;padding:8px 0">
-        <div style="font-size:14px">${getExerciseEmoji(exName)}</div>
-        <div style="font-size:13px;font-weight:600">${esc(exName)}</div>
-        <div style="font-size:11px;color:var(--muted);margin-left:auto">${Math.floor(total/60)}m</div>
-      </div>`:''}
-    </div>
-  </div>`;
-}
-
 function getPRs(){
   const m={};
   S.gymSessions.forEach(s=>s.exercises.forEach(e=>{
@@ -1990,29 +1259,19 @@ function getPRForExercise(name){
 // ════════════════════════════════════════════════
 //  ACADEMICS TAB
 // ════════════════════════════════════════════════
-let schoolFilter='all';let schoolView='assignments';
-const GRADE_MAP={'A+':4.3,'A':4.0,'A-':3.7,'B+':3.3,'B':3.0,'B-':2.7,'C+':2.3,'C':2.0,'C-':1.7,'D+':1.3,'D':1.0,'F':0};
-function gradeToGpa(g){if(!g)return null;const v=GRADE_MAP[g.toUpperCase()];if(v!==undefined)return v;const n=parseFloat(g);if(!isNaN(n)){if(n>=97)return 4.3;if(n>=93)return 4.0;if(n>=90)return 3.7;if(n>=87)return 3.3;if(n>=83)return 3.0;if(n>=80)return 2.7;if(n>=77)return 2.3;if(n>=73)return 2.0;if(n>=70)return 1.7;if(n>=60)return 1.0;return 0;}return null;}
-function calcCourseGpa(courseName){
-  const graded=S.assignments.filter(a=>a.course===courseName&&a.grade);
-  if(!graded.length)return null;
-  const pts=graded.map(a=>gradeToGpa(a.grade)).filter(v=>v!==null);
-  return pts.length?(pts.reduce((s,v)=>s+v,0)/pts.length).toFixed(2):null;
-}
-function calcOverallGpa(){
-  const graded=S.assignments.filter(a=>a.grade);
-  if(!graded.length)return null;
-  const pts=graded.map(a=>gradeToGpa(a.grade)).filter(v=>v!==null);
-  return pts.length?(pts.reduce((s,v)=>s+v,0)/pts.length).toFixed(2):null;
-}
-function gpaColor(gpa){const g=parseFloat(gpa)||0;return g>=3.7?'var(--green)':g>=3.0?'var(--blue)':g>=2.0?'var(--orange)':'var(--red)';}
+let schoolFilter='all';
 function renderSchool(){
   const today=todayStr();
   const filtered=S.assignments.filter(a=>schoolFilter==='all'?true:schoolFilter==='pending'?!a.done:a.done);
   const pending=S.assignments.filter(a=>!a.done);
   const overdue=pending.filter(a=>a.dueDate&&a.dueDate<today);
-  const overallGpa=calcOverallGpa();
-
+  const graded=S.assignments.filter(a=>a.grade&&a.done);
+  let gpa=null;
+  if(graded.length){
+    const map={'A+':4.3,'A':4,'A-':3.7,'B+':3.3,'B':3,'B-':2.7,'C+':2.3,'C':2,'C-':1.7,'D':1,'F':0};
+    const sum=graded.reduce((s,a)=>s+(map[a.grade.toUpperCase()]||parseFloat(a.grade)||0),0);
+    gpa=(sum/graded.length).toFixed(2);
+  }
   const items=filtered.map(a=>{
     const course=S.courses.find(c=>c.name===a.course);
     const isOD=!a.done&&a.dueDate&&a.dueDate<today;
@@ -2023,40 +1282,13 @@ function renderSchool(){
         <div class="row" style="gap:8px;margin-top:4px;flex-wrap:wrap">
           ${a.course?`<span class="tag" style="background:${(course?.color||'#888')}22;color:${course?.color||'var(--muted)'}">${esc(a.course)}</span>`:''}
           ${a.dueDate?`<span style="font-size:10px;color:${isOD?'var(--red)':'var(--muted)'}">Due ${fmtShort(a.dueDate)}</span>`:''}
-          ${a.grade?`<span style="font-size:11px;font-weight:700;font-family:var(--mono);color:${gpaColor(gradeToGpa(a.grade))}">${esc(a.grade)}</span>`:''}
+          ${a.grade?`<span style="font-size:10px;color:var(--green);font-weight:700">${esc(a.grade)}</span>`:''}
         </div>
       </div>
       <button class="todo-del" onclick="App.deleteAssignment('${a.id}')">✕</button>
     </div>`;
   }).join('');
 
-  // Per-course GPA view
-  const courseGpaRows=S.courses.map(c=>{
-    const gpa=calcCourseGpa(c.name);
-    const courseAssignments=S.assignments.filter(a=>a.course===c.name);
-    const graded=courseAssignments.filter(a=>a.grade);
-    const pending2=courseAssignments.filter(a=>!a.done).length;
-    return`<div class="card" style="margin-bottom:10px">
-      <div class="row between" style="margin-bottom:10px">
-        <div class="row" style="gap:8px">
-          <div style="width:10px;height:10px;border-radius:50%;background:${c.color};flex-shrink:0;margin-top:2px"></div>
-          <div style="font-size:14px;font-weight:700">${esc(c.name)}</div>
-        </div>
-        <div style="font-size:24px;font-weight:800;font-family:var(--mono);color:${gpa?gpaColor(gpa):'var(--muted)'}">${gpa||'—'}</div>
-      </div>
-      <div class="row" style="gap:16px;margin-bottom:10px">
-        <div><div style="font-size:12px;font-weight:700;color:var(--muted)">${graded.length}</div><div style="font-size:9px;color:var(--muted)">GRADED</div></div>
-        <div><div style="font-size:12px;font-weight:700;color:var(--orange)">${pending2}</div><div style="font-size:9px;color:var(--muted)">PENDING</div></div>
-      </div>
-      ${graded.slice(0,5).map(a=>`<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--border)">
-        <span style="font-size:12px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(a.title)}</span>
-        <span style="font-size:12px;font-weight:700;font-family:var(--mono);color:${gpaColor(gradeToGpa(a.grade))};margin-left:8px">${esc(a.grade)}</span>
-      </div>`).join('')}
-      <button class="btn-ghost btn-xs btn-full" style="margin-top:8px" onclick="App.openAddAssignment()">+ ADD GRADE</button>
-    </div>`;
-  }).join('');
-
-  const viewTabs=[['assignments','ASSIGNMENTS'],['grades','GRADES']];
   return`<div class="page">
   <div class="row between" style="margin-bottom:14px">
     <div class="page-title">ACADEMICS</div>
@@ -2068,13 +1300,12 @@ function renderSchool(){
   <div class="stat-grid">
     <div class="stat-card"><div class="stat-val" style="color:var(--orange)">${pending.length}</div><div class="stat-lbl">PENDING</div></div>
     <div class="stat-card"><div class="stat-val" style="color:var(--red)">${overdue.length}</div><div class="stat-lbl">OVERDUE</div></div>
-    <div class="stat-card"><div class="stat-val" style="color:${overallGpa?gpaColor(overallGpa):'var(--muted)'}">${overallGpa||'—'}</div><div class="stat-lbl">GPA</div></div>
+    <div class="stat-card"><div class="stat-val" style="color:var(--green)">${gpa||'—'}</div><div class="stat-lbl">GPA</div></div>
   </div>
   <div class="filter-tabs">
-    ${viewTabs.map(([v,l])=>`<button class="filter-tab${schoolView===v?' active':''}" onclick="App.setSchoolView('${v}')">${l}</button>`).join('')}
-    ${schoolView==='assignments'?[['all','ALL'],['pending','PENDING'],['done','DONE']].map(([v,l])=>`<button class="filter-tab${schoolFilter===v?' active-blue':''}" style="${schoolFilter===v?'background:var(--blue);color:#000;border-color:var(--blue)':''}" onclick="App.setSchoolFilter('${v}')">${l}</button>`).join(''):''}
+    ${[['all','ALL'],['pending','PENDING'],['done','DONE']].map(([v,l])=>`<button class="filter-tab${schoolFilter===v?' active':''}" onclick="App.setSchoolFilter('${v}')">${l}</button>`).join('')}
   </div>
-  ${schoolView==='assignments'?`<div class="card">${filtered.length===0?'<div class="empty">Nothing here</div>':items}</div>`:courseGpaRows}
+  <div class="card">${filtered.length===0?'<div class="empty">Nothing here</div>':items}</div>
   </div>`;
 }
 
@@ -2147,275 +1378,204 @@ function renderGrowth(){
 }
 
 // ════════════════════════════════════════════════
-//  SANKEY CHART
-// ════════════════════════════════════════════════
-function drawSankeyChart(canvasId,income,catTotals){
-  const canvas=document.getElementById(canvasId);if(!canvas)return;
-  const ctx=canvas.getContext('2d');
-  const DPR=window.devicePixelRatio||1;
-  const W=canvas.offsetWidth*DPR;const H=canvas.offsetHeight*DPR;
-  canvas.width=W;canvas.height=H;
-  ctx.clearRect(0,0,W,H);
-  const total=income||1;
-  const nodeW=18*DPR;const pad=10*DPR;
-  const leftX=nodeW;const rightX=W-nodeW;
-  const colors=['#3ecf6e','#38bdf8','#a78bfa','#f5a623','#f87171','#2dd4bf','#fb923c','#e879f9'];
-  // Left node (income)
-  const lH=H-pad*2;
-  ctx.fillStyle='#3ecf6e';
-  ctx.beginPath();ctx.roundRect(0,pad,nodeW,lH,4*DPR);ctx.fill();
-  // Label
-  ctx.fillStyle=S.theme==='light'?'#333':'#aaa';
-  ctx.font=`bold ${10*DPR}px DM Mono`;ctx.textAlign='left';
-  ctx.fillText('INCOME',nodeW+6*DPR,pad+16*DPR);
-  ctx.fillStyle=S.theme==='light'?'#1a1a1a':'#f0f0f0';
-  ctx.font=`bold ${12*DPR}px DM Mono`;
-  ctx.fillText('$'+income.toFixed(0),nodeW+6*DPR,pad+30*DPR);
-  // Right nodes + flows
-  const entries=catTotals.filter(c=>c.value>0);
-  if(!entries.length)return;
-  const totalCat=entries.reduce((s,c)=>s+c.value,0)||1;
-  let rightY=pad;
-  entries.forEach((cat,i)=>{
-    const ratio=cat.value/totalCat;
-    const rH=Math.max((lH*ratio),8*DPR);
-    const lStartY=pad+(lH*(entries.slice(0,i).reduce((s,c)=>s+c.value/totalCat,0)));
-    const lEndY=lStartY+(lH*ratio);
-    const color=colors[i%colors.length];
-    // Flow bezier
-    ctx.beginPath();
-    ctx.moveTo(nodeW,lStartY);
-    ctx.bezierCurveTo(W*0.45,lStartY,W*0.45,rightY,rightX,rightY);
-    ctx.lineTo(rightX,rightY+rH);
-    ctx.bezierCurveTo(W*0.45,rightY+rH,W*0.45,lEndY,nodeW,lEndY);
-    ctx.closePath();
-    ctx.fillStyle=color+'40';ctx.fill();
-    // Right node
-    ctx.fillStyle=color;
-    ctx.beginPath();ctx.roundRect(rightX,rightY,nodeW,rH,4*DPR);ctx.fill();
-    // Right label
-    const pct=Math.round(cat.value/total*100);
-    ctx.fillStyle=S.theme==='light'?'#1a1a1a':'#f0f0f0';
-    ctx.font=`bold ${9*DPR}px DM Mono`;ctx.textAlign='right';
-    const midY=rightY+rH/2+4*DPR;
-    ctx.fillText(cat.label+' '+pct+'%',rightX-4*DPR,midY);
-    rightY+=rH+(rH>12*DPR?4*DPR:1*DPR);
-  });
-}
-
-// ════════════════════════════════════════════════
 //  FINANCE TAB
 // ════════════════════════════════════════════════
-let financeView='overview';
-function getTxIcon(desc,cat){
-  const d=(desc||'').toLowerCase();
-  if(d.includes('starbucks'))return'☕';if(d.includes('netflix'))return'🎬';
-  if(d.includes('spotify'))return'🎵';if(d.includes('hulu'))return'📺';
-  if(d.includes('amazon')||d.includes('prime'))return'📦';if(d.includes('apple'))return'🍎';
-  if(d.includes('google'))return'🔍';if(d.includes('uber')||d.includes('lyft'))return'🚗';
-  if(d.includes('chipotle')||d.includes('food')||d.includes('restaurant'))return'🌯';
-  if(d.includes('doordash')||d.includes('grubhub'))return'🛵';
-  if(d.includes('gym')||d.includes('fitness'))return'💪';
-  if(d.includes('venmo')||d.includes('paypal')||d.includes('zelle'))return'💸';
-  if(d.includes('target')||d.includes('walmart'))return'🛒';
-  if(d.includes('twitch'))return'🎮';if(d.includes('discord'))return'💬';
-  const catMap={Food:'🍔',Transport:'🚗',Entertainment:'🎬',Clothing:'👕',Health:'💊',Tech:'💻',Other:'💳'};
-  return catMap[cat]||'💳';
-}
 function renderFinance(){
-  snapshotNetWorth();
-  const nw=calcNetWorth();
-  const hist=S.netWorthHistory||[];
+  const total=S.accounts.reduce((s,a)=>s+(parseFloat(a.balance)||0),0);
   const thisMonth=new Date().toISOString().slice(0,7);
   const mTx=S.transactions.filter(t=>t.date.startsWith(thisMonth));
   const income=mTx.filter(t=>t.type==='income').reduce((s,t)=>s+(parseFloat(t.amount)||0),0);
   const expenses=mTx.filter(t=>t.type==='expense').reduce((s,t)=>s+(parseFloat(t.amount)||0),0);
   const cats=['Food','Transport','Entertainment','Clothing','Health','Tech','Other'];
-  const catData=cats.map(c=>({label:c,value:mTx.filter(t=>t.type==='expense'&&t.category===c).reduce((s,t)=>s+(parseFloat(t.amount)||0),0)})).filter(d=>d.value>0);
+  const catData=cats.map(c=>({label:c.slice(0,3),value:mTx.filter(t=>t.type==='expense'&&t.category===c).reduce((s,t)=>s+(parseFloat(t.amount)||0),0)})).filter(d=>d.value>0);
 
-  const subTabs=[['overview','OVERVIEW'],['transactions','TRANSACTIONS'],['subscriptions','SUBSCRIPTIONS'],['accounts','ACCOUNTS']];
-  const tabsHtml=subTabs.map(([v,l])=>`<button class="filter-tab${financeView===v?' active':''}" onclick="App.setFinanceView('${v}')">${l}</button>`).join('');
-
-  let content='';
-
-  if(financeView==='overview'){
-    const prevNw=hist.length>=2?hist[hist.length-2].value:nw;
-    const nwChange=nw-prevNw;
-    const goalsHtml=S.savingsGoals.map(g=>{
-      const pct=Math.min((g.current/g.target)*100,100);
-      return`<div class="card-row" style="flex-direction:column;align-items:stretch;gap:6px">
-        <div class="row between"><span style="font-size:13px;font-weight:600">${esc(g.name)}</span><span style="font-size:12px;color:var(--green);font-family:var(--mono)">$${g.current}/$${g.target}</span></div>
-        <div class="prog-bar"><div class="prog-fill" style="background:var(--green);width:${pct}%"></div></div>
-      </div>`;
-    }).join('');
-    const assets=S.accounts.filter(a=>a.type!=='credit').reduce((s,a)=>s+(parseFloat(a.balance)||0),0);
-    const liab=S.accounts.filter(a=>a.type==='credit').reduce((s,a)=>s+(parseFloat(a.balance)||0),0);
-    content=`
-    <!-- Net Worth Hero -->
-    <div class="card" style="border-color:rgba(62,207,110,.3)">
-      <div class="row between" style="margin-bottom:6px">
-        <div class="section-label">NET WORTH</div>
-        <span style="font-size:11px;font-family:var(--mono);color:${nwChange>=0?'var(--green)':'var(--red)'}">${nwChange>=0?'+':''}$${Math.abs(nwChange).toFixed(0)} vs last snapshot</span>
-      </div>
-      <div class="nw-hero">$${nw.toFixed(0)}</div>
-      <canvas id="nw-sparkline-fin" style="width:100%;height:48px;display:block;margin:10px 0" height="48"></canvas>
-      <div class="row" style="gap:20px">
-        <div><div style="font-size:14px;font-weight:700;color:var(--green);font-family:var(--mono)">$${assets.toFixed(0)}</div><div style="font-size:9px;color:var(--muted);letter-spacing:.06em">ASSETS</div></div>
-        <div><div style="font-size:14px;font-weight:700;color:var(--red);font-family:var(--mono)">$${liab.toFixed(0)}</div><div style="font-size:9px;color:var(--muted);letter-spacing:.06em">DEBT</div></div>
-        <div><div style="font-size:14px;font-weight:700;color:${income-expenses>=0?'var(--green)':'var(--red)'};font-family:var(--mono)">${income-expenses>=0?'+':''}$${(income-expenses).toFixed(0)}</div><div style="font-size:9px;color:var(--muted);letter-spacing:.06em">MONTHLY NET</div></div>
-      </div>
-    </div>
-    <!-- Sankey allocation -->
-    ${income>0||catData.length>0?`<div class="card">
-      <div class="section-label" style="margin-bottom:10px">ALLOCATION — ${new Date().toLocaleDateString('en-US',{month:'long'}).toUpperCase()}</div>
-      <canvas id="sankey-canvas" class="sankey-canvas" height="200"></canvas>
-    </div>`:''}
-    <!-- Savings Goals -->
-    <div class="card">
-      <div class="row between" style="margin-bottom:12px">
-        <div class="section-label">SAVINGS GOALS</div>
-        <button class="btn-ghost btn-xs" onclick="App.openAddSavingsGoal()">+ ADD</button>
-      </div>
-      ${S.savingsGoals.length===0?'<div class="empty">No goals set</div>':goalsHtml}
-    </div>`;
-  }
-
-  else if(financeView==='transactions'){
-    const txHtml=S.transactions.slice(0,40).map(t=>{
-      const icon=getTxIcon(t.desc,t.category);
-      const isRecurring=S.subscriptions.some(s=>t.desc&&t.desc.toLowerCase().includes(s.name.toLowerCase()));
-      return`<div class="tx-monitor-item">
-        <div class="tx-monitor-icon">${icon}</div>
-        <div style="flex:1">
-          <div class="tx-monitor-name">${esc(t.desc||t.category)}</div>
-          <div class="tx-monitor-date">${fmtShort(t.date)} · ${esc(t.category)}</div>
-        </div>
-        ${isRecurring?`<span class="tx-monitor-recurring" title="Recurring">↻</span>`:''}
-        <div class="tx-amount ${t.type==='income'?'tx-income':'tx-expense'}" style="font-size:15px">${t.type==='income'?'+':'-'}$${parseFloat(t.amount).toFixed(2)}</div>
-        <button class="todo-del" onclick="App.deleteTx('${t.id}')" style="margin-left:4px">✕</button>
-      </div>`;
-    }).join('');
-    content=`
-    <div class="row between" style="margin-bottom:12px">
-      <div style="font-size:12px;color:var(--muted)">${S.transactions.length} total transactions</div>
-      <button class="btn btn-sm" onclick="App.openAddTx()">+ LOG</button>
-    </div>
-    ${S.transactions.length===0?'<div class="empty">No transactions yet — tap + LOG to add one</div>':txHtml}`;
-  }
-
-  else if(financeView==='subscriptions'){
-    // Build weekly calendar (Mon–Sun of current week)
-    const now=new Date();
-    const dayOfWeek=now.getDay(); // 0=Sun
-    const monday=new Date(now);monday.setDate(now.getDate()-(dayOfWeek===0?6:dayOfWeek-1));
-    const weekDays=Array.from({length:7},(_,i)=>{const d=new Date(monday);d.setDate(monday.getDate()+i);return d;});
-    const dayLabels=['MON','TUE','WED','THU','FRI','SAT','SUN'];
-    const todayD=todayStr();
-    const calCols=weekDays.map((d,i)=>{
-      const dayNum=d.getDate();
-      const isToday=d.toISOString().split('T')[0]===todayD;
-      const daySubs=S.subscriptions.filter(s=>s.active&&s.billingDay===dayNum);
-      const dayTotal=daySubs.reduce((s,sub)=>s+(parseFloat(sub.amount)||0),0);
-      return`<div class="sub-day${isToday?' today-col':''}">
-        <div class="sub-day-label">${dayLabels[i]}</div>
-        <div class="sub-day-num">${dayNum}</div>
-        <div class="sub-logos">${daySubs.map(s=>`<div class="sub-logo" title="${esc(s.name)}">${esc(s.emoji)}</div>`).join('')}</div>
-        ${dayTotal>0?`<div class="sub-day-total">$${dayTotal.toFixed(0)}</div>`:''}
-      </div>`;
-    }).join('');
-    const monthlyTotal=S.subscriptions.filter(s=>s.active).reduce((s,sub)=>s+(parseFloat(sub.amount)||0),0);
-    const subList=S.subscriptions.map(s=>`<div class="card-row">
-      <div class="tx-monitor-icon" style="width:32px;height:32px;font-size:16px">${esc(s.emoji)}</div>
-      <div style="flex:1">
-        <div style="font-size:13px;font-weight:600">${esc(s.name)}</div>
-        <div style="font-size:10px;color:var(--muted)">Bills on the ${s.billingDay}${s.billingDay===1?'st':s.billingDay===2?'nd':s.billingDay===3?'rd':'th'} of each month</div>
-      </div>
-      <div style="font-size:14px;font-weight:700;color:var(--text);font-family:var(--mono);margin-right:8px">$${parseFloat(s.amount).toFixed(2)}</div>
-      <button class="todo-del" onclick="App.deleteSubscription('${s.id}')">✕</button>
+  const accountsHtml=S.accounts.length===0?`<div class="empty">No accounts · <span class="inline-link" onclick="App.openAddAccount()">Add one</span></div>`:
+    S.accounts.map(a=>`<div class="card-row">
+      <div style="flex:1"><div style="font-size:13px;font-weight:600">${esc(a.name)}</div><div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-top:2px">${esc(a.type)}</div></div>
+      <div style="font-size:16px;font-weight:800;color:var(--green);font-family:var(--mono)">$${parseFloat(a.balance).toFixed(2)}</div>
     </div>`).join('');
-    content=`
-    <div class="card">
-      <div class="row between" style="margin-bottom:4px">
-        <div class="section-label">THIS WEEK'S BILLS</div>
-        <span style="font-size:11px;font-family:var(--mono);color:var(--orange)">$${monthlyTotal.toFixed(2)}/mo</span>
-      </div>
-      <div class="sub-cal">${calCols}</div>
-    </div>
-    <div class="card">
-      <div class="row between" style="margin-bottom:12px">
-        <div class="section-label">MY SUBSCRIPTIONS</div>
-        <button class="btn-ghost btn-xs" onclick="App.openAddSubscription()">+ ADD</button>
-      </div>
-      ${S.subscriptions.length===0?'<div class="empty">No subscriptions tracked yet</div>':subList}
-    </div>`;
-  }
 
-  else if(financeView==='accounts'){
-    const plaidBanks=[
-      {name:'Chase',logo:'🏦',key:'chase'},
-      {name:'Bank of America',logo:'💳',key:'bofa'},
-      {name:'Wells Fargo',logo:'🏛️',key:'wellsfargo'},
-      {name:'Capital One',logo:'💰',key:'capitalone'},
-      {name:'Any Institution (12,000+)',logo:'🔗',key:'other'},
-    ];
-    const plaidHtml=plaidBanks.map(b=>`
-      <div class="plaid-btn" onclick="App.connectPlaid('${b.key}')">
-        <span class="plaid-logo">${b.logo}</span>
-        <span class="plaid-name">${b.name}</span>
-        <span class="plaid-status">${S.plaidAccounts?.find(a=>a.institution===b.key)?'✓ Connected':'Tap to connect'}</span>
-      </div>`).join('');
-    const accountsHtml=S.accounts.length===0?`<div class="empty">No accounts · <span class="inline-link" onclick="App.openAddAccount()">Add one</span></div>`:
-      S.accounts.map(a=>`<div class="card-row">
-        <div style="flex:1">
-          <div style="font-size:13px;font-weight:600">${esc(a.name)}</div>
-          <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-top:2px">${esc(a.type)}</div>
-        </div>
-        <div style="font-size:16px;font-weight:800;color:${a.type==='credit'?'var(--red)':'var(--green)'};font-family:var(--mono)">$${parseFloat(a.balance).toFixed(2)}</div>
-        <button class="todo-del" onclick="App.deleteAccount('${a.id}')" style="margin-left:8px">✕</button>
-      </div>`).join('');
-    content=`
-    <div class="card">
-      <div class="row between" style="margin-bottom:12px">
-        <div class="section-label">MY ACCOUNTS</div>
-        <button class="btn-ghost btn-xs" onclick="App.openAddAccount()">+ ADD</button>
-      </div>
-      ${accountsHtml}
-    </div>
-    <div class="card">
-      <div class="section-label" style="margin-bottom:12px">CONNECT VIA PLAID</div>
-      <div class="canvas-note" style="margin-bottom:12px">Plaid connects 12,000+ banks and brokerages. Requires Plaid API keys in Settings.</div>
-      ${plaidHtml}
+  const goalsHtml=S.savingsGoals.map(g=>{
+    const pct=Math.min((g.current/g.target)*100,100);
+    return`<div class="card-row" style="flex-direction:column;align-items:stretch;gap:6px">
+      <div class="row between"><span style="font-size:13px;font-weight:600">${esc(g.name)}</span><span style="font-size:12px;color:var(--green);font-family:var(--mono)">$${g.current}/$${g.target}</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="background:var(--green);width:${pct}%"></div></div>
     </div>`;
-  }
+  }).join('');
+
+  const txHtml=S.transactions.slice(0,20).map(t=>`<div class="tx-item">
+    <div><div style="font-size:13px;font-weight:500">${esc(t.desc||t.category)}</div><div style="font-size:10px;color:var(--muted);margin-top:2px">${fmtShort(t.date)} · ${esc(t.category)}</div></div>
+    <div class="tx-amount ${t.type==='income'?'tx-income':'tx-expense'}">${t.type==='income'?'+':'-'}$${parseFloat(t.amount).toFixed(2)}</div>
+  </div>`).join('');
+
+  const plaidBanks=[
+    {name:'Chase',logo:'🏦',key:'chase'},
+    {name:'Bank of America',logo:'💳',key:'bofa'},
+    {name:'Robinhood',logo:'📈',key:'robinhood'},
+    {name:'Schwab',logo:'📊',key:'schwab'},
+  ];
+  const plaidHtml=plaidBanks.map(b=>`
+    <div class="plaid-btn" onclick="App.connectPlaid('${b.key}')">
+      <span class="plaid-logo">${b.logo}</span>
+      <span class="plaid-name">${b.name}</span>
+      <span class="plaid-status">${S.plaidAccounts?.find(a=>a.institution===b.key)?'✓ Connected':'Tap to connect'}</span>
+    </div>`).join('');
 
   return`<div class="page">
   <div class="row between" style="margin-bottom:14px">
     <div class="page-title">FINANCE</div>
     <button class="btn btn-sm" onclick="App.openAddTx()">+ TX</button>
   </div>
-  <div class="filter-tabs">${tabsHtml}</div>
-  ${content}
+
+  <div class="card" style="border-color:rgba(62,207,110,.3)">
+    <div class="section-label" style="margin-bottom:6px">TOTAL BALANCE</div>
+    <div class="balance-hero">$${total.toFixed(2)}</div>
+    <div class="row" style="gap:20px;margin-top:12px">
+      <div><div style="font-size:14px;font-weight:700;color:var(--green);font-family:var(--mono)">+$${income.toFixed(0)}</div><div style="font-size:10px;color:var(--muted)">INCOME</div></div>
+      <div><div style="font-size:14px;font-weight:700;color:var(--red);font-family:var(--mono)">-$${expenses.toFixed(0)}</div><div style="font-size:10px;color:var(--muted)">EXPENSES</div></div>
+      <div><div style="font-size:14px;font-weight:700;color:${income-expenses>=0?'var(--green)':'var(--red)'};font-family:var(--mono)">${income-expenses>=0?'+':''}$${(income-expenses).toFixed(0)}</div><div style="font-size:10px;color:var(--muted)">NET</div></div>
+    </div>
+  </div>
+
+  ${catData.length>0?`<div class="card"><div class="section-label" style="margin-bottom:10px">SPENDING BY CATEGORY</div><canvas id="cat-bar-chart" class="chart-canvas" height="90"></canvas></div>`:''}
+
+  <div class="card">
+    <div class="row between" style="margin-bottom:12px">
+      <div class="section-label">ACCOUNTS</div>
+      <button class="btn-ghost btn-xs" onclick="App.openAddAccount()">+ ADD</button>
+    </div>
+    ${accountsHtml}
+  </div>
+
+  <div class="card">
+    <div class="section-label" style="margin-bottom:12px">CONNECT INSTITUTIONS</div>
+    <div class="canvas-note" style="margin-bottom:12px">Requires Plaid API key in Settings → API Keys. Your data stays in your browser.</div>
+    ${plaidHtml}
+  </div>
+
+  <div class="card">
+    <div class="row between" style="margin-bottom:12px">
+      <div class="section-label">SAVINGS GOALS</div>
+      <button class="btn-ghost btn-xs" onclick="App.openAddSavingsGoal()">+ ADD</button>
+    </div>
+    ${S.savingsGoals.length===0?'<div class="empty">No goals set</div>':goalsHtml}
+  </div>
+
+  <div class="card">
+    <div class="section-label" style="margin-bottom:12px">RECENT TRANSACTIONS</div>
+    ${S.transactions.length===0?'<div class="empty">No transactions yet</div>':txHtml}
+  </div>
   </div>`;
 }
 function renderFinanceChart(){
-  if(financeView==='overview'){
-    const thisMonth=new Date().toISOString().slice(0,7);
-    const mTx=S.transactions.filter(t=>t.date.startsWith(thisMonth));
-    const income=mTx.filter(t=>t.type==='income').reduce((s,t)=>s+(parseFloat(t.amount)||0),0);
-    const cats=['Food','Transport','Entertainment','Clothing','Health','Tech','Other'];
-    const catData=cats.map(c=>({label:c,value:mTx.filter(t=>t.type==='expense'&&t.category===c).reduce((s,t)=>s+(parseFloat(t.amount)||0),0)})).filter(d=>d.value>0);
-    setTimeout(()=>{
-      drawNetWorthSparkline('nw-sparkline-fin');
-      const exp=mTx.filter(t=>t.type==='expense').reduce((s,t)=>s+(parseFloat(t.amount)||0),0);
-      if(income>0||catData.length>0)drawSankeyChart('sankey-canvas',income||exp,catData);
-    },50);
-  }
+  const cats=['Food','Transport','Entertainment','Clothing','Health','Tech','Other'];
+  const thisMonth=new Date().toISOString().slice(0,7);
+  const mTx=S.transactions.filter(t=>t.date.startsWith(thisMonth)&&t.type==='expense');
+  const catData=cats.map(c=>({label:c.slice(0,3),value:mTx.filter(t=>t.category===c).reduce((s,t)=>s+(parseFloat(t.amount)||0),0)})).filter(d=>d.value>0);
+  if(catData.length>0)drawBarChart('cat-bar-chart',catData,{color:'var(--orange)'});
 }
 
+// ════════════════════════════════════════════════
+//  HEALTH TAB
+// ════════════════════════════════════════════════
+let healthView='sleep';
+function renderHealth(){
+  const today=todayStr();
+  const suppDone=S.supplementLog[today]||[];
+  const avgSleep=S.sleepLog.slice(0,14).filter(s=>s.hours).reduce((a,s,_,arr)=>a+parseFloat(s.hours)/arr.length,0)||0;
+  let content='';
+  if(healthView==='sleep'){
+    const sleepHtml=S.sleepLog.slice(0,10).map(s=>`<div class="card-row">
+      <span style="font-size:12px;color:var(--muted)">${fmtShort(s.date)}</span>
+      <span style="font-size:14px;font-weight:700;font-family:var(--mono)">${s.hours}h <span style="font-size:11px;color:var(--muted)">${'⭐'.repeat(+s.quality)}</span></span>
+    </div>`).join('');
+    content=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+      <div class="stat-card"><div class="stat-val" style="color:var(--blue)">${avgSleep>0?avgSleep.toFixed(1):'—'}</div><div class="stat-lbl">AVG HRS (14D)</div></div>
+      <div class="stat-card"><div class="stat-val">${S.sleepLog.length}</div><div class="stat-lbl">NIGHTS LOGGED</div></div>
+    </div>
+    ${S.sleepLog.length>1?`<div class="card" style="margin-bottom:14px"><div class="section-label" style="margin-bottom:10px">SLEEP HISTORY</div><canvas id="sleep-chart" class="chart-canvas" height="80"></canvas></div>`:''}
+    <div class="card">
+      <div class="section-label" style="margin-bottom:12px">LOG SLEEP</div>
+      <div class="grid-2" style="margin-bottom:10px">
+        <div><label class="lbl">Date</label><input type="date" class="inp" id="sleep-date" value="${today}"></div>
+        <div><label class="lbl">Hours</label><input type="number" class="inp" id="sleep-hours" placeholder="7.5" step="0.5" min="0" max="24"></div>
+      </div>
+      <div style="margin-bottom:10px">
+        <label class="lbl">Quality (1–5)</label>
+        <input type="range" min="1" max="5" value="3" id="sleep-quality" style="width:100%;accent-color:var(--blue)">
+        <div class="star-rating" id="sleep-stars">⭐⭐⭐</div>
+      </div>
+      <button class="btn btn-blue btn-full" onclick="App.logSleep()">LOG SLEEP</button>
+      ${sleepHtml?`<div style="margin-top:12px">${sleepHtml}</div>`:''}
+    </div>`;
+  } else if(healthView==='body'){
+    const metricsHtml=S.bodyMetrics.slice(0,10).map(m=>`<div class="weight-entry"><span class="weight-date">${fmtShort(m.date)}</span><span class="weight-val">${m.weight} lbs</span></div>`).join('');
+    content=`<div class="card">
+      <div class="section-label" style="margin-bottom:14px">BODY METRICS</div>
+      <div class="grid-2" style="margin-bottom:14px">
+        <div><label class="lbl">Date</label><input type="date" class="inp" id="metric-date" value="${today}"></div>
+        <div><label class="lbl">Weight (lbs)</label><input type="number" class="inp" id="metric-weight" placeholder="175"></div>
+      </div>
+      <button class="btn btn-red btn-full" style="margin-bottom:16px" onclick="App.logBodyMetric()">LOG</button>
+      ${metricsHtml}
+    </div>`;
+  } else if(healthView==='supplements'){
+    const suppItems=S.supplements.map(s=>{
+      const done=suppDone.includes(s.id);
+      return`<div class="card-row" onclick="App.toggleSupp('${s.id}')" style="cursor:pointer">
+        <div class="cb${done?' done':''}" onclick="App.toggleSupp('${s.id}')"></div>
+        <div style="flex:1"><div style="font-size:13px;color:${done?'var(--text)':'var(--muted)'};font-weight:${done?600:400}">${esc(s.name)}</div><div style="font-size:10px;color:var(--muted);margin-top:2px">${esc(s.dose)} · ${esc(s.timing)}</div></div>
+        <button class="todo-del" onclick="event.stopPropagation();App.deleteSupp('${s.id}')">✕</button>
+      </div>`;
+    }).join('');
+    content=`<div class="card">
+      <div class="row between" style="margin-bottom:12px"><div class="section-label">TODAY'S STACK</div><div style="font-size:11px;color:var(--orange);font-weight:700">${suppDone.length}/${S.supplements.length} TAKEN</div></div>
+      ${S.supplements.length===0?'<div class="empty">No supplements added</div>':suppItems}
+      <button class="btn-ghost btn-sm btn-full" style="margin-top:10px" onclick="App.openAddSupp()">+ ADD SUPPLEMENT</button>
+    </div>`;
+  }
+  return`<div class="page">
+  <div class="page-title" style="margin-bottom:14px">HEALTH</div>
+  <div class="filter-tabs">
+    ${[['sleep','SLEEP'],['body','BODY'],['supplements','SUPPS']].map(([v,l])=>`<button class="filter-tab${healthView===v?' active-red':''}${healthView===v?'':''}" onclick="App.setHealthView('${v}')" style="${healthView===v?'background:var(--red);color:#fff;border-color:var(--red)':'background:transparent;color:var(--muted);border-color:var(--border)'}">${l}</button>`).join('')}
+  </div>
+  ${content}
+  </div>`;
+}
 
 // ════════════════════════════════════════════════
 //  TIME TAB
 // ════════════════════════════════════════════════
+function renderTime(){
+  const quadrants=[
+    {id:'do',label:'DO NOW',desc:'Urgent + Important',color:'var(--red)',bg:'var(--red-bg)',bc:'rgba(248,113,113,.3)'},
+    {id:'plan',label:'PLAN',desc:'Important, Not Urgent',color:'var(--blue)',bg:'var(--blue-bg)',bc:'rgba(56,189,248,.3)'},
+    {id:'delegate',label:'DELEGATE',desc:'Urgent, Not Important',color:'var(--orange)',bg:'var(--orange-bg)',bc:'rgba(245,166,35,.3)'},
+    {id:'drop',label:'DROP',desc:'Not Urgent, Not Important',color:'var(--muted)',bg:'var(--card2)',bc:'var(--border)'},
+  ];
+  const items=S.priorityItems||[];
+  const quads=quadrants.map(q=>{
+    const qItems=items.filter(i=>i.quadrant===q.id);
+    return`<div style="background:${q.bg};border-radius:var(--radius);border:1px solid ${q.bc};padding:12px">
+      <div style="font-size:11px;font-weight:800;color:${q.color};letter-spacing:.08em;margin-bottom:2px">${q.label}</div>
+      <div style="font-size:9px;color:var(--muted);margin-bottom:10px">${q.desc}</div>
+      ${qItems.map(it=>`<div class="matrix-item">
+        <span class="matrix-item-text">${esc(it.title)}</span>
+        <button class="matrix-del" onclick="App.deletePriorityItem('${it.id}')">✕</button>
+      </div>`).join('')}
+      ${qItems.length===0?'<div style="font-size:11px;color:var(--muted);font-style:italic">Empty</div>':''}
+    </div>`;
+  }).join('');
+  return`<div class="page">
+  <div class="row between" style="margin-bottom:14px">
+    <div class="page-title">PRIORITIES</div>
+    <button class="btn btn-sm" onclick="App.openAddPriorityItem()">+ ADD</button>
+  </div>
+  <div class="matrix-grid">${quads}</div>
+  </div>`;
+}
+
 // ════════════════════════════════════════════════
 //  SOCIAL TAB
 // ════════════════════════════════════════════════
@@ -2458,6 +1618,8 @@ function renderSettings(){
   const apiStatuses={
     plaid:k.plaid_client_id&&k.plaid_secret,
     canvas:k.canvas_url&&k.canvas_token,
+    schwab:k.schwab_key,
+    robinhood:k.robinhood_token,
   };
   return`<div class="page">
   <div class="page-title" style="margin-bottom:20px">SETTINGS</div>
@@ -2482,19 +1644,6 @@ function renderSettings(){
     </div>
   </div>
 
-  <!-- Google Calendar -->
-  <div class="settings-section">
-    <div class="settings-section-title">GOOGLE CALENDAR</div>
-    <div class="canvas-note" style="margin-bottom:12px">
-      Paste your OAuth 2.0 Client ID from <strong>console.cloud.google.com</strong> → APIs &amp; Services → Credentials. Enable the Google Calendar API and add your domain (or <strong>http://localhost</strong>) as an Authorized JavaScript origin. iCal import/export works without any setup.
-    </div>
-    <div class="col" style="gap:10px">
-      <div><label class="lbl">Google OAuth Client ID</label><input class="inp" id="gcal-client-id" value="${esc(k.google_client_id||'')}" placeholder="xxxx.apps.googleusercontent.com"></div>
-      <button class="btn btn-sm" onclick="App.saveGoogleClientId()">SAVE CLIENT ID</button>
-    </div>
-    ${k.google_client_id?`<div style="color:var(--green);font-size:12px;margin-top:8px">✓ Client ID saved — use 🔄 GOOGLE in the calendar to sync</div>`:''}
-  </div>
-
   <!-- Financial APIs -->
   <div class="settings-section">
     <div class="settings-section-title">FINANCIAL INSTITUTIONS (via Plaid)</div>
@@ -2515,6 +1664,17 @@ function renderSettings(){
     ${apiStatuses.plaid?'<div style="color:var(--green);font-size:12px;margin-top:8px">✓ Plaid configured — go to Finance tab to connect accounts</div>':''}
   </div>
 
+  <!-- Schwab Direct -->
+  <div class="settings-section">
+    <div class="settings-section-title">SCHWAB DEVELOPER API</div>
+    <div class="canvas-note" style="margin-bottom:12px">
+      Charles Schwab has a Developer API at <strong>developer.schwab.com</strong>. Register an app to get an API key. Note: OAuth requires a redirect URI — VS Code Live Server URL works.
+    </div>
+    <div><label class="lbl">Schwab API Key</label><input class="inp" id="schwab-key" value="${esc(k.schwab_key||'')}" placeholder="Enter Schwab API key"></div>
+    <button class="btn btn-sm" style="margin-top:8px" onclick="App.saveSchwabKey()">SAVE</button>
+    ${apiStatuses.schwab?'<div style="color:var(--green);font-size:12px;margin-top:8px">✓ Schwab key saved</div>':''}
+  </div>
+
   <!-- Canvas LMS -->
   <div class="settings-section">
     <div class="settings-section-title">CANVAS LMS</div>
@@ -2527,6 +1687,16 @@ function renderSettings(){
       <button class="btn btn-sm" onclick="App.saveCanvasKeys()">SAVE & SYNC ASSIGNMENTS</button>
     </div>
     ${apiStatuses.canvas?'<div style="color:var(--green);font-size:12px;margin-top:8px">✓ Canvas configured</div>':''}
+  </div>
+
+  <!-- Robinhood -->
+  <div class="settings-section">
+    <div class="settings-section-title">ROBINHOOD</div>
+    <div class="canvas-note" style="margin-bottom:12px">
+      Robinhood does not have an official public API. You can use your session token from browser devtools (temporary). For stable access, use Plaid which includes Robinhood portfolio data.
+    </div>
+    <div><label class="lbl">Robinhood Session Token (unofficial)</label><input class="inp" type="password" id="robinhood-token" value="${esc(k.robinhood_token||'')}" placeholder="Optional"></div>
+    <button class="btn btn-sm" style="margin-top:8px" onclick="App.saveRobinhoodToken()">SAVE</button>
   </div>
 
   <!-- Courses -->
@@ -2555,10 +1725,10 @@ function renderSettings(){
 function renderCharts(){
   if(currentTab==='home'){
     const hist=get30DayHistory();
-    drawInteractiveBarChart('score-bar-chart',hist.map(d=>({label:d.label,value:d.score})),{color:'#f5a623',maxVal:100});
+    drawBarChart('score-bar-chart',hist.map(d=>({label:d.label,value:d.score})),{color:'#f5a623'});
     drawScoreRingCanvas('score-ring-canvas',calcScore(todayStr()));
   }
-  if(currentTab==='gym'&&gymSubView==='sleep'&&S.sleepLog.length>1){
+  if(currentTab==='health'&&healthView==='sleep'&&S.sleepLog.length>1){
     const data=[...S.sleepLog].reverse().slice(0,14).map(s=>({label:fmtShort(s.date),value:parseFloat(s.hours)||0}));
     drawBarChart('sleep-chart',data,{color:'#38bdf8'});
   }
@@ -2611,20 +1781,7 @@ function bindDragAndDrop(){
   });
 }
 
-function bindGymEvents(){
-  const searchInp=document.getElementById('gym-ex-search');
-  if(searchInp){
-    searchInp.focus();
-    searchInp.addEventListener('input',e=>{
-      gymExPickerSearch=e.target.value;
-      const q=e.target.value.toLowerCase();
-      document.querySelectorAll('.gym-picker-item').forEach(item=>{
-        const name=item.dataset.exname||'';
-        item.style.display=name.includes(q)||!q?'':'none';
-      });
-    });
-  }
-}
+function bindGymEvents(){/* handled via inline handlers */}
 
 // ════════════════════════════════════════════════
 //  APP ACTIONS
@@ -2632,27 +1789,12 @@ function bindGymEvents(){
 const App = {
   // ── NAVIGATION ──────────────────────────────────
   navigate,
-  toggleNav(){
-    navCollapsed=!navCollapsed;
-    document.body.classList.toggle('nav-collapsed',navCollapsed);
-    const btn=document.querySelector('.nav-collapse-btn');
-    if(btn)btn.textContent=navCollapsed?'':'‹';
-  },
   setCalView(v){calView=v;renderPage();},
-  setCalDisplayMode(m){calDisplayMode=m;renderPage();},
-  calPrev(){
-    if(calDisplayMode==='week'){const d=getCalWeekStart();d.setDate(d.getDate()-7);calWeekStartDate=d.toISOString().split('T')[0];}
-    else{if(calMonth===0){calMonth=11;calYear--;}else calMonth--;}
-    renderPage();
-  },
-  calNext(){
-    if(calDisplayMode==='week'){const d=getCalWeekStart();d.setDate(d.getDate()+7);calWeekStartDate=d.toISOString().split('T')[0];}
-    else{if(calMonth===11){calMonth=0;calYear++;}else calMonth++;}
-    renderPage();
-  },
+  calPrev(){if(calMonth===0){calMonth=11;calYear--;}else calMonth--;renderPage();},
+  calNext(){if(calMonth===11){calMonth=0;calYear++;}else calMonth++;renderPage();},
   setSchoolFilter(v){schoolFilter=v;renderPage();},
-  setSchoolView(v){schoolView=v;renderPage();},
   setGrowthView(v){growthView=v;renderPage();},
+  setHealthView(v){healthView=v;renderPage();},
   setGymSubView(v){gymSubView=v;renderPage();},
   setBodyView(v){gymBodyView=v;renderPage();},
 
@@ -2778,171 +1920,30 @@ const App = {
   // ── GYM ──────────────────────────────────────────
   startWorkout(templateId){
     const tmpl=templateId?S.gymTemplates.find(t=>t.id===templateId):null;
-    gymSession={id:uid(),date:todayStr(),name:tmpl?.name||'Custom Workout',notes:'',
-      exercises:(tmpl?.exercises||[]).map(name=>({name,collapsed:false,restEnabled:true,restDuration:120,sets:[{reps:'',weight:'',done:false}]})),
-      startTime:Date.now()};
-    gymExPickerOpen=false;gymNumpad=null;gymRestState=null;
-    clearInterval(gymRestInterval);clearInterval(gymWatchInterval);
+    gymSession={id:uid(),date:todayStr(),name:tmpl?.name||'Custom Workout',
+      exercises:(tmpl?.exercises||[]).map(name=>({name,sets:[{reps:'',weight:''}]})),startTime:Date.now()};
     renderPage();
   },
   updateSessionName(val){if(gymSession)gymSession.name=val;},
-  updateWorkoutNotes(val){if(gymSession)gymSession.notes=val;},
-  addExercise(){App.openExPicker();},
+  addExercise(){if(gymSession){gymSession.exercises.push({name:'',sets:[{reps:'',weight:''}]});renderPage();}},
   updateExName(ei,val){if(gymSession)gymSession.exercises[ei].name=val;},
-  toggleExCollapse(ei){if(gymSession){gymSession.exercises[ei].collapsed=!gymSession.exercises[ei].collapsed;renderPage();}},
-  removeExercise(ei){if(gymSession){gymSession.exercises.splice(ei,1);renderPage();}},
-  toggleRestTimer(ei){if(gymSession)gymSession.exercises[ei].restEnabled=!gymSession.exercises[ei].restEnabled;},
-  editRestDuration(ei){
-    const ex=gymSession?.exercises[ei];if(!ex)return;
-    const val=prompt(`Rest time for ${ex.name||'exercise'} (seconds):`,ex.restDuration||120);
-    const n=parseInt(val);
-    if(!isNaN(n)&&n>0){ex.restDuration=n;renderPage();}
-  },
-  openExPicker(){gymExPickerOpen=true;gymExPickerSearch='';gymNumpad=null;renderPage();},
-  closeExPicker(){gymExPickerOpen=false;renderPage();},
-  pickExercise(name){
-    if(!gymSession)return;
-    gymSession.exercises.push({name,collapsed:false,restEnabled:true,restDuration:120,sets:[{reps:'',weight:'',done:false}]});
-    gymExPickerOpen=false;renderPage();
-  },
-  exPickerSort(sort){gymExPickerSort=sort;renderPage();},
-  exPickerSearch(val){gymExPickerSearch=val;
-    const q=val.toLowerCase();
-    document.querySelectorAll('.gym-picker-item').forEach(item=>{
-      item.style.display=item.dataset.exname?.includes(q)?'':'none';
-    });
-  },
-  toggleSetDone(ei,si){
-    if(!gymSession)return;
-    const set=gymSession.exercises[ei].sets[si];
-    set.done=!set.done;
-    if(set.done&&gymSession.exercises[ei].restEnabled!==false){
-      App.startRestCountdown(ei,gymSession.exercises[ei].restDuration||120);
-    } else {
-      renderPage();
-    }
-  },
-  addSet(ei){
-    if(!gymSession)return;
-    const ex=gymSession.exercises[ei];
-    const last=ex.sets[ex.sets.length-1]||{};
-    ex.sets.push({reps:last.reps||'',weight:last.weight||'',done:false});
-    renderPage();
-  },
+  addSet(ei){if(gymSession){gymSession.exercises[ei].sets.push({reps:'',weight:''});renderPage();}},
   removeSet(ei,si){if(gymSession&&gymSession.exercises[ei].sets.length>1){gymSession.exercises[ei].sets.splice(si,1);renderPage();}},
   updateSet(ei,si,field,val){if(gymSession)gymSession.exercises[ei].sets[si][field]=val;},
-  openNumpad(ei,si,field){
-    if(!gymSession)return;
-    gymNumpad={ei,si,field,value:String(gymSession.exercises[ei].sets[si][field]||'')};
-    renderPage();
-  },
-  closeNumpad(){
-    if(gymNumpad&&gymSession){
-      gymSession.exercises[gymNumpad.ei].sets[gymNumpad.si][gymNumpad.field]=gymNumpad.value;
-    }
-    gymNumpad=null;renderPage();
-  },
-  numpadKey(k){
-    if(!gymNumpad)return;
-    if(k==='⌫'){gymNumpad.value=gymNumpad.value.slice(0,-1);}
-    else if(k==='.'&&gymNumpad.value.includes('.')){}
-    else{gymNumpad.value+=k;}
-    const el=document.getElementById('gym-numpad-val');
-    if(el)el.textContent=gymNumpad.value||'0';
-    if(gymSession)gymSession.exercises[gymNumpad.ei].sets[gymNumpad.si][gymNumpad.field]=gymNumpad.value;
-    // update the cell in the workout too
-    const cells=document.querySelectorAll('.gym-set-row');
-    if(cells[gymNumpad.si]){
-      const idx=gymNumpad.field==='weight'?2:3;
-      const cell=cells[gymNumpad.si]?.children[idx];
-      if(cell)cell.textContent=gymNumpad.value||'0';
-    }
-  },
-  numpadAdj(delta){
-    if(!gymNumpad)return;
-    const n=Math.max(0,parseFloat(gymNumpad.value||0)+delta);
-    gymNumpad.value=Number.isInteger(n)?String(n):n.toFixed(1).replace(/\.0$/,'');
-    const el=document.getElementById('gym-numpad-val');
-    if(el)el.textContent=gymNumpad.value;
-    if(gymSession)gymSession.exercises[gymNumpad.ei].sets[gymNumpad.si][gymNumpad.field]=gymNumpad.value;
-  },
-  numpadNext(){
-    if(!gymNumpad||!gymSession)return;
-    gymSession.exercises[gymNumpad.ei].sets[gymNumpad.si][gymNumpad.field]=gymNumpad.value;
-    const ex=gymSession.exercises[gymNumpad.ei];
-    if(gymNumpad.field==='weight'){
-      gymNumpad={...gymNumpad,field:'reps',value:String(ex.sets[gymNumpad.si].reps||'')};
-      renderPage();
-    } else {
-      const nextSi=gymNumpad.si+1;
-      if(nextSi<ex.sets.length){
-        gymNumpad={...gymNumpad,si:nextSi,field:'weight',value:String(ex.sets[nextSi].weight||'')};
-        renderPage();
-      } else {
-        gymNumpad=null;renderPage();
-      }
-    }
-  },
-  numpadCopy(){
-    if(!gymNumpad||!gymSession||gymNumpad.si===0)return;
-    const prev=gymSession.exercises[gymNumpad.ei].sets[gymNumpad.si-1];
-    if(gymNumpad.field==='weight'&&prev.weight)gymNumpad.value=String(prev.weight);
-    else if(gymNumpad.field==='reps'&&prev.reps)gymNumpad.value=String(prev.reps);
-    const el=document.getElementById('gym-numpad-val');
-    if(el)el.textContent=gymNumpad.value||'0';
-    if(gymSession)gymSession.exercises[gymNumpad.ei].sets[gymNumpad.si][gymNumpad.field]=gymNumpad.value;
-  },
-  startRestCountdown(ei,secs){
-    clearInterval(gymRestInterval);
-    gymRestState={remaining:secs,total:secs,ei};
-    gymRestInterval=setInterval(()=>{
-      if(!gymRestState){clearInterval(gymRestInterval);return;}
-      gymRestState.remaining--;
-      if(gymRestState.remaining<=0){
-        clearInterval(gymRestInterval);gymRestState=null;renderPage();return;
-      }
-      const m=Math.floor(gymRestState.remaining/60).toString().padStart(2,'0');
-      const s=(gymRestState.remaining%60).toString().padStart(2,'0');
-      const dEl=document.getElementById('gym-rest-display');
-      if(dEl)dEl.textContent=`${m}:${s}`;
-      const circ=document.getElementById('gym-rest-progress');
-      if(circ){const C=2*Math.PI*45;circ.style.strokeDashoffset=C*(1-gymRestState.remaining/gymRestState.total);}
-    },1000);
-    renderPage();
-  },
-  showRestModal(){renderPage();},
-  skipRest(){clearInterval(gymRestInterval);gymRestState=null;renderPage();},
-  adjustRest(delta){
-    if(!gymRestState)return;
-    gymRestState.remaining=Math.max(0,gymRestState.remaining+delta);
-    const m=Math.floor(gymRestState.remaining/60).toString().padStart(2,'0');
-    const s=(gymRestState.remaining%60).toString().padStart(2,'0');
-    const el=document.getElementById('gym-rest-display');
-    if(el)el.textContent=`${m}:${s}`;
-    const circ=document.getElementById('gym-rest-progress');
-    if(circ){const C=2*Math.PI*45;circ.style.strokeDashoffset=C*(1-gymRestState.remaining/Math.max(gymRestState.total,1));}
-  },
-  closeRestModal(){clearInterval(gymRestInterval);gymRestState=null;renderPage();},
-  minimizeWorkout(){gymExPickerOpen=false;gymNumpad=null;gymSubView='log';renderPage();},
   finishWorkout(){
     if(!gymSession)return;
-    clearInterval(gymWatchInterval);clearInterval(gymRestInterval);
-    gymRestState=null;gymNumpad=null;gymExPickerOpen=false;
     const session={...gymSession,duration:Math.round((Date.now()-(gymSession.startTime||Date.now()))/60000)};
     S.gymSessions=[session,...S.gymSessions];
     S.events=[...S.events,{id:uid(),title:session.name,date:session.date,time:'',type:'gym',notes:'Gym session'}];
     logMuscles(session.exercises.map(e=>e.name));
     gymSession=null;save();renderPage();
   },
-  discardWorkout(){
-    clearInterval(gymWatchInterval);clearInterval(gymRestInterval);
-    gymRestState=null;gymNumpad=null;gymExPickerOpen=false;gymSession=null;renderPage();
-  },
+  discardWorkout(){gymSession=null;renderPage();},
   // Edit completed workout
   editCompletedWorkout(id){
     const session=S.gymSessions.find(s=>s.id===id);
     if(!session)return;
-    gymEditSession=JSON.parse(JSON.stringify(session));
+    gymEditSession=JSON.parse(JSON.stringify(session));// deep copy
     renderPage();
   },
   updateEditSessionName(val){if(gymEditSession)gymEditSession.name=val;},
@@ -2957,7 +1958,6 @@ const App = {
     gymEditSession=null;save();renderPage();
   },
   cancelEdit(){gymEditSession=null;renderPage();},
-  deleteWorkout(id){if(confirm('Delete this workout session?')){S.gymSessions=S.gymSessions.filter(s=>s.id!==id);save();renderPage();}},
   clickMuscle(name){
     // Show muscle info
     const timer=getMuscleTimer(name);
@@ -3077,28 +2077,6 @@ const App = {
   deleteGoalItem(id){S.goals=S.goals.filter(g=>g.id!==id);save();renderPage();},
 
   // ── FINANCE ──────────────────────────────────────
-  setFinanceView(v){financeView=v;renderPage();},
-  deleteAccount(id){S.accounts=S.accounts.filter(a=>a.id!==id);save();renderPage();},
-  deleteTx(id){S.transactions=S.transactions.filter(t=>t.id!==id);save();renderPage();},
-  openAddSubscription(){
-    openModal(`<div class="modal-header"><span class="modal-title">ADD SUBSCRIPTION</span><button class="modal-close" onclick="closeModal()">✕</button></div>
-    <div class="col">
-      <div><label class="lbl">Name</label><input class="inp" id="sub-name" placeholder="e.g. Netflix"></div>
-      <div class="grid-2">
-        <div><label class="lbl">Emoji / Logo</label><input class="inp" id="sub-emoji" value="📺" style="width:80px"></div>
-        <div><label class="lbl">Amount ($/mo)</label><input type="number" class="inp" id="sub-amount" placeholder="15.99" step="0.01"></div>
-      </div>
-      <div><label class="lbl">Billing Day of Month</label><input type="number" class="inp" id="sub-day" placeholder="1–28" min="1" max="28"></div>
-      <button class="btn btn-full" onclick="App.saveSubscription()">ADD SUBSCRIPTION</button>
-    </div>`);
-  },
-  saveSubscription(){
-    const name=document.getElementById('sub-name')?.value.trim();if(!name)return;
-    const day=parseInt(document.getElementById('sub-day')?.value)||1;
-    S.subscriptions=[...S.subscriptions,{id:uid(),name,emoji:document.getElementById('sub-emoji')?.value||'📺',amount:document.getElementById('sub-amount')?.value||'0',billingDay:clamp(day,1,28),active:true}];
-    save();closeModal();renderPage();
-  },
-  deleteSubscription(id){S.subscriptions=S.subscriptions.filter(s=>s.id!==id);save();renderPage();},
   openAddAccount(){
     openModal(`<div class="modal-header"><span class="modal-title">ADD ACCOUNT</span><button class="modal-close" onclick="closeModal()">✕</button></div>
     <div class="col">
@@ -3271,17 +2249,12 @@ const App = {
   toggleTheme(){
     S.theme=S.theme==='dark'?'light':'dark';save();applyTheme();renderPage();
   },
-  exportICS(){exportICS();},
-  importICS(){importICS();},
-  syncGoogleCal(){syncGoogleCal();},
-  saveGoogleClientId(){
-    const val=document.getElementById('gcal-client-id')?.value.trim()||'';
-    S.apiKeys={...S.apiKeys,google_client_id:val};
-    save();showToast(val?'Google Client ID saved':'Client ID cleared');renderPage();
-  },
   savePlaidKeys(){
     S.apiKeys={...S.apiKeys,plaid_client_id:document.getElementById('plaid-client-id')?.value.trim()||'',plaid_secret:document.getElementById('plaid-secret')?.value.trim()||'',plaid_env:document.getElementById('plaid-env')?.value||'sandbox'};
     save();showToast('Plaid keys saved!');renderPage();
+  },
+  saveSchwabKey(){
+    S.apiKeys={...S.apiKeys,schwab_key:document.getElementById('schwab-key')?.value.trim()||''};save();showToast('Schwab key saved!');renderPage();
   },
   saveCanvasKeys(){
     const url=document.getElementById('canvas-url')?.value.trim()||'';
@@ -3290,6 +2263,9 @@ const App = {
     if(url&&token)App.syncCanvas(url,token);
     else showToast('Canvas keys saved!');
     renderPage();
+  },
+  saveRobinhoodToken(){
+    S.apiKeys={...S.apiKeys,robinhood_token:document.getElementById('robinhood-token')?.value.trim()||''};save();showToast('Robinhood token saved!');
   },
   async syncCanvas(url,token){
     showToast('Syncing Canvas assignments…');
@@ -3352,9 +2328,9 @@ function showToast(msg){
 function buildShell(){
   const root=document.getElementById('root');
   const tabs=[
-    ['home','⌂','Home'],['tennis','🎾','Tennis'],
+    ['home','⌂','Home'],['calendar','◫','Calendar'],['tennis','🎾','Tennis'],
     ['gym','💪','Gym'],['school','📚','School'],['growth','🧠','Growth'],
-    ['finance','💰','Finance'],
+    ['finance','💰','Finance'],['health','❤️','Health'],['time','⏱','Time'],
     ['social','👥','Social'],
   ];
   root.innerHTML=`
@@ -3378,13 +2354,10 @@ function buildShell(){
   <div id="page-content"></div>
   <!-- BOTTOM NAV -->
   <nav id="bottom-nav">
-    <button class="nav-collapse-btn" onclick="App.toggleNav()" title="Collapse sidebar">‹</button>
     <div class="nav-inner">
       ${tabs.map(([id,icon,label])=>`<button class="nav-btn${id==='home'?' active':''}" data-tab="${id}" onclick="navigate('${id}')"><span class="icon">${icon}</span><span class="lbl">${label.toUpperCase()}</span></button>`).join('')}
     </div>
-  </nav>
-  <!-- NAV EXPAND TAB -->
-  <button id="nav-expand-tab" onclick="App.toggleNav()" title="Expand sidebar">›</button>`;
+  </nav>`;
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
