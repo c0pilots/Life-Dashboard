@@ -3,69 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#030306">
 <title>Life Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#030d1a;--card:#08152b;--card2:#0d1e36;--card3:#122240;
-  --border:#1a3050;--border2:#1e3860;
-  --text:#deeeff;--muted:#4a6888;--dim:#152840;
-  --orange:#4895ef;--orange-bg:rgba(72,149,239,0.12);
-  --green:#3ecf6e;--green-bg:rgba(62,207,110,0.1);
+  --bg:#030306;--card:#07070f;--card2:#0b0b18;--card3:#0f0f20;
+  --border:rgba(50,90,240,0.18);--border2:rgba(70,110,255,0.28);
+  --text:#dde8ff;--muted:#3d5899;--dim:#0d0d1e;
+  --orange:#3b7bff;--orange-bg:rgba(59,123,255,0.12);
+  --green:#22d46a;--green-bg:rgba(34,212,106,0.1);
   --blue:#38bdf8;--blue-bg:rgba(56,189,248,0.1);
   --purple:#a78bfa;--purple-bg:rgba(167,139,250,0.1);
   --red:#f87171;--red-bg:rgba(248,113,113,0.1);
   --teal:#2dd4bf;--teal-bg:rgba(45,212,191,0.1);
-  --gold:#c9a227;--gold-bg:rgba(201,162,39,0.1);
-  --radius:14px;--radius-sm:10px;--font:"Syne",sans-serif;--mono:"DM Mono",monospace;
+  --gold:#e2a931;--gold-bg:rgba(226,169,49,0.1);
+  --radius:16px;--radius-sm:12px;--font:"Syne",sans-serif;--mono:"DM Mono",monospace;
+  --glow:rgba(59,123,255,0.18);--glow-sm:rgba(59,123,255,0.1);
 }
 html.light{
-  --bg:#f0f4ff;--card:#ffffff;--card2:#e8f0ff;--card3:#dde8ff;
-  --border:#c5d5ef;--border2:#b0c5e8;--text:#0a1a35;--muted:#5a7aa0;--dim:#c5d5ef;
+  --bg:#eef2ff;--card:#ffffff;--card2:#e8eeff;--card3:#dde6ff;
+  --border:rgba(50,90,220,0.18);--border2:rgba(50,90,220,0.28);
+  --text:#0a1240;--muted:#4a6aaa;--dim:#c8d6ff;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;
   background-image:
-    radial-gradient(ellipse at 15% 40%,rgba(30,70,140,0.35) 0%,transparent 55%),
-    radial-gradient(ellipse at 85% 15%,rgba(20,55,120,0.25) 0%,transparent 45%),
-    radial-gradient(ellipse at 60% 85%,rgba(10,40,100,0.3) 0%,transparent 50%);
+    radial-gradient(ellipse 100% 70% at 5% 10%,rgba(18,45,200,0.28) 0%,transparent 55%),
+    radial-gradient(ellipse 80% 100% at 95% 75%,rgba(10,28,160,0.22) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 60% at 50% 45%,rgba(14,36,180,0.16) 0%,transparent 50%),
+    radial-gradient(ellipse 40% 50% at 25% 90%,rgba(24,54,210,0.14) 0%,transparent 45%),
+    repeating-linear-gradient(108deg,transparent 0,transparent 52px,rgba(50,100,255,0.022) 52px,rgba(50,100,255,0.022) 53px,transparent 53px,transparent 104px,rgba(30,70,220,0.016) 104px,rgba(30,70,220,0.016) 105px),
+    repeating-linear-gradient(-68deg,transparent 0,transparent 88px,rgba(40,80,240,0.018) 88px,rgba(40,80,240,0.018) 89px);
   background-attachment:fixed}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#1e3860;border-radius:2px}
+::-webkit-scrollbar-thumb{background:rgba(59,123,255,0.3);border-radius:2px}
 select option{background:var(--card2);color:var(--text)}
 input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.5)}
 input[type=range]{cursor:pointer;accent-color:var(--orange)}
 textarea{font-family:var(--font);resize:vertical}
 
 /* ── TOPBAR ─────────────────────────────────────── */
-#topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 0 92px;position:sticky;top:0;z-index:90;background:var(--bg)}
-#username-display{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.06em}
-#settings-btn{background:none;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:16px;padding:5px 10px;cursor:pointer;font-family:var(--font)}
-#settings-btn:hover{border-color:var(--orange);color:var(--orange)}
+#topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 0 92px;position:sticky;top:0;z-index:90;background:rgba(3,3,6,0.85);backdrop-filter:blur(16px)}
+#username-display{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+#settings-btn{background:rgba(59,123,255,0.06);border:1px solid var(--border);border-radius:100px;color:var(--muted);font-size:13px;padding:6px 14px;cursor:pointer;font-family:var(--font);font-weight:600;transition:all .2s;letter-spacing:.04em}
+#settings-btn:hover{border-color:rgba(59,123,255,0.5);color:var(--orange);background:rgba(59,123,255,0.1);box-shadow:0 0 16px rgba(59,123,255,0.12)}
 
 /* ── DASHBOARD TITLE ────────────────────────────── */
-.dash-title{font-size:28px;font-weight:700;letter-spacing:-.025em;margin:10px 16px 14px 92px;
-  background:linear-gradient(135deg,#deeeff 0%,#7ab8e8 50%,#4895ef 120%);
+.dash-title{font-size:28px;font-weight:800;letter-spacing:-.03em;margin:10px 16px 14px 92px;
+  background:linear-gradient(125deg,#ffffff 0%,#a8c8ff 40%,#3b7bff 80%,#1a4fff 100%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 @media(max-width:480px){.dash-title{font-size:22px}}
-html.light .dash-title{background:linear-gradient(135deg,#0a1a35 0%,#2a5fa0 120%);
+html.light .dash-title{background:linear-gradient(135deg,#0a1240 0%,#1a4fff 120%);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 /* ── GOAL TICKER ────────────────────────────────── */
 .ticker-row{margin:0 16px 18px 92px;display:flex;flex-direction:column;gap:4px}
-.goal-ticker{display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:12px;
-  background:linear-gradient(180deg,rgba(8,21,43,.82) 0%,rgba(13,30,54,.7) 100%);
-  background-image:linear-gradient(180deg,rgba(8,21,43,.82) 0%,rgba(13,30,54,.7) 100%),
-    repeating-linear-gradient(0deg,rgba(72,149,239,.04) 0,rgba(72,149,239,.04) 1px,transparent 1px,transparent 3px);
-  border:1px solid rgba(72,149,239,.15);
-  box-shadow:inset 0 1px 0 rgba(72,149,239,.08),0 0 20px rgba(72,149,239,.04);position:relative;overflow:hidden}
-html.light .goal-ticker{background:rgba(72,149,239,.06);background-image:none;border:1px solid rgba(72,149,239,.2);box-shadow:inset 0 1px 0 rgba(72,149,239,.1)}
+.goal-ticker{display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:14px;
+  background:rgba(7,7,16,0.85);
+  border:1px solid rgba(59,123,255,0.18);
+  box-shadow:inset 0 1px 0 rgba(100,150,255,0.07),0 2px 20px rgba(0,0,0,0.4),0 0 30px rgba(59,123,255,0.04);
+  backdrop-filter:blur(10px);position:relative;overflow:hidden}
+html.light .goal-ticker{background:rgba(59,123,255,0.05);border:1px solid rgba(59,123,255,0.2)}
 .goal-ticker::after{content:'';position:absolute;top:0;left:-40%;width:30%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(72,149,239,.07),transparent);
-  animation:sweep 8s linear infinite;pointer-events:none}
+  background:linear-gradient(90deg,transparent,rgba(59,123,255,0.09),transparent);
+  animation:sweep 10s linear infinite;pointer-events:none}
 @keyframes sweep{to{left:110%}}
 .goal-ticker-led{display:flex;align-items:center}
 .goal-ticker-led-dot{width:7px;height:7px;border-radius:50%;background:#6be3a4;
@@ -86,67 +90,106 @@ html.light .goal-ticker{background:rgba(72,149,239,.06);background-image:none;bo
 
 /* ── NAV ────────────────────────────────────────── */
 #bottom-nav{position:fixed;top:0;left:0;bottom:0;width:76px;
-  background:rgba(3,10,22,.97);
-  backdrop-filter:blur(14px);border-right:1px solid var(--border);z-index:100;
-  padding:16px 6px 16px;overflow-y:auto;overflow-x:hidden}
-html.light #bottom-nav{background:rgba(240,244,255,.97)}
-.nav-inner{display:flex;flex-direction:column;gap:4px;padding:0}
-.nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;
-  background:none;border:1px solid var(--border);border-radius:10px;cursor:pointer;width:100%;transition:all .15s;font-family:var(--font)}
-.nav-btn:hover{border-color:var(--orange);background:rgba(72,149,239,0.06)}
-.nav-btn.active{background:var(--orange-bg);border-color:var(--orange)}
+  background:rgba(3,3,8,0.97);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-right:1px solid rgba(50,90,240,0.15);
+  box-shadow:2px 0 32px rgba(0,0,0,0.5);
+  z-index:100;padding:16px 6px 16px;overflow-y:auto;overflow-x:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .3s cubic-bezier(.22,1,.36,1)}
+html.light #bottom-nav{background:rgba(238,242,255,0.97)}
+.nav-inner{display:flex;flex-direction:column;gap:4px;padding:0;flex:1}
+.nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 4px;
+  background:none;border:1px solid transparent;border-radius:14px;cursor:pointer;width:100%;transition:all .2s;font-family:var(--font)}
+.nav-btn:hover{border-color:rgba(59,123,255,0.35);background:rgba(59,123,255,0.07)}
+.nav-btn.active{background:rgba(59,123,255,0.15);border-color:rgba(59,123,255,0.45);box-shadow:0 0 16px rgba(59,123,255,0.12),inset 0 1px 0 rgba(150,190,255,0.1)}
 .nav-btn span.icon{font-size:17px;line-height:1}
-.nav-btn span.lbl{font-size:7.5px;color:var(--muted);font-weight:400;letter-spacing:.04em;white-space:nowrap}
+.nav-btn span.lbl{font-size:7px;color:var(--muted);font-weight:600;letter-spacing:.06em;white-space:nowrap;text-transform:uppercase}
 .nav-btn.active span.lbl{color:var(--orange);font-weight:700}
+/* Collapse toggle */
+.nav-collapse-btn{display:flex;align-items:center;justify-content:center;margin-bottom:10px;width:100%;
+  background:rgba(59,123,255,0.05);border:1px solid rgba(50,90,240,0.18);border-radius:12px;
+  padding:8px 4px;cursor:pointer;color:var(--muted);font-size:13px;transition:all .2s;font-family:var(--font);flex-shrink:0}
+.nav-collapse-btn:hover{border-color:rgba(59,123,255,0.45);color:var(--orange);background:rgba(59,123,255,0.1)}
+/* Expand tab shown when collapsed */
+#nav-expand-tab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:101;
+  background:rgba(7,7,16,0.96);border:1px solid rgba(50,90,240,0.28);border-left:none;
+  border-radius:0 10px 10px 0;padding:14px 7px;cursor:pointer;color:var(--muted);font-size:14px;
+  display:none;transition:all .2s;backdrop-filter:blur(16px);
+  box-shadow:3px 0 24px rgba(0,0,0,0.5)}
+#nav-expand-tab:hover{color:var(--orange);border-color:rgba(59,123,255,0.5)}
+/* Collapsed state overrides */
+body.nav-collapsed #bottom-nav{transform:translateX(-100%)}
+body.nav-collapsed #nav-expand-tab{display:flex;align-items:center}
+body.nav-collapsed #topbar{padding-left:20px}
+body.nav-collapsed .dash-title{margin-left:20px}
+body.nav-collapsed .ticker-row{margin-left:20px}
+body.nav-collapsed .page{padding-left:20px}
+body.nav-collapsed .gym-picker{left:0}
+body.nav-collapsed .gym-numpad{left:0}
+body.nav-collapsed .gym-rest-overlay{left:0}
+/* Smooth transitions on content */
+#topbar,#topbar+h1,.ticker-row,.page{transition:padding .3s cubic-bezier(.22,1,.36,1),margin .3s cubic-bezier(.22,1,.36,1)}
 
 /* ── PAGE ───────────────────────────────────────── */
-.page{padding:16px 16px 40px 92px;min-height:100vh;animation:fade-in .2s ease}
-@keyframes fade-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-.page-title{font-size:18px;font-weight:800;color:var(--text);letter-spacing:.04em}
+.page{padding:16px 16px 40px 92px;min-height:100vh;animation:fade-in .25s ease}
+@keyframes fade-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.page-title{font-size:20px;font-weight:800;letter-spacing:.02em;
+  background:linear-gradient(125deg,#ffffff 0%,#a8c4ff 45%,#3b7bff 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+html.light .page-title{background:linear-gradient(135deg,#0a1240,#1a4fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .row{display:flex;align-items:center;gap:10px}
 .col{display:flex;flex-direction:column;gap:8px}
 .between{justify-content:space-between}
-.section-label{font-size:10px;color:var(--muted);letter-spacing:.08em;font-weight:600;text-transform:uppercase;margin-bottom:2px}
+.section-label{font-size:9.5px;color:rgba(100,150,255,0.65);letter-spacing:.12em;font-weight:700;text-transform:uppercase;margin-bottom:2px}
 
 /* ── CARDS ──────────────────────────────────────── */
-.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:14px 16px;margin-bottom:14px;box-shadow:0 2px 16px rgba(0,0,0,.4),inset 0 1px 0 rgba(72,149,239,.06)}
-.card2{background:var(--card2);border-radius:var(--radius-sm);border:1px solid var(--border);padding:12px 14px}
-.card-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.card{background:rgba(7,7,15,0.88);border-radius:var(--radius);border:1px solid rgba(50,90,240,0.18);padding:16px 18px;margin-bottom:14px;
+  box-shadow:0 4px 40px rgba(0,0,0,0.7),inset 0 1px 0 rgba(100,150,255,0.07),0 0 0 1px rgba(20,50,200,0.04);
+  backdrop-filter:blur(8px)}
+html.light .card{background:rgba(255,255,255,0.92);box-shadow:0 4px 24px rgba(20,50,200,0.08),inset 0 1px 0 rgba(100,150,255,0.1)}
+.card2{background:rgba(11,11,24,0.85);border-radius:var(--radius-sm);border:1px solid rgba(50,90,240,0.15);padding:12px 14px;backdrop-filter:blur(6px)}
+.card-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid rgba(50,90,240,0.12)}
 .card-row:last-child{border-bottom:none}
 
 /* ── BUTTONS ────────────────────────────────────── */
-.btn{background:var(--orange);color:#fff;border:none;border-radius:var(--radius-sm);
-  padding:10px 20px;font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.03em;transition:opacity .15s}
-.btn:hover{opacity:.85}
-.btn-green{background:var(--green);color:#000}
-.btn-purple{background:var(--purple)}
-.btn-red{background:var(--red)}
-.btn-blue{background:var(--blue);color:#fff}
-.btn-teal{background:var(--teal);color:#000}
-.btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:var(--radius-sm);
-  padding:9px 18px;font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
-.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
-.btn-sm{padding:6px 14px;font-size:11px}
-.btn-xs{padding:4px 10px;font-size:10px}
+.btn{background:linear-gradient(135deg,#1a4fff 0%,#3b7bff 55%,#2860ee 100%);color:#fff;border:none;border-radius:100px;
+  padding:11px 24px;font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.04em;
+  transition:all .2s;box-shadow:0 2px 20px rgba(37,99,235,0.35)}
+.btn:hover{box-shadow:0 4px 28px rgba(59,123,255,0.5);transform:translateY(-1px)}
+.btn:active{transform:translateY(0);box-shadow:0 2px 12px rgba(37,99,235,0.3)}
+.btn-green{background:linear-gradient(135deg,#18b858,#22d46a);color:#fff;box-shadow:0 2px 16px rgba(34,212,106,0.3)}
+.btn-green:hover{box-shadow:0 4px 24px rgba(34,212,106,0.45)}
+.btn-purple{background:linear-gradient(135deg,#7c3aed,#a78bfa);box-shadow:0 2px 16px rgba(167,139,250,0.3)}
+.btn-red{background:linear-gradient(135deg,#dc2626,#f87171);box-shadow:0 2px 16px rgba(248,113,113,0.3)}
+.btn-blue{background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;box-shadow:0 2px 16px rgba(56,189,248,0.3)}
+.btn-teal{background:linear-gradient(135deg,#0d9488,#2dd4bf);color:#fff;box-shadow:0 2px 16px rgba(45,212,191,0.3)}
+.btn-ghost{background:rgba(59,123,255,0.05);color:rgba(130,170,255,0.85);border:1px solid rgba(59,123,255,0.25);border-radius:100px;
+  padding:10px 22px;font-family:var(--font);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;backdrop-filter:blur(4px)}
+.btn-ghost:hover{border-color:rgba(59,123,255,0.55);color:var(--orange);background:rgba(59,123,255,0.1);box-shadow:0 0 20px rgba(59,123,255,0.1)}
+.btn-sm{padding:7px 16px;font-size:11px;font-weight:700}
+.btn-xs{padding:5px 12px;font-size:10px;font-weight:700}
 .btn-full{width:100%}
 
 /* ── INPUTS ─────────────────────────────────────── */
-.inp{background:var(--card2);border:1px solid var(--border);border-radius:var(--radius-sm);
-  color:var(--text);padding:10px 12px;font-family:var(--font);font-size:13px;width:100%;outline:none;transition:border .15s}
-.inp:focus{border-color:var(--orange)}
-.inp-sm{padding:7px 10px;font-size:12px}
-.lbl{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px;display:block;font-weight:600}
+.inp{background:rgba(11,11,24,0.8);border:1px solid rgba(50,90,240,0.2);border-radius:var(--radius-sm);
+  color:var(--text);padding:11px 14px;font-family:var(--font);font-size:13px;width:100%;outline:none;
+  transition:border .2s,box-shadow .2s;backdrop-filter:blur(4px)}
+.inp:focus{border-color:rgba(59,123,255,0.55);box-shadow:0 0 0 3px rgba(59,123,255,0.1)}
+.inp-sm{padding:8px 11px;font-size:12px}
+.lbl{font-size:9.5px;color:rgba(100,150,255,0.6);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;display:block;font-weight:700}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 
 /* ── FILTER TABS ─────────────────────────────────── */
 .filter-tabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px}
-.filter-tab{padding:7px 14px;font-size:11px;white-space:nowrap;flex-shrink:0;background:transparent;
-  color:var(--muted);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font);font-weight:500;transition:all .15s}
-.filter-tab.active{background:var(--orange);color:#fff;border-color:var(--orange)}
-.filter-tab.active-purple{background:var(--purple);color:#fff;border-color:var(--purple)}
-.filter-tab.active-red{background:var(--red);color:#fff;border-color:var(--red)}
-.filter-tab.active-blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+.filter-tab{padding:7px 16px;font-size:11px;white-space:nowrap;flex-shrink:0;background:rgba(59,123,255,0.04);
+  color:var(--muted);border:1px solid rgba(50,90,240,0.18);border-radius:100px;cursor:pointer;font-family:var(--font);font-weight:600;transition:all .2s;letter-spacing:.03em}
+.filter-tab:hover{border-color:rgba(59,123,255,0.4);color:rgba(130,170,255,0.9)}
+.filter-tab.active{background:linear-gradient(135deg,#1a4fff,#3b7bff);color:#fff;border-color:transparent;box-shadow:0 2px 14px rgba(59,123,255,0.4)}
+.filter-tab.active-purple{background:linear-gradient(135deg,#7c3aed,#a78bfa);color:#fff;border-color:transparent;box-shadow:0 2px 14px rgba(167,139,250,0.35)}
+.filter-tab.active-red{background:linear-gradient(135deg,#dc2626,#f87171);color:#fff;border-color:transparent;box-shadow:0 2px 14px rgba(248,113,113,0.35)}
+.filter-tab.active-blue{background:linear-gradient(135deg,#0ea5e9,#38bdf8);color:#fff;border-color:transparent;box-shadow:0 2px 14px rgba(56,189,248,0.35)}
 
 /* ── SCORE RING ──────────────────────────────────── */
 .score-ring-wrap{position:relative;flex-shrink:0}
@@ -159,13 +202,14 @@ html.light #bottom-nav{background:rgba(240,244,255,.97)}
 .habit-dot{width:10px;height:10px;border-radius:50%;cursor:pointer;transition:background .2s}
 
 /* ── HABIT ITEM ──────────────────────────────────── */
-.habit-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--radius-sm);
-  border:1px solid var(--border);cursor:pointer;transition:all .2s;background:var(--card2)}
-.habit-item.done{background:var(--green-bg);border-color:rgba(62,207,110,.27)}
-.habit-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--dim);
+.habit-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--radius-sm);
+  border:1px solid rgba(50,90,240,0.15);cursor:pointer;transition:all .2s;background:rgba(11,11,24,0.7)}
+.habit-item:hover{border-color:rgba(59,123,255,0.3);background:rgba(59,123,255,0.05)}
+.habit-item.done{background:rgba(34,212,106,0.06);border-color:rgba(34,212,106,0.25)}
+.habit-check{width:22px;height:22px;border-radius:50%;border:2px solid rgba(50,90,240,0.3);
   background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
-.habit-item.done .habit-check{background:var(--green);border-color:var(--green)}
-.habit-name{font-size:12px;flex:1;color:var(--muted);font-weight:400}
+.habit-item.done .habit-check{background:var(--green);border-color:var(--green);box-shadow:0 0 10px rgba(34,212,106,0.4)}
+.habit-name{font-size:12px;flex:1;color:var(--muted);font-weight:500}
 .habit-item.done .habit-name{color:var(--text);font-weight:600}
 .habit-pts{font-size:11px;font-family:var(--mono);font-weight:600;color:var(--dim)}
 .habit-item.done .habit-pts{color:var(--green)}
@@ -176,54 +220,70 @@ html.light #bottom-nav{background:rgba(240,244,255,.97)}
 .cb.done{background:var(--green);border-color:var(--green)}
 .cb.done::after{content:'✓';font-size:12px;color:#fff;font-weight:800}
 
-/* ── CALENDAR ────────────────────────────────────── */
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:14px}
-.cal-day-lbl{text-align:center;font-size:10px;color:var(--muted);font-weight:600;padding:4px 0}
-.cal-day{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  border-radius:var(--radius-sm);border:1px solid var(--border);cursor:pointer;gap:2px;transition:all .15s}
-.cal-day:hover{border-color:var(--orange)}
-.cal-day.today{background:var(--orange-bg);border-color:rgba(245,166,35,.44)}
-.cal-day.selected{background:var(--orange);border-color:var(--orange)}
-.cal-day-num{font-size:12px;font-weight:400;color:var(--text)}
-.cal-day.today .cal-day-num{color:var(--orange);font-weight:700}
-.cal-day.selected .cal-day-num{color:#fff;font-weight:700}
-.cal-dots{display:flex;gap:2px}
-.cal-dot{width:4px;height:4px;border-radius:50%}
-.cal-day.selected .cal-dot{background:rgba(255,255,255,.7) !important}
+/* ── CALENDAR V2 ─────────────────────────────────── */
+.cal2-wrap{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:10px}
+.cal2-hdr{display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02)}
+.cal2-hdr-cell{text-align:center;padding:6px 2px;font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.1em}
+.cal2-hdr-date{font-size:13px;font-weight:700;color:var(--text);width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;margin:2px auto 0}
+.cal2-hdr-date.is-today{background:var(--orange);color:#000}
+.cal2-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.cal2-cell{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:4px 3px;min-height:80px;cursor:pointer;transition:background .15s;overflow:hidden;position:relative}
+.cal2-cell.week-cell{min-height:130px}
+.cal2-cell.other{background:rgba(0,0,0,0.2)}
+.cal2-cell.is-today{background:rgba(59,123,255,0.06)}
+.cal2-cell.is-sel{background:rgba(59,123,255,0.11)}
+.cal2-cell:hover{background:rgba(255,255,255,0.03)}
+.cal2-num{font-size:11px;font-weight:600;color:var(--muted);width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:50%;margin-bottom:2px}
+.cal2-num.is-today{background:var(--orange);color:#000;font-weight:800}
+.cal2-cell.is-sel .cal2-num{color:var(--blue)}
+.cal2-evt{display:flex;align-items:center;gap:2px;padding:1px 2px;border-radius:3px;margin-bottom:1px;cursor:pointer;overflow:hidden}
+.cal2-evt:hover{background:rgba(255,255,255,0.06)}
+.cal2-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.cal2-evt-label{font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text);line-height:1.3}
+.cal2-allday{border-radius:3px;padding:1px 5px;margin-bottom:2px;overflow:hidden}
+.cal2-allday-lbl{font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.cal2-more{font-size:9px;color:var(--blue);font-weight:700;padding-left:2px;cursor:pointer;margin-top:1px}
+.cal2-detail{border-top:1px solid var(--border);padding:12px 0 2px}
 
 /* ── STAT CARDS ──────────────────────────────────── */
 .stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px}
-.stat-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);
-  text-align:center;padding:14px 10px}
+.stat-card{background:rgba(7,7,15,0.88);border-radius:var(--radius);border:1px solid rgba(50,90,240,0.18);
+  text-align:center;padding:16px 10px;backdrop-filter:blur(8px);
+  box-shadow:0 4px 24px rgba(0,0,0,0.5),inset 0 1px 0 rgba(100,150,255,0.06)}
 .stat-val{font-size:24px;font-weight:800;font-family:var(--mono)}
-.stat-lbl{font-size:10px;color:var(--muted);letter-spacing:.08em;font-weight:600;margin-top:4px}
+.stat-lbl{font-size:9.5px;color:var(--muted);letter-spacing:.1em;font-weight:700;margin-top:4px;text-transform:uppercase}
 
 /* ── MODAL ───────────────────────────────────────── */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;display:flex;align-items:flex-end}
-.modal{background:var(--card);border-radius:20px 20px 0 0;width:100%;max-height:88vh;overflow-y:auto;
-  padding:20px 16px 48px;animation:slide-up .3s cubic-bezier(.22,1,.36,1)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(10px);z-index:1000;display:flex;align-items:flex-end}
+.modal{background:rgba(7,7,16,0.98);border-radius:24px 24px 0 0;border:1px solid rgba(50,90,240,0.22);border-bottom:none;
+  width:100%;max-height:88vh;overflow-y:auto;padding:22px 18px 48px;
+  animation:slide-up .3s cubic-bezier(.22,1,.36,1);
+  box-shadow:0 -8px 60px rgba(0,0,0,0.8),0 0 80px rgba(59,123,255,0.07)}
 @keyframes slide-up{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.modal-title{font-size:16px;font-weight:700;color:var(--text)}
-.modal-close{background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;padding:0;line-height:1}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(50,90,240,0.15)}
+.modal-title{font-size:16px;font-weight:800;letter-spacing:.02em;
+  background:linear-gradient(125deg,#fff,#90b8ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.modal-close{background:rgba(59,123,255,0.08);border:1px solid rgba(59,123,255,0.2);border-radius:50%;color:var(--muted);font-size:16px;cursor:pointer;padding:0;line-height:1;width:28px;height:28px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{border-color:var(--red);color:var(--red)}
 
 /* ── PROGRESS BAR ────────────────────────────────── */
-.prog-bar{height:5px;background:var(--dim);border-radius:3px;overflow:hidden}
+.prog-bar{height:5px;background:rgba(30,50,120,0.35);border-radius:3px;overflow:hidden}
 .prog-fill{height:100%;border-radius:3px;transition:width .4s ease}
 
 /* ── PILL BADGE ──────────────────────────────────── */
 .pill{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;display:inline-block}
 
 /* ── TODO LIST ───────────────────────────────────── */
-.todo-item{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:var(--radius-sm);
-  background:var(--card2);border:1px solid var(--border);margin-bottom:6px;transition:all .2s;cursor:default}
-.todo-item.done-row{opacity:.6;text-decoration:line-through;color:var(--muted)}
+.todo-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:var(--radius-sm);
+  background:rgba(11,11,24,0.7);border:1px solid rgba(50,90,240,0.15);margin-bottom:6px;transition:all .2s;cursor:default;backdrop-filter:blur(4px)}
+.todo-item:hover{border-color:rgba(59,123,255,0.28)}
+.todo-item.done-row{opacity:.55;text-decoration:line-through;color:var(--muted)}
 .todo-item.flash{animation:queue-flash .6s ease}
-@keyframes queue-flash{0%,100%{background:var(--card2)}40%{background:rgba(245,166,35,.2)}}
+@keyframes queue-flash{0%,100%{background:rgba(11,11,24,0.7)}40%{background:rgba(59,123,255,0.18)}}
 .todo-drag{cursor:grab;color:var(--dim);font-size:18px;flex-shrink:0}
 .todo-text{flex:1;font-size:13px;color:var(--text);outline:none;background:none;border:none;font-family:var(--font);cursor:text}
 .todo-text.done-row{color:var(--muted)}
-.todo-del{background:none;border:none;color:var(--dim);cursor:pointer;font-size:14px;padding:0 2px;flex-shrink:0}
+.todo-del{background:none;border:none;color:#fff;cursor:pointer;font-size:14px;padding:0 2px;flex-shrink:0;transition:color .15s}
 .todo-del:hover{color:var(--red)}
 .todo-add-row{display:flex;gap:8px;margin-top:8px}
 
@@ -244,16 +304,16 @@ html.light #bottom-nav{background:rgba(240,244,255,.97)}
 
 /* ── SETTINGS ────────────────────────────────────── */
 .settings-section{margin-bottom:20px}
-.settings-section-title{font-size:11px;color:var(--orange);letter-spacing:.1em;font-weight:700;
-  text-transform:uppercase;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-.toggle-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
-.toggle-lbl{font-size:13px;color:var(--text);font-weight:500}
+.settings-section-title{font-size:10px;color:rgba(100,150,255,0.75);letter-spacing:.12em;font-weight:800;
+  text-transform:uppercase;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid rgba(50,90,240,0.15)}
+.toggle-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid rgba(50,90,240,0.12)}
+.toggle-lbl{font-size:13px;color:var(--text);font-weight:600}
 .toggle-sub{font-size:11px;color:var(--muted);margin-top:2px}
-.toggle{width:44px;height:24px;border-radius:12px;background:var(--dim);position:relative;cursor:pointer;
-  border:none;transition:background .2s;flex-shrink:0}
-.toggle.on{background:var(--orange)}
+.toggle{width:44px;height:24px;border-radius:12px;background:rgba(50,90,240,0.15);position:relative;cursor:pointer;
+  border:1px solid rgba(50,90,240,0.2);transition:all .2s;flex-shrink:0}
+.toggle.on{background:linear-gradient(135deg,#1a4fff,#3b7bff);border-color:transparent;box-shadow:0 0 12px rgba(59,123,255,0.4)}
 .toggle::after{content:'';position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;
-  top:3px;left:3px;transition:transform .2s}
+  top:2px;left:2px;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
 .toggle.on::after{transform:translateX(20px)}
 
 /* ── API STATUS ──────────────────────────────────── */
@@ -280,8 +340,9 @@ html.light #bottom-nav{background:rgba(240,244,255,.97)}
 .tx-expense{color:var(--red)}
 
 /* ── PLAID CONNECT ───────────────────────────────── */
-.plaid-btn{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--card2);
-  border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;width:100%;margin-bottom:8px;font-family:var(--font)}
+.plaid-btn{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(11,11,24,0.7);
+  border:1px solid rgba(50,90,240,0.18);border-radius:var(--radius-sm);cursor:pointer;width:100%;margin-bottom:8px;font-family:var(--font);transition:all .2s}
+.plaid-btn:hover{border-color:rgba(59,123,255,0.4);background:rgba(59,123,255,0.06)}
 .plaid-logo{font-size:20px}
 .plaid-name{font-size:13px;font-weight:600;color:var(--text);flex:1;text-align:left}
 .plaid-status{font-size:11px;color:var(--muted)}
@@ -301,14 +362,14 @@ html.light #bottom-nav{background:rgba(240,244,255,.97)}
 .set-del{background:none;border:none;color:var(--dim);cursor:pointer;font-size:16px;text-align:center;width:100%;font-family:var(--font)}
 .pr-badge{font-size:10px;color:var(--orange);font-weight:600;margin-bottom:6px}
 /* ── GYM WORKOUT V2 ──────────────────────────────── */
-.gym-topbar{display:flex;align-items:center;gap:10px;padding:10px 0 12px;position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--border);margin-bottom:14px}
+.gym-topbar{display:flex;align-items:center;gap:10px;padding:10px 0 12px;position:sticky;top:0;z-index:50;background:rgba(3,3,6,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(50,90,240,0.18);margin-bottom:14px}
 .gym-timer-text{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--text);flex:1;text-align:center;letter-spacing:.06em}
-.gym-topbar-btn{background:var(--card2);border:1px solid var(--border);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;color:var(--text);transition:all .15s;font-family:var(--font);position:relative}
-.gym-topbar-btn:hover{border-color:var(--orange)}
-.gym-topbar-finish{background:var(--orange);border-color:var(--orange);color:#fff;font-size:18px;font-weight:700}
+.gym-topbar-btn{background:rgba(11,11,24,0.8);border:1px solid rgba(50,90,240,0.2);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;flex-shrink:0;color:var(--text);transition:all .2s;font-family:var(--font);position:relative;backdrop-filter:blur(4px)}
+.gym-topbar-btn:hover{border-color:rgba(59,123,255,0.5);background:rgba(59,123,255,0.1)}
+.gym-topbar-finish{background:linear-gradient(135deg,#1a4fff,#3b7bff);border-color:transparent;color:#fff;font-size:18px;font-weight:700;box-shadow:0 2px 16px rgba(59,123,255,0.4)}
 .gym-notes{width:100%;background:var(--card);border:1px solid var(--border);border-radius:12px;color:var(--muted);padding:12px 14px;font-family:var(--font);font-size:13px;outline:none;resize:none;margin-bottom:12px;min-height:46px}
 .gym-notes:focus{border-color:var(--orange);color:var(--text)}
-.gym-ex-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.gym-ex-card{background:rgba(7,7,15,0.88);border:1px solid rgba(50,90,240,0.18);border-radius:16px;padding:14px 16px;margin-bottom:10px;backdrop-filter:blur(8px);box-shadow:0 4px 24px rgba(0,0,0,0.5),inset 0 1px 0 rgba(100,150,255,0.06)}
 .gym-ex-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .gym-ex-icon{width:40px;height:40px;border-radius:50%;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .gym-ex-name{flex:1;font-size:14px;font-weight:700;color:var(--blue)}
@@ -333,38 +394,40 @@ html.light #bottom-nav{background:rgba(240,244,255,.97)}
 .gym-set-check.done{background:var(--green);border-color:var(--green);color:#fff}
 .gym-add-set-btn{width:100%;background:none;border:1px dashed rgba(72,149,239,.3);border-radius:8px;color:var(--muted);padding:8px;font-family:var(--font);font-size:12px;font-weight:600;cursor:pointer;margin-top:6px;transition:all .15s}
 .gym-add-set-btn:hover{border-color:var(--orange);color:var(--orange)}
-.gym-add-ex-btn{width:100%;background:linear-gradient(135deg,#4895ef,#38bdf8);border:none;border-radius:14px;color:#fff;padding:15px;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.05em;margin-top:6px}
-.gym-start-empty-btn{width:100%;display:flex;align-items:center;gap:14px;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;cursor:pointer;font-family:var(--font);transition:all .15s;text-align:left}
-.gym-start-empty-btn:hover{border-color:var(--orange);background:var(--orange-bg)}
+.gym-add-ex-btn{width:100%;background:linear-gradient(135deg,#1a4fff 0%,#3b7bff 55%,#2860ee 100%);border:none;border-radius:100px;color:#fff;padding:15px;font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.05em;margin-top:6px;box-shadow:0 4px 24px rgba(59,123,255,0.4);transition:all .2s}
+.gym-add-ex-btn:hover{box-shadow:0 6px 32px rgba(59,123,255,0.55);transform:translateY(-1px)}
+.gym-start-empty-btn{width:100%;display:flex;align-items:center;gap:14px;background:rgba(11,11,24,0.7);border:1px solid rgba(50,90,240,0.2);border-radius:16px;padding:16px 18px;cursor:pointer;font-family:var(--font);transition:all .2s;text-align:left;backdrop-filter:blur(4px)}
+.gym-start-empty-btn:hover{border-color:rgba(59,123,255,0.5);background:rgba(59,123,255,0.08);box-shadow:0 0 24px rgba(59,123,255,0.1)}
 /* Exercise Picker */
-.gym-picker{position:fixed;top:0;left:76px;right:0;bottom:0;background:var(--bg);z-index:500;display:flex;flex-direction:column;overflow:hidden}
-.gym-picker-bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border);flex-shrink:0}
-.gym-picker-back{background:none;border:none;color:var(--text);font-size:22px;cursor:pointer;padding:0 4px}
-.gym-picker-search{flex:1;background:var(--card2);border:1px solid var(--border);border-radius:10px;color:var(--text);padding:9px 14px;font-family:var(--font);font-size:14px;outline:none}
-.gym-picker-search:focus{border-color:var(--orange)}
-.gym-picker-tabs{display:flex;gap:0;padding:10px 16px;border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto}
-.gym-picker-tab{background:none;border:none;color:var(--muted);font-family:var(--font);font-size:12px;font-weight:600;padding:6px 14px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:all .15s}
-.gym-picker-tab.active{background:var(--orange);color:#fff}
+.gym-picker{position:fixed;top:0;left:76px;right:0;bottom:0;background:rgba(3,3,6,0.98);backdrop-filter:blur(20px);z-index:500;display:flex;flex-direction:column;overflow:hidden}
+.gym-picker-bar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid rgba(50,90,240,0.18);flex-shrink:0}
+.gym-picker-back{background:rgba(11,11,24,0.7);border:1px solid rgba(50,90,240,0.2);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:var(--text);font-size:18px;cursor:pointer;padding:0;transition:all .2s}
+.gym-picker-back:hover{border-color:rgba(59,123,255,0.5);color:var(--orange)}
+.gym-picker-search{flex:1;background:rgba(11,11,24,0.8);border:1px solid rgba(50,90,240,0.2);border-radius:100px;color:var(--text);padding:10px 16px;font-family:var(--font);font-size:14px;outline:none;transition:border .2s,box-shadow .2s}
+.gym-picker-search:focus{border-color:rgba(59,123,255,0.5);box-shadow:0 0 0 3px rgba(59,123,255,0.1)}
+.gym-picker-tabs{display:flex;gap:6px;padding:10px 16px;border-bottom:1px solid rgba(50,90,240,0.15);flex-shrink:0;overflow-x:auto}
+.gym-picker-tab{background:rgba(59,123,255,0.04);border:1px solid rgba(50,90,240,0.15);color:var(--muted);font-family:var(--font);font-size:11px;font-weight:700;padding:6px 16px;border-radius:100px;cursor:pointer;white-space:nowrap;transition:all .2s;letter-spacing:.04em}
+.gym-picker-tab.active{background:linear-gradient(135deg,#1a4fff,#3b7bff);color:#fff;border-color:transparent;box-shadow:0 2px 12px rgba(59,123,255,0.4)}
 .gym-picker-body{flex:1;overflow-y:auto;padding:0 16px 40px}
-.gym-picker-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);cursor:pointer;transition:opacity .15s}
-.gym-picker-item:hover{opacity:.75}
-.gym-picker-icon{width:44px;height:44px;border-radius:50%;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.gym-picker-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(50,90,240,0.1);cursor:pointer;transition:all .2s}
+.gym-picker-item:hover{padding-left:4px;border-bottom-color:rgba(59,123,255,0.25)}
+.gym-picker-icon{width:44px;height:44px;border-radius:50%;background:rgba(11,11,24,0.8);border:1px solid rgba(50,90,240,0.18);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .gym-picker-info{flex:1}
 .gym-picker-name{font-size:14px;font-weight:600;color:var(--text)}
-.gym-picker-cat{font-size:11px;color:var(--muted);margin-top:2px}
+.gym-picker-cat{font-size:11px;color:var(--muted);margin-top:2px;letter-spacing:.04em}
 /* Numpad */
-.gym-numpad{position:fixed;bottom:0;left:76px;right:0;background:var(--card);border-top:1px solid var(--border);border-radius:20px 20px 0 0;z-index:400;padding:10px 12px 24px;box-shadow:0 -8px 32px rgba(0,0,0,.6)}
-.gym-numpad-display{display:grid;grid-template-columns:28px 1fr 74px 74px;gap:5px;padding:8px 4px 12px;border-bottom:1px solid var(--border);margin-bottom:10px;align-items:center}
+.gym-numpad{position:fixed;bottom:0;left:76px;right:0;background:rgba(7,7,16,0.97);border-top:1px solid rgba(50,90,240,0.22);border-radius:24px 24px 0 0;z-index:400;padding:12px 14px 28px;box-shadow:0 -8px 60px rgba(0,0,0,0.8),0 0 60px rgba(59,123,255,0.06);backdrop-filter:blur(20px)}
+.gym-numpad-display{display:grid;grid-template-columns:28px 1fr 74px 74px;gap:5px;padding:8px 4px 12px;border-bottom:1px solid rgba(50,90,240,0.15);margin-bottom:10px;align-items:center}
 .gym-numpad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.gym-numpad-key{background:var(--card2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:17px;font-weight:600;padding:14px 6px;cursor:pointer;transition:background .08s;text-align:center}
-.gym-numpad-key:active{background:var(--card3)}
-.gym-numpad-key.adj{background:var(--card3);font-size:12px;color:var(--orange);font-weight:800}
-.gym-numpad-key.next-btn{background:var(--orange);border-color:var(--orange);color:#fff;font-size:14px;font-weight:800}
-.gym-numpad-key.copy-btn{background:var(--card3);font-size:13px}
+.gym-numpad-key{background:rgba(11,11,24,0.9);border:1px solid rgba(50,90,240,0.18);border-radius:12px;color:var(--text);font-family:var(--mono);font-size:17px;font-weight:600;padding:16px 6px;cursor:pointer;transition:all .1s;text-align:center}
+.gym-numpad-key:active{background:rgba(59,123,255,0.12);border-color:rgba(59,123,255,0.4);transform:scale(.96)}
+.gym-numpad-key.adj{background:rgba(59,123,255,0.08);border-color:rgba(59,123,255,0.25);font-size:12px;color:var(--orange);font-weight:800}
+.gym-numpad-key.next-btn{background:linear-gradient(135deg,#1a4fff,#3b7bff);border-color:transparent;color:#fff;font-size:14px;font-weight:800;box-shadow:0 2px 16px rgba(59,123,255,0.4)}
+.gym-numpad-key.copy-btn{background:rgba(11,11,24,0.9);font-size:13px}
 .gym-numpad-key.del-btn{font-size:13px}
 /* Rest Timer */
-.gym-rest-overlay{position:fixed;top:0;left:76px;right:0;bottom:0;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);z-index:600;display:flex;align-items:center;justify-content:center;padding:20px}
-.gym-rest-modal{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:24px;width:100%;max-width:340px}
+.gym-rest-overlay{position:fixed;top:0;left:76px;right:0;bottom:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:600;display:flex;align-items:center;justify-content:center;padding:20px}
+.gym-rest-modal{background:rgba(7,7,16,0.97);border:1px solid rgba(50,90,240,0.22);border-radius:24px;padding:24px;width:100%;max-width:340px;box-shadow:0 8px 60px rgba(0,0,0,0.8),0 0 60px rgba(59,123,255,0.08)}
 .gym-rest-circle-wrap{position:relative;display:flex;align-items:center;justify-content:center;margin:12px auto 16px;width:150px;height:150px}
 .gym-rest-circle-text{position:absolute;font-family:var(--mono);font-size:30px;font-weight:700;color:var(--text);line-height:1;text-align:center}
 
@@ -404,16 +467,16 @@ html.light #bottom-nav{background:rgba(240,244,255,.97)}
 
 /* ── MISC ────────────────────────────────────────── */
 .empty{color:var(--muted);font-size:13px;text-align:center;padding:16px 0}
-.divider{border-bottom:1px solid var(--border);margin:6px 0}
-.tag{font-size:10px;padding:2px 7px;border-radius:5px;font-weight:600;display:inline-block}
+.divider{border-bottom:1px solid rgba(50,90,240,0.12);margin:6px 0}
+.tag{font-size:10px;padding:3px 8px;border-radius:100px;font-weight:700;display:inline-block}
 .overdue{color:var(--red) !important}
 .mono{font-family:var(--mono)}
 .score-today{font-size:20px;font-weight:800;color:var(--text);font-family:var(--mono)}
-.inline-link{color:var(--orange);cursor:pointer;text-decoration:none}
-.inline-link:hover{text-decoration:underline}
-.canvas-note{font-size:11px;color:var(--muted);background:var(--card2);border-radius:8px;padding:10px;margin-top:8px;line-height:1.5}
-.step-num{width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;
-  font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.inline-link{color:var(--orange);cursor:pointer;text-decoration:none;transition:opacity .15s}
+.inline-link:hover{opacity:.75;text-decoration:underline}
+.canvas-note{font-size:11px;color:var(--muted);background:rgba(11,11,24,0.7);border-radius:10px;border:1px solid rgba(50,90,240,0.14);padding:10px 12px;margin-top:8px;line-height:1.5}
+.step-num{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#1a4fff,#3b7bff);color:#fff;
+  font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 10px rgba(59,123,255,0.4)}
 .exercise-hist-item{padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer}
 .exercise-hist-item:hover .exercise-hist-name{color:var(--orange)}
 .exercise-hist-name{font-size:13px;font-weight:600;color:var(--text);transition:color .15s}
@@ -544,7 +607,7 @@ function saveState(s){
 }
 
 const INIT_STATE = {
-  username:'Athlete',theme:'dark',
+  username:'Jake',theme:'dark',
   habits:DEFAULT_HABITS,habitLog:{},
   todayGoals:{},
   journal:[],assignments:[],courses:DEFAULT_COURSES,
@@ -553,7 +616,7 @@ const INIT_STATE = {
   sleepLog:[],bodyMetrics:[],supplements:[],supplementLog:{},
   contacts:[],goals:[],trainingPlan:[],priorityItems:[],
   subscriptions:[],netWorthHistory:[],
-  apiKeys:{plaid_client_id:'',plaid_secret:'',plaid_env:'sandbox',canvas_url:'',canvas_token:'',schwab_key:'',robinhood_token:''},
+  apiKeys:{plaid_client_id:'',plaid_secret:'',plaid_env:'sandbox',canvas_url:'',canvas_token:'',schwab_key:'',robinhood_token:'',google_client_id:''},
   plaidAccounts:[],canvasAssignments:[],
   weightLog:[],muscleLog:{},
 };
@@ -594,6 +657,7 @@ function applyTheme(){
 // ════════════════════════════════════════════════
 let currentTab = 'home';
 let activeModal = null;
+let navCollapsed = false;
 let gymSession = null; // active workout
 let gymEditSession = null; // editing completed workout
 let gymExPickerOpen = false;
@@ -681,6 +745,59 @@ function drawBarChart(canvasId,data,options={}){
       ctx.fillText(d.label,x+barW/2,H-4);
     }
   });
+}
+function drawInteractiveBarChart(canvasId,data,options={}){
+  const canvas=document.getElementById(canvasId);if(!canvas)return;
+  const {color='#f5a623',maxVal}=options;
+  const dpr=window.devicePixelRatio||1;
+  function draw(hov=-1){
+    const W=canvas.offsetWidth*dpr||canvas.width;
+    const H=canvas.offsetHeight*dpr||canvas.height;
+    canvas.width=W;canvas.height=H;
+    const ctx=canvas.getContext('2d');
+    const max=maxVal||Math.max(...data.map(d=>d.value),1);
+    const barW=(W-20)/data.length*0.7;
+    const gap=(W-20)/data.length*0.3;
+    ctx.clearRect(0,0,W,H);
+    data.forEach((d,i)=>{
+      const barH=(d.value/max)*(H-8);
+      const x=10+i*(barW+gap)+(gap/2);
+      const y=H-barH-4;
+      const isH=i===hov;
+      ctx.fillStyle=isH?'#fff':color;
+      ctx.globalAlpha=isH?1:Math.max(0.15,0.3+0.7*(d.value/max));
+      ctx.beginPath();ctx.roundRect(x,y,barW,barH,3);ctx.fill();
+      ctx.globalAlpha=1;
+    });
+    if(hov>=0&&hov<data.length){
+      const d=data[hov];
+      const x=10+hov*(barW+gap)+(gap/2)+barW/2;
+      const barH=(d.value/max)*(H-8);
+      const y=H-barH-4;
+      const txt=String(d.value);
+      const pad=4*dpr;
+      ctx.font=`bold ${10*dpr}px DM Mono`;
+      const tw=ctx.measureText(txt).width;
+      const bw=tw+pad*2;const bh=14*dpr;
+      let tx=x-bw/2;let ty=y-bh-4*dpr;
+      if(ty<0)ty=y+4*dpr;
+      ctx.fillStyle='rgba(255,255,255,0.95)';ctx.beginPath();ctx.roundRect(tx,ty,bw,bh,3);ctx.fill();
+      ctx.fillStyle='#000';ctx.textAlign='center';
+      ctx.fillText(txt,x,ty+bh-4*dpr);
+    }
+  }
+  draw();
+  canvas.onmousemove=e=>{
+    const rect=canvas.getBoundingClientRect();
+    const px=(e.clientX-rect.left)*dpr;
+    const W=canvas.width;
+    const barW=(W-20)/data.length*0.7;
+    const gap=(W-20)/data.length*0.3;
+    let hov=-1;
+    data.forEach((_,i)=>{const x=10+i*(barW+gap)+(gap/2);if(px>=x&&px<=x+barW)hov=i;});
+    draw(hov);
+  };
+  canvas.onmouseleave=()=>draw();
 }
 function drawLineChart(canvasId,data,options={}){
   const canvas=document.getElementById(canvasId);
@@ -964,9 +1081,9 @@ function renderPage(){
   const el=document.getElementById('page-content');
   if(!el)return;
   const tabMap={
-    home:renderHome,calendar:renderCalendar,tennis:renderTennis,
+    home:renderHome,tennis:renderTennis,
     gym:renderGym,school:renderSchool,growth:renderGrowth,
-    finance:renderFinance,health:renderHealth,time:renderTime,
+    finance:renderFinance,
     social:renderSocial,settings:renderSettings,
   };
   el.innerHTML=(tabMap[currentTab]||renderHome)();
@@ -1087,7 +1204,7 @@ function renderHome(){
 
     <!-- Score Card -->
     <div class="card">
-      <div class="row" style="margin-bottom:14px">
+      <div class="row" style="margin-bottom:12px">
         <div class="score-ring-wrap" style="width:88px;height:88px">
           <canvas id="score-ring-canvas" width="88" height="88" style="width:88px;height:88px"></canvas>
           <div class="score-ring-center">
@@ -1105,36 +1222,10 @@ function renderHome(){
           <div class="habit-dots">${habitDotsHtml}</div>
         </div>
       </div>
+      <canvas id="score-bar-chart" style="width:100%;height:56px;display:block;margin-bottom:12px;cursor:crosshair" height="56"></canvas>
       <div class="col" style="gap:6px">${habitsHtml}</div>
       <button class="btn-ghost btn-sm btn-full" style="margin-top:10px" onclick="App.openAddHabit()">+ ADD HABIT</button>
     </div>
-
-    <!-- Net Worth Card -->
-    ${(()=>{
-      snapshotNetWorth();
-      const nw=calcNetWorth();
-      const hist=S.netWorthHistory||[];
-      const prev=hist.length>=2?hist[hist.length-2].value:nw;
-      const change=nw-prev;
-      const isPos=change>=0;
-      const assets=S.accounts.filter(a=>a.type!=='credit').reduce((s,a)=>s+(parseFloat(a.balance)||0),0);
-      const liab=S.accounts.filter(a=>a.type==='credit').reduce((s,a)=>s+(parseFloat(a.balance)||0),0);
-      return`<div class="card" style="border-color:rgba(62,207,110,.25)">
-        <div class="row between" style="margin-bottom:8px">
-          <div class="section-label">NET WORTH</div>
-          <span style="font-size:11px;font-family:var(--mono);color:${isPos?'var(--green)':'var(--red)'}">${isPos?'+':''}$${Math.abs(change).toFixed(0)} today</span>
-        </div>
-        <div class="row" style="gap:16px;align-items:flex-end;margin-bottom:10px">
-          <div style="font-size:30px;font-weight:800;font-family:var(--mono);color:var(--green);line-height:1">$${nw.toFixed(0)}</div>
-          <div style="flex:1"><canvas id="nw-sparkline" style="width:100%;height:36px;display:block" height="36"></canvas></div>
-        </div>
-        <div class="row" style="gap:20px">
-          <div><div style="font-size:12px;font-weight:700;color:var(--green);font-family:var(--mono)">+$${assets.toFixed(0)}</div><div style="font-size:9px;color:var(--muted);letter-spacing:.06em">ASSETS</div></div>
-          <div><div style="font-size:12px;font-weight:700;color:var(--red);font-family:var(--mono)">-$${liab.toFixed(0)}</div><div style="font-size:9px;color:var(--muted);letter-spacing:.06em">LIABILITIES</div></div>
-          <div style="margin-left:auto"><button class="btn-ghost btn-xs" onclick="navigate('finance')">VIEW →</button></div>
-        </div>
-      </div>`;
-    })()}
 
     <!-- To Do List -->
     <div class="card" style="${todoCardStyle}">
@@ -1149,67 +1240,238 @@ function renderHome(){
       </div>
     </div>
 
-    ${eventsHtml}${dueTodayHtml}
+    ${dueTodayHtml}
 
-    <!-- 30-day score chart -->
-    <div class="card">
-      <div class="section-label" style="margin-bottom:12px">30-DAY SCORE HISTORY</div>
-      <canvas id="score-bar-chart" class="score-chart-canvas" height="90"></canvas>
-    </div>
+    <!-- Calendar -->
+    ${renderCalendarBlock()}
   </div>`;
 }
 
 // ════════════════════════════════════════════════
-//  CALENDAR TAB
+//  ICAL EXPORT / IMPORT
+// ════════════════════════════════════════════════
+function exportICS(){
+  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Life Dashboard//EN','CALSCALE:GREGORIAN'];
+  S.events.forEach(e=>{
+    lines.push('BEGIN:VEVENT');
+    lines.push(`UID:${e.id}@lifedash`);
+    const ds=(e.date||'').replace(/-/g,'');
+    if(e.time){
+      const[h,m]=(e.time||'00:00').split(':').map(s=>s.padStart(2,'0'));
+      lines.push(`DTSTART:${ds}T${h}${m}00`);
+      lines.push(`DTEND:${ds}T${String(+h+1).padStart(2,'0')}${m}00`);
+    }else{
+      lines.push(`DTSTART;VALUE=DATE:${ds}`);
+      lines.push(`DTEND;VALUE=DATE:${ds}`);
+    }
+    lines.push(`SUMMARY:${(e.title||'').replace(/\n/g,'\\n')}`);
+    if(e.type)lines.push(`CATEGORIES:${e.type.toUpperCase()}`);
+    lines.push('END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  const blob=new Blob([lines.join('\r\n')],{type:'text/calendar;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='life-dashboard-events.ics';a.click();
+  showToast(`Exported ${S.events.length} event${S.events.length===1?'':'s'}`);
+}
+function importICS(){
+  const inp=document.createElement('input');inp.type='file';inp.accept='.ics,.ical,text/calendar';
+  inp.onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>parseICSText(ev.target.result);r.readAsText(f);};
+  inp.click();
+}
+function parseICSText(text){
+  const typeMap={tennis:'tennis',academic:'academic',school:'academic',social:'social',gym:'gym'};
+  const blocks=text.split('BEGIN:VEVENT');
+  let added=0;
+  blocks.slice(1).forEach(block=>{
+    const get=key=>{const m=block.match(new RegExp(key+'[^:\\r\\n]*:([^\\r\\n]+)'));return m?m[1].trim():''};
+    const uidVal=get('UID');
+    if(uidVal&&S.events.find(e=>e.gcalId===uidVal))return;
+    const summary=get('SUMMARY').replace(/\\n/g,'\n').replace(/\\,/g,',').replace(/\\;/g,';');
+    const cats=get('CATEGORIES').toLowerCase();
+    let type='general';
+    for(const[k,v]of Object.entries(typeMap)){if(cats.includes(k)||summary.toLowerCase().includes(k)){type=v;break;}}
+    const raw=block.match(/DTSTART[^:\r\n]*:([^\r\n]+)/)?.[1]||'';
+    const dt=raw.trim().replace(/Z$/,'').replace(/[+-]\d{4}$/,'');
+    let date='',time='';
+    if(dt.includes('T')){
+      const[d,t]=dt.split('T');
+      date=`${d.slice(0,4)}-${d.slice(4,6)}-${d.slice(6,8)}`;
+      time=`${t.slice(0,2)}:${t.slice(2,4)}`;
+    }else if(dt.length>=8){
+      date=`${dt.slice(0,4)}-${dt.slice(4,6)}-${dt.slice(6,8)}`;
+    }
+    if(!date||!summary)return;
+    S.events.push({id:uid(),gcalId:uidVal||null,title:summary,date,time,type});
+    added++;
+  });
+  if(!added){showToast('No new events found');return;}
+  S.events.sort((a,b)=>a.date<b.date?-1:1);
+  save();renderPage();
+  showToast(`Imported ${added} event${added===1?'':'s'}`);
+}
+
+// ════════════════════════════════════════════════
+//  GOOGLE CALENDAR SYNC
+// ════════════════════════════════════════════════
+function loadGIS(cb){
+  if(window.google?.accounts){cb();return;}
+  const s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.onload=cb;document.head.appendChild(s);
+}
+async function _doGCalSync(token){
+  showToast('Syncing Google Calendar…');
+  try{
+    const now=new Date();
+    const min=new Date(now.getFullYear(),now.getMonth()-1,1).toISOString();
+    const max=new Date(now.getFullYear(),now.getMonth()+3,1).toISOString();
+    const url=`https://www.googleapis.com/calendar/v3/calendars/primary/events?timeMin=${encodeURIComponent(min)}&timeMax=${encodeURIComponent(max)}&singleEvents=true&maxResults=500`;
+    const res=await fetch(url,{headers:{Authorization:`Bearer ${token}`}});
+    if(!res.ok){showToast('Auth expired — reconnecting…');_startGCalAuth();return;}
+    const data=await res.json();
+    let added=0;
+    (data.items||[]).forEach(item=>{
+      if(!item.summary||item.status==='cancelled')return;
+      if(S.events.find(e=>e.gcalId===item.id))return;
+      const start=item.start?.dateTime||item.start?.date||'';
+      let date='',time='';
+      if(start.includes('T')){date=start.slice(0,10);time=start.slice(11,16);}
+      else date=start;
+      if(!date)return;
+      S.events.push({id:uid(),gcalId:item.id,title:item.summary,date,time,type:'general'});
+      added++;
+    });
+    S.events.sort((a,b)=>a.date<b.date?-1:1);
+    save();renderPage();
+    showToast(added>0?`Synced ${added} new event${added===1?'':'s'} from Google`:'Google Calendar up to date');
+  }catch(err){showToast('Sync error: '+err.message);}
+}
+function _startGCalAuth(){
+  const client=google.accounts.oauth2.initTokenClient({
+    client_id:S.apiKeys.google_client_id,
+    scope:'https://www.googleapis.com/auth/calendar.readonly',
+    callback:resp=>{
+      if(resp.error){showToast('Google auth failed: '+resp.error);return;}
+      _doGCalSync(resp.access_token);
+    }
+  });
+  client.requestAccessToken();
+}
+function syncGoogleCal(){
+  if(!S.apiKeys?.google_client_id){
+    showToast('Add your Google Client ID in Settings first');
+    navigate('settings');return;
+  }
+  loadGIS(_startGCalAuth);
+}
+
+// ════════════════════════════════════════════════
+//  CALENDAR BLOCK (embedded in Home)
 // ════════════════════════════════════════════════
 let calView='all';let calMonth=new Date().getMonth();let calYear=new Date().getFullYear();let calSelected=null;
-function renderCalendar(){
+let calDisplayMode='month';let calWeekStartDate=null;
+function getCalWeekStart(){
+  if(!calWeekStartDate){const d=new Date();d.setDate(d.getDate()-d.getDay());calWeekStartDate=d.toISOString().split('T')[0];}
+  return new Date(calWeekStartDate+'T00:00:00');
+}
+function renderCalendarBlock(){
   const today=todayStr();
-  const typeColors={tennis:'var(--blue)',academic:'var(--orange)',social:'var(--teal)',gym:'var(--purple)',general:'var(--muted)'};
-  const filtered=calView==='all'?S.events:S.events.filter(e=>e.type===calView);
-  const byDay={};filtered.forEach(e=>{if(!byDay[e.date])byDay[e.date]=[];byDay[e.date].push(e);});
-  const days=getDaysInMonth(calYear,calMonth);const first=getFirstDay(calYear,calMonth);
-  const monthName=new Date(calYear,calMonth,1).toLocaleDateString('en-US',{month:'long',year:'numeric'}).toUpperCase();
-  const dayLabels=['S','M','T','W','T','F','S'].map(d=>`<div class="cal-day-lbl">${d}</div>`).join('');
-  const blanks=Array.from({length:first}).map(()=>`<div></div>`).join('');
-  const daysCells=Array.from({length:days},(_,i)=>{
-    const d=i+1;
-    const dk=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+  const TC={tennis:'#3b7bff',academic:'#f5a623',social:'#2dd4bf',gym:'#a855f7',general:'#6b7a99'};
+  const TB={tennis:'rgba(59,123,255,0.18)',academic:'rgba(245,166,35,0.18)',social:'rgba(45,212,191,0.18)',gym:'rgba(168,85,247,0.18)',general:'rgba(107,114,153,0.14)'};
+  const byDay={};
+  S.events.forEach(e=>{if(!byDay[e.date])byDay[e.date]=[];byDay[e.date].push(e);});
+  Object.keys(byDay).forEach(d=>byDay[d].sort((a,b)=>(a.time||'').localeCompare(b.time||'')));
+  const fmtT=t=>{if(!t)return'';const[h,m]=t.split(':').map(Number);const ap=h>=12?'pm':'am';const h12=h%12||12;return`${h12}${m?':'+String(m).padStart(2,'0'):''}${ap} `;};
+  const evtRow=(e,isWeek)=>{
+    const col=TC[e.type]||TC.general;
+    const label=`${fmtT(e.time)}${esc(e.title)}`;
+    if(!e.time)return`<div class="cal2-allday" style="background:${TB[e.type]||TB.general}" data-calday="${e.date}"><div class="cal2-allday-lbl" style="color:${col}">${esc(e.title)}</div></div>`;
+    return`<div class="cal2-evt" data-calday="${e.date}"><div class="cal2-dot" style="background:${col}"></div><div class="cal2-evt-label">${label}</div></div>`;
+  };
+  const dayCell=(dk,dayNum,isOther,isWeek)=>{
     const evs=byDay[dk]||[];
     const isToday=dk===today;const isSel=dk===calSelected;
-    const dots=evs.slice(0,3).map(e=>`<div class="cal-dot" style="background:${isSel?'#000':typeColors[e.type]||'var(--muted)'}"></div>`).join('');
-    return`<div class="cal-day${isToday?' today':''}${isSel?' selected':''}" data-calday="${dk}">
-      <span class="cal-day-num">${d}</span>
-      ${dots?`<div class="cal-dots">${dots}</div>`:''}
+    const max=isWeek?5:3;
+    const shown=evs.slice(0,max);const extra=evs.length-max;
+    return`<div class="cal2-cell${isOther?' other':''}${isToday?' is-today':''}${isSel?' is-sel':''}${isWeek?' week-cell':''}" data-calday="${dk}">
+      ${dayNum!==null?`<div class="cal2-num${isToday?' is-today':''}">${dayNum}</div>`:''}
+      ${shown.map(e=>evtRow(e,isWeek)).join('')}
+      ${extra>0?`<div class="cal2-more" data-calday="${dk}">+${extra} more</div>`:''}
     </div>`;
-  }).join('');
+  };
+
+  const DOW=['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  let hdrHtml='',gridHtml='',navLabel='';
+
+  if(calDisplayMode==='month'){
+    const days=getDaysInMonth(calYear,calMonth);
+    const first=getFirstDay(calYear,calMonth);
+    navLabel=new Date(calYear,calMonth,1).toLocaleDateString('en-US',{month:'long',year:'numeric'}).toUpperCase();
+    hdrHtml=DOW.map(d=>`<div class="cal2-hdr-cell">${d}</div>`).join('');
+    const blanks=Array.from({length:first},()=>`<div class="cal2-cell other"></div>`).join('');
+    const cells=Array.from({length:days},(_,i)=>{
+      const d=i+1;
+      const dk=`${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      return dayCell(dk,d,false,false);
+    }).join('');
+    gridHtml=blanks+cells;
+  } else {
+    const ws=getCalWeekStart();
+    const days=Array.from({length:7},(_,i)=>{const d=new Date(ws);d.setDate(ws.getDate()+i);return d;});
+    const[wStart,wEnd]=([days[0],days[6]]).map(d=>d.toLocaleDateString('en-US',{month:'short',day:'numeric'}));
+    navLabel=`${wStart} – ${wEnd} ${days[0].getFullYear()}`.toUpperCase();
+    hdrHtml=days.map(d=>{
+      const dk=d.toISOString().split('T')[0];
+      const isT=dk===today;
+      return`<div class="cal2-hdr-cell">${DOW[d.getDay()]}<div class="cal2-hdr-date${isT?' is-today':''}">${d.getDate()}</div></div>`;
+    }).join('');
+    gridHtml=days.map(d=>{
+      const dk=d.toISOString().split('T')[0];
+      return dayCell(dk,null,false,true);
+    }).join('');
+  }
+
   const selEvts=calSelected&&byDay[calSelected]?byDay[calSelected]:[];
-  const selHtml=calSelected?`<div class="card">
-    <div class="section-label" style="margin-bottom:12px">${fmtFull(calSelected).toUpperCase()}</div>
-    ${selEvts.length===0?`<div class="empty">No events · <span class="inline-link" onclick="App.openAddEvent('${calSelected}')">Add one</span></div>`:
-    selEvts.map(e=>`<div class="card-row">
-      <div style="width:3px;height:32px;border-radius:2px;background:${typeColors[e.type]||'var(--muted)'}"></div>
-      <div style="flex:1"><div style="font-size:14px;font-weight:600">${esc(e.title)}</div>${e.time?`<div style="font-size:11px;color:var(--muted)">${esc(e.time)}</div>`:''}</div>
+  const selHtml=calSelected?`<div class="cal2-detail">
+    <div class="row between" style="margin-bottom:8px">
+      <div class="section-label" style="font-size:11px">${fmtFull(calSelected).toUpperCase()}</div>
+      <button class="btn-ghost btn-xs" onclick="App.openAddEvent('${calSelected}')">+ ADD</button>
+    </div>
+    ${selEvts.length===0?'<div class="empty" style="font-size:12px">No events · tap + ADD to create one</div>':
+    selEvts.map(e=>{const col=TC[e.type]||TC.general;return`<div class="card-row" style="padding:6px 0">
+      <div style="width:3px;height:28px;border-radius:2px;background:${col};flex-shrink:0"></div>
+      <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.title)}</div>${e.time?`<div style="font-size:11px;color:var(--muted)">${fmtT(e.time).trim()}</div>`:''}</div>
       <button class="todo-del" onclick="App.deleteEvent('${e.id}')">✕</button>
-    </div>`).join('')}
+    </div>`;}).join('')}
   </div>`:'';
 
-  return`<div class="page">
-  <div class="row between" style="margin-bottom:14px">
-    <div class="page-title">CALENDAR</div>
-    <button class="btn btn-sm" onclick="App.openAddEvent()">+ EVENT</button>
+  const hasGcal=!!(S.apiKeys?.google_client_id);
+  const isMonth=calDisplayMode==='month';
+  return`<div class="card" style="padding-bottom:0">
+  <div class="row between" style="margin-bottom:10px">
+    <div class="section-label">CALENDAR</div>
+    <div class="row" style="gap:6px;flex-wrap:wrap">
+      <button class="btn-ghost btn-xs" onclick="App.importICS()" title="Import .ics">↓ .ICS</button>
+      <button class="btn-ghost btn-xs" onclick="App.exportICS()" title="Export .ics">↑ .ICS</button>
+      ${hasGcal?`<button class="btn-ghost btn-xs" style="color:var(--blue);border-color:rgba(59,123,255,.4)" onclick="App.syncGoogleCal()">🔄 GCAL</button>`:''}
+      <button class="btn btn-sm" onclick="App.openAddEvent()">+ EVENT</button>
+    </div>
   </div>
-  <div class="filter-tabs">
-    ${[['all','ALL'],['tennis','🎾 TENNIS'],['academic','📚 SCHOOL'],['social','👥 SOCIAL']].map(([v,l])=>`<button class="filter-tab${calView===v?' active':''}" onclick="App.setCalView('${v}')">${l}</button>`).join('')}
+  <div class="row between" style="margin-bottom:8px;gap:8px">
+    <div class="row" style="gap:0;border:1px solid var(--border);border-radius:8px;overflow:hidden">
+      <button onclick="App.setCalDisplayMode('month')" style="padding:4px 10px;font-size:11px;font-weight:700;border:none;cursor:pointer;font-family:var(--font);background:${isMonth?'var(--blue)':'transparent'};color:${isMonth?'#fff':'var(--muted)'}">MONTH</button>
+      <button onclick="App.setCalDisplayMode('week')" style="padding:4px 10px;font-size:11px;font-weight:700;border:none;cursor:pointer;font-family:var(--font);background:${!isMonth?'var(--blue)':'transparent'};color:${!isMonth?'#fff':'var(--muted)'}">WEEK</button>
+    </div>
+    <div class="row" style="gap:4px;align-items:center">
+      <button class="month-nav-btn" onclick="App.calPrev()" style="font-size:18px">‹</button>
+      <span style="font-size:11px;font-weight:700;color:var(--text);letter-spacing:.06em;white-space:nowrap">${navLabel}</span>
+      <button class="month-nav-btn" onclick="App.calNext()" style="font-size:18px">›</button>
+    </div>
   </div>
-  <div class="month-nav">
-    <button class="month-nav-btn" onclick="App.calPrev()">‹</button>
-    <span class="month-name">${monthName}</span>
-    <button class="month-nav-btn" onclick="App.calNext()">›</button>
+  <div class="cal2-wrap" style="margin:0 -16px">
+    <div class="cal2-hdr">${hdrHtml}</div>
+    <div class="cal2-grid">${gridHtml}</div>
+    ${selHtml?`<div style="padding:0 16px">${selHtml}</div>`:''}
   </div>
-  <div class="cal-grid">${dayLabels}</div>
-  <div class="cal-grid">${blanks}${daysCells}</div>
-  ${selHtml}
+  <div style="height:16px"></div>
   </div>`;
 }
 
@@ -1322,7 +1584,7 @@ function renderGymMain(){
   const weightHtml=S.weightLog.slice(0,10).map(w=>`
     <div class="weight-entry"><span class="weight-date">${fmtShort(w.date)}</span><span class="weight-val">${w.weight} lbs</span></div>`).join('');
 
-  const subTabs=[['log','LOG'],['body','BODY'],['history','HISTORY'],['weight','WEIGHT']];
+  const subTabs=[['log','LOG'],['body','BODY'],['history','HISTORY'],['weight','WEIGHT'],['sleep','SLEEP'],['supps','SUPPS']];
   const subTabsHtml=subTabs.map(([v,l])=>`<button class="filter-tab${gymSubView===v?' active':''}" onclick="App.setGymSubView('${v}')">${l}</button>`).join('');
 
   let subContent='';
@@ -1386,6 +1648,49 @@ function renderGymMain(){
       <canvas id="weight-line-chart" class="chart-canvas" height="120" style="margin-bottom:12px"></canvas>
       ${weightHtml}
     </div>`:''}`;
+  } else if(gymSubView==='sleep'){
+    const today2=todayStr();
+    const avgSleep=S.sleepLog.slice(0,14).filter(s=>s.hours).reduce((a,s,_,arr)=>a+parseFloat(s.hours)/arr.length,0)||0;
+    const sleepHtml=S.sleepLog.slice(0,10).map(s=>`<div class="card-row">
+      <span style="font-size:12px;color:var(--muted)">${fmtShort(s.date)}</span>
+      <span style="font-size:14px;font-weight:700;font-family:var(--mono)">${s.hours}h <span style="font-size:11px;color:var(--muted)">${'⭐'.repeat(+s.quality)}</span></span>
+    </div>`).join('');
+    subContent=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+      <div class="stat-card"><div class="stat-val" style="color:var(--blue)">${avgSleep>0?avgSleep.toFixed(1):'—'}</div><div class="stat-lbl">AVG HRS (14D)</div></div>
+      <div class="stat-card"><div class="stat-val">${S.sleepLog.length}</div><div class="stat-lbl">NIGHTS LOGGED</div></div>
+    </div>
+    ${S.sleepLog.length>1?`<div class="card" style="margin-bottom:14px"><div class="section-label" style="margin-bottom:10px">SLEEP HISTORY</div><canvas id="sleep-chart" class="chart-canvas" height="80"></canvas></div>`:''}
+    <div class="card">
+      <div class="section-label" style="margin-bottom:12px">LOG SLEEP</div>
+      <div class="grid-2" style="margin-bottom:10px">
+        <div><label class="lbl">Date</label><input type="date" class="inp" id="sleep-date" value="${today2}"></div>
+        <div><label class="lbl">Hours</label><input type="number" class="inp" id="sleep-hours" placeholder="7.5" step="0.5" min="0" max="24"></div>
+      </div>
+      <div style="margin-bottom:10px">
+        <label class="lbl">Quality (1–5)</label>
+        <input type="range" min="1" max="5" value="3" id="sleep-quality" style="width:100%;accent-color:var(--blue)">
+        <div class="star-rating" id="sleep-stars">⭐⭐⭐</div>
+      </div>
+      <button class="btn btn-blue btn-full" onclick="App.logSleep()">LOG SLEEP</button>
+      ${sleepHtml?`<div style="margin-top:12px">${sleepHtml}</div>`:''}
+    </div>`;
+  } else if(gymSubView==='supps'){
+    const today2=todayStr();
+    const suppDone=S.supplementLog[today2]||[];
+    const suppItems=S.supplements.map(s=>{
+      const done=suppDone.includes(s.id);
+      return`<div class="card-row" onclick="App.toggleSupp('${s.id}')" style="cursor:pointer">
+        <div class="cb${done?' done':''}" onclick="App.toggleSupp('${s.id}')"></div>
+        <div style="flex:1"><div style="font-size:13px;color:${done?'var(--text)':'var(--muted)'};font-weight:${done?600:400}">${esc(s.name)}</div><div style="font-size:10px;color:var(--muted);margin-top:2px">${esc(s.dose)} · ${esc(s.timing)}</div></div>
+        <button class="todo-del" onclick="event.stopPropagation();App.deleteSupp('${s.id}')">✕</button>
+      </div>`;
+    }).join('');
+    subContent=`<div class="card">
+      <div class="row between" style="margin-bottom:12px"><div class="section-label">TODAY'S STACK</div><div style="font-size:11px;color:var(--orange);font-weight:700">${suppDone.length}/${S.supplements.length} TAKEN</div></div>
+      ${S.supplements.length===0?'<div class="empty">No supplements added</div>':suppItems}
+      <button class="btn-ghost btn-sm btn-full" style="margin-top:10px" onclick="App.openAddSupp()">+ ADD SUPPLEMENT</button>
+    </div>`;
   }
 
   return`<div class="page">
@@ -2107,107 +2412,10 @@ function renderFinanceChart(){
   }
 }
 
-// ════════════════════════════════════════════════
-//  HEALTH TAB
-// ════════════════════════════════════════════════
-let healthView='sleep';
-function renderHealth(){
-  const today=todayStr();
-  const suppDone=S.supplementLog[today]||[];
-  const avgSleep=S.sleepLog.slice(0,14).filter(s=>s.hours).reduce((a,s,_,arr)=>a+parseFloat(s.hours)/arr.length,0)||0;
-  let content='';
-  if(healthView==='sleep'){
-    const sleepHtml=S.sleepLog.slice(0,10).map(s=>`<div class="card-row">
-      <span style="font-size:12px;color:var(--muted)">${fmtShort(s.date)}</span>
-      <span style="font-size:14px;font-weight:700;font-family:var(--mono)">${s.hours}h <span style="font-size:11px;color:var(--muted)">${'⭐'.repeat(+s.quality)}</span></span>
-    </div>`).join('');
-    content=`
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
-      <div class="stat-card"><div class="stat-val" style="color:var(--blue)">${avgSleep>0?avgSleep.toFixed(1):'—'}</div><div class="stat-lbl">AVG HRS (14D)</div></div>
-      <div class="stat-card"><div class="stat-val">${S.sleepLog.length}</div><div class="stat-lbl">NIGHTS LOGGED</div></div>
-    </div>
-    ${S.sleepLog.length>1?`<div class="card" style="margin-bottom:14px"><div class="section-label" style="margin-bottom:10px">SLEEP HISTORY</div><canvas id="sleep-chart" class="chart-canvas" height="80"></canvas></div>`:''}
-    <div class="card">
-      <div class="section-label" style="margin-bottom:12px">LOG SLEEP</div>
-      <div class="grid-2" style="margin-bottom:10px">
-        <div><label class="lbl">Date</label><input type="date" class="inp" id="sleep-date" value="${today}"></div>
-        <div><label class="lbl">Hours</label><input type="number" class="inp" id="sleep-hours" placeholder="7.5" step="0.5" min="0" max="24"></div>
-      </div>
-      <div style="margin-bottom:10px">
-        <label class="lbl">Quality (1–5)</label>
-        <input type="range" min="1" max="5" value="3" id="sleep-quality" style="width:100%;accent-color:var(--blue)">
-        <div class="star-rating" id="sleep-stars">⭐⭐⭐</div>
-      </div>
-      <button class="btn btn-blue btn-full" onclick="App.logSleep()">LOG SLEEP</button>
-      ${sleepHtml?`<div style="margin-top:12px">${sleepHtml}</div>`:''}
-    </div>`;
-  } else if(healthView==='body'){
-    const metricsHtml=S.bodyMetrics.slice(0,10).map(m=>`<div class="weight-entry"><span class="weight-date">${fmtShort(m.date)}</span><span class="weight-val">${m.weight} lbs</span></div>`).join('');
-    content=`<div class="card">
-      <div class="section-label" style="margin-bottom:14px">BODY METRICS</div>
-      <div class="grid-2" style="margin-bottom:14px">
-        <div><label class="lbl">Date</label><input type="date" class="inp" id="metric-date" value="${today}"></div>
-        <div><label class="lbl">Weight (lbs)</label><input type="number" class="inp" id="metric-weight" placeholder="175"></div>
-      </div>
-      <button class="btn btn-red btn-full" style="margin-bottom:16px" onclick="App.logBodyMetric()">LOG</button>
-      ${metricsHtml}
-    </div>`;
-  } else if(healthView==='supplements'){
-    const suppItems=S.supplements.map(s=>{
-      const done=suppDone.includes(s.id);
-      return`<div class="card-row" onclick="App.toggleSupp('${s.id}')" style="cursor:pointer">
-        <div class="cb${done?' done':''}" onclick="App.toggleSupp('${s.id}')"></div>
-        <div style="flex:1"><div style="font-size:13px;color:${done?'var(--text)':'var(--muted)'};font-weight:${done?600:400}">${esc(s.name)}</div><div style="font-size:10px;color:var(--muted);margin-top:2px">${esc(s.dose)} · ${esc(s.timing)}</div></div>
-        <button class="todo-del" onclick="event.stopPropagation();App.deleteSupp('${s.id}')">✕</button>
-      </div>`;
-    }).join('');
-    content=`<div class="card">
-      <div class="row between" style="margin-bottom:12px"><div class="section-label">TODAY'S STACK</div><div style="font-size:11px;color:var(--orange);font-weight:700">${suppDone.length}/${S.supplements.length} TAKEN</div></div>
-      ${S.supplements.length===0?'<div class="empty">No supplements added</div>':suppItems}
-      <button class="btn-ghost btn-sm btn-full" style="margin-top:10px" onclick="App.openAddSupp()">+ ADD SUPPLEMENT</button>
-    </div>`;
-  }
-  return`<div class="page">
-  <div class="page-title" style="margin-bottom:14px">HEALTH</div>
-  <div class="filter-tabs">
-    ${[['sleep','SLEEP'],['body','BODY'],['supplements','SUPPS']].map(([v,l])=>`<button class="filter-tab${healthView===v?' active-red':''}${healthView===v?'':''}" onclick="App.setHealthView('${v}')" style="${healthView===v?'background:var(--red);color:#fff;border-color:var(--red)':'background:transparent;color:var(--muted);border-color:var(--border)'}">${l}</button>`).join('')}
-  </div>
-  ${content}
-  </div>`;
-}
 
 // ════════════════════════════════════════════════
 //  TIME TAB
 // ════════════════════════════════════════════════
-function renderTime(){
-  const quadrants=[
-    {id:'do',label:'DO NOW',desc:'Urgent + Important',color:'var(--red)',bg:'var(--red-bg)',bc:'rgba(248,113,113,.3)'},
-    {id:'plan',label:'PLAN',desc:'Important, Not Urgent',color:'var(--blue)',bg:'var(--blue-bg)',bc:'rgba(56,189,248,.3)'},
-    {id:'delegate',label:'DELEGATE',desc:'Urgent, Not Important',color:'var(--orange)',bg:'var(--orange-bg)',bc:'rgba(245,166,35,.3)'},
-    {id:'drop',label:'DROP',desc:'Not Urgent, Not Important',color:'var(--muted)',bg:'var(--card2)',bc:'var(--border)'},
-  ];
-  const items=S.priorityItems||[];
-  const quads=quadrants.map(q=>{
-    const qItems=items.filter(i=>i.quadrant===q.id);
-    return`<div style="background:${q.bg};border-radius:var(--radius);border:1px solid ${q.bc};padding:12px">
-      <div style="font-size:11px;font-weight:800;color:${q.color};letter-spacing:.08em;margin-bottom:2px">${q.label}</div>
-      <div style="font-size:9px;color:var(--muted);margin-bottom:10px">${q.desc}</div>
-      ${qItems.map(it=>`<div class="matrix-item">
-        <span class="matrix-item-text">${esc(it.title)}</span>
-        <button class="matrix-del" onclick="App.deletePriorityItem('${it.id}')">✕</button>
-      </div>`).join('')}
-      ${qItems.length===0?'<div style="font-size:11px;color:var(--muted);font-style:italic">Empty</div>':''}
-    </div>`;
-  }).join('');
-  return`<div class="page">
-  <div class="row between" style="margin-bottom:14px">
-    <div class="page-title">PRIORITIES</div>
-    <button class="btn btn-sm" onclick="App.openAddPriorityItem()">+ ADD</button>
-  </div>
-  <div class="matrix-grid">${quads}</div>
-  </div>`;
-}
-
 // ════════════════════════════════════════════════
 //  SOCIAL TAB
 // ════════════════════════════════════════════════
@@ -2274,6 +2482,19 @@ function renderSettings(){
     </div>
   </div>
 
+  <!-- Google Calendar -->
+  <div class="settings-section">
+    <div class="settings-section-title">GOOGLE CALENDAR</div>
+    <div class="canvas-note" style="margin-bottom:12px">
+      Paste your OAuth 2.0 Client ID from <strong>console.cloud.google.com</strong> → APIs &amp; Services → Credentials. Enable the Google Calendar API and add your domain (or <strong>http://localhost</strong>) as an Authorized JavaScript origin. iCal import/export works without any setup.
+    </div>
+    <div class="col" style="gap:10px">
+      <div><label class="lbl">Google OAuth Client ID</label><input class="inp" id="gcal-client-id" value="${esc(k.google_client_id||'')}" placeholder="xxxx.apps.googleusercontent.com"></div>
+      <button class="btn btn-sm" onclick="App.saveGoogleClientId()">SAVE CLIENT ID</button>
+    </div>
+    ${k.google_client_id?`<div style="color:var(--green);font-size:12px;margin-top:8px">✓ Client ID saved — use 🔄 GOOGLE in the calendar to sync</div>`:''}
+  </div>
+
   <!-- Financial APIs -->
   <div class="settings-section">
     <div class="settings-section-title">FINANCIAL INSTITUTIONS (via Plaid)</div>
@@ -2334,11 +2555,10 @@ function renderSettings(){
 function renderCharts(){
   if(currentTab==='home'){
     const hist=get30DayHistory();
-    drawBarChart('score-bar-chart',hist.map(d=>({label:d.label,value:d.score})),{color:'#f5a623'});
+    drawInteractiveBarChart('score-bar-chart',hist.map(d=>({label:d.label,value:d.score})),{color:'#f5a623',maxVal:100});
     drawScoreRingCanvas('score-ring-canvas',calcScore(todayStr()));
-    drawNetWorthSparkline('nw-sparkline');
   }
-  if(currentTab==='health'&&healthView==='sleep'&&S.sleepLog.length>1){
+  if(currentTab==='gym'&&gymSubView==='sleep'&&S.sleepLog.length>1){
     const data=[...S.sleepLog].reverse().slice(0,14).map(s=>({label:fmtShort(s.date),value:parseFloat(s.hours)||0}));
     drawBarChart('sleep-chart',data,{color:'#38bdf8'});
   }
@@ -2412,13 +2632,27 @@ function bindGymEvents(){
 const App = {
   // ── NAVIGATION ──────────────────────────────────
   navigate,
+  toggleNav(){
+    navCollapsed=!navCollapsed;
+    document.body.classList.toggle('nav-collapsed',navCollapsed);
+    const btn=document.querySelector('.nav-collapse-btn');
+    if(btn)btn.textContent=navCollapsed?'':'‹';
+  },
   setCalView(v){calView=v;renderPage();},
-  calPrev(){if(calMonth===0){calMonth=11;calYear--;}else calMonth--;renderPage();},
-  calNext(){if(calMonth===11){calMonth=0;calYear++;}else calMonth++;renderPage();},
+  setCalDisplayMode(m){calDisplayMode=m;renderPage();},
+  calPrev(){
+    if(calDisplayMode==='week'){const d=getCalWeekStart();d.setDate(d.getDate()-7);calWeekStartDate=d.toISOString().split('T')[0];}
+    else{if(calMonth===0){calMonth=11;calYear--;}else calMonth--;}
+    renderPage();
+  },
+  calNext(){
+    if(calDisplayMode==='week'){const d=getCalWeekStart();d.setDate(d.getDate()+7);calWeekStartDate=d.toISOString().split('T')[0];}
+    else{if(calMonth===11){calMonth=0;calYear++;}else calMonth++;}
+    renderPage();
+  },
   setSchoolFilter(v){schoolFilter=v;renderPage();},
   setSchoolView(v){schoolView=v;renderPage();},
   setGrowthView(v){growthView=v;renderPage();},
-  setHealthView(v){healthView=v;renderPage();},
   setGymSubView(v){gymSubView=v;renderPage();},
   setBodyView(v){gymBodyView=v;renderPage();},
 
@@ -3037,6 +3271,14 @@ const App = {
   toggleTheme(){
     S.theme=S.theme==='dark'?'light':'dark';save();applyTheme();renderPage();
   },
+  exportICS(){exportICS();},
+  importICS(){importICS();},
+  syncGoogleCal(){syncGoogleCal();},
+  saveGoogleClientId(){
+    const val=document.getElementById('gcal-client-id')?.value.trim()||'';
+    S.apiKeys={...S.apiKeys,google_client_id:val};
+    save();showToast(val?'Google Client ID saved':'Client ID cleared');renderPage();
+  },
   savePlaidKeys(){
     S.apiKeys={...S.apiKeys,plaid_client_id:document.getElementById('plaid-client-id')?.value.trim()||'',plaid_secret:document.getElementById('plaid-secret')?.value.trim()||'',plaid_env:document.getElementById('plaid-env')?.value||'sandbox'};
     save();showToast('Plaid keys saved!');renderPage();
@@ -3110,9 +3352,9 @@ function showToast(msg){
 function buildShell(){
   const root=document.getElementById('root');
   const tabs=[
-    ['home','⌂','Home'],['calendar','◫','Calendar'],['tennis','🎾','Tennis'],
+    ['home','⌂','Home'],['tennis','🎾','Tennis'],
     ['gym','💪','Gym'],['school','📚','School'],['growth','🧠','Growth'],
-    ['finance','💰','Finance'],['health','❤️','Health'],['time','⏱','Time'],
+    ['finance','💰','Finance'],
     ['social','👥','Social'],
   ];
   root.innerHTML=`
@@ -3136,10 +3378,13 @@ function buildShell(){
   <div id="page-content"></div>
   <!-- BOTTOM NAV -->
   <nav id="bottom-nav">
+    <button class="nav-collapse-btn" onclick="App.toggleNav()" title="Collapse sidebar">‹</button>
     <div class="nav-inner">
       ${tabs.map(([id,icon,label])=>`<button class="nav-btn${id==='home'?' active':''}" data-tab="${id}" onclick="navigate('${id}')"><span class="icon">${icon}</span><span class="lbl">${label.toUpperCase()}</span></button>`).join('')}
     </div>
-  </nav>`;
+  </nav>
+  <!-- NAV EXPAND TAB -->
+  <button id="nav-expand-tab" onclick="App.toggleNav()" title="Expand sidebar">›</button>`;
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
